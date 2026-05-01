@@ -1,0 +1,66 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../ifmod/httpsrv_if.c \
+../ifmod/mqtt_if.c \
+../ifmod/ota_if.c \
+../ifmod/ota_vendor_dropbox.c \
+../ifmod/ota_vendor_github.c \
+../ifmod/uart_if.c \
+../ifmod/utils_if.c \
+../ifmod/wifi_if.c 
+
+C_DEPS += \
+./ifmod/httpsrv_if.d \
+./ifmod/mqtt_if.d \
+./ifmod/ota_if.d \
+./ifmod/ota_vendor_dropbox.d \
+./ifmod/ota_vendor_github.d \
+./ifmod/uart_if.d \
+./ifmod/utils_if.d \
+./ifmod/wifi_if.d 
+
+OBJS += \
+./ifmod/httpsrv_if.o \
+./ifmod/mqtt_if.o \
+./ifmod/ota_if.o \
+./ifmod/ota_vendor_dropbox.o \
+./ifmod/ota_vendor_github.o \
+./ifmod/uart_if.o \
+./ifmod/utils_if.o \
+./ifmod/wifi_if.o 
+
+OBJS__QUOTED += \
+"ifmod/httpsrv_if.o" \
+"ifmod/mqtt_if.o" \
+"ifmod/ota_if.o" \
+"ifmod/ota_vendor_dropbox.o" \
+"ifmod/ota_vendor_github.o" \
+"ifmod/uart_if.o" \
+"ifmod/utils_if.o" \
+"ifmod/wifi_if.o" 
+
+C_DEPS__QUOTED += \
+"ifmod/httpsrv_if.d" \
+"ifmod/mqtt_if.d" \
+"ifmod/ota_if.d" \
+"ifmod/ota_vendor_dropbox.d" \
+"ifmod/ota_vendor_github.d" \
+"ifmod/uart_if.d" \
+"ifmod/utils_if.d" \
+"ifmod/wifi_if.d" 
+
+C_SRCS__QUOTED += \
+"../ifmod/httpsrv_if.c" \
+"../ifmod/mqtt_if.c" \
+"../ifmod/ota_if.c" \
+"../ifmod/ota_vendor_dropbox.c" \
+"../ifmod/ota_vendor_github.c" \
+"../ifmod/uart_if.c" \
+"../ifmod/utils_if.c" \
+"../ifmod/wifi_if.c" 
+
+

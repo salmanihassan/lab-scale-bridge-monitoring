@@ -1,0 +1,78 @@
+#include <unistd.h>
+#include <stddef.h>
+#include <stdio.h>
+#include <string.h>
+#include <ti/drivers/PWM.h>
+#include <ti/drivers/UART2.h>
+#include "ti_drivers_config.h"
+
+#define MOTOR_PERIOD_US  10000
+
+static const uint8_t ENC_KEY[] = {0x4C, 0x61, 0x62, 0x4B, 0x65, 0x79, 0x31, 0x32};
+#define ENC_KEY_LEN 8
+
+static uint32_t g_seq_num = 0;
+static uint32_t g_now_ms  = 0;
+
+/* Pre-allocated static buffers */
+static char s_plaintext[128];
+static char s_outbuf[300];
+
+void *mainThread(void *arg0)
+{
+    PWM_Handle motorPwm = NULL;
+    PWM_Params pwmParams;
+    UART2_Handle uart;
+    UART2_Params uartParams;
+    int len, i;
+
+    UART2_Params_init(&uartParams);
+    uartParams.baudRate = 115200;
+    uart = UART2_open(CONFIG_UART2_0, &uartParams);
+    if (uart == NULL) { while (1) {} }
+
+    UART2_write(uart, "=== Week 9: Encrypted Telemetry ===\r\n", 37, NULL);
+
+    PWM_init();
+    PWM_Params_init(&pwmParams);
+    pwmParams.dutyUnits   = PWM_DUTY_US;
+    pwmParams.dutyValue   = 0;
+    pwmParams.periodUnits = PWM_PERIOD_US;
+    pwmParams.periodValue = MOTOR_PERIOD_US;
+
+    motorPwm = PWM_open(CONFIG_PWM_0, &pwmParams);
+    if (motorPwm == NULL) { while (1) {} }
+
+    PWM_start(motorPwm);
+
+    uint16_t duties[] = {7000, 8000, 9000, 10000};
+    uint8_t idx = 0;
+
+    while (1)
+    {
+        g_seq_num++;
+        g_now_ms += 3000;
+
+        PWM_setDuty(motorPwm, duties[idx]);
+
+        /* Build plaintext */
+        len = snprintf(s_plaintext, sizeof(s_plaintext),
+            "SEQ=%u,TS=%u,DUTY=%d",
+            (unsigned)g_seq_num, (unsigned)g_now_ms, duties[idx]);
+
+        /* Build hex output directly — XOR inline */
+        int outpos = 0;
+        outpos += snprintf(s_outbuf, sizeof(s_outbuf), "[ENC] ");
+        for(i = 0; i < len && outpos < 280; i++) {
+            uint8_t enc = (uint8_t)s_plaintext[i] ^ ENC_KEY[i % ENC_KEY_LEN];
+            outpos += snprintf(s_outbuf + outpos, 3, "%02X", enc);
+        }
+        s_outbuf[outpos++] = '\r';
+        s_outbuf[outpos++] = '\n';
+
+        UART2_write(uart, s_outbuf, outpos, NULL);
+
+        idx = (idx + 1) % 4;
+        usleep(3000000);
+    }
+}
