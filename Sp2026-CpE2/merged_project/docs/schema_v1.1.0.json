@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://json-schema.org/draft-07/schema#",
+  "title": "CC3220SF Digital Twin Telemetry Packet v1.1.0",
+  "description": "Frozen schema for the authenticated telemetry packet produced by the merged CpE-1 + CpE-2 firmware on the CC3220SF. Version 1.1.0 is the Spring 2026 Week 10 integration baseline. It is backward-compatible with v1.0.0: pwm_duty_us and pwm_period_us are optional additions to the telemetry object and the HMAC canonical string is unchanged from v1.0.0.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "device_id",
+    "seq_num",
+    "timestamp_ms",
+    "telemetry",
+    "hmac"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.1.0",
+      "description": "Semantic version of this packet format. Excluded from the HMAC canonical string for backward compatibility."
+    },
+    "device_id": {
+      "type": "string",
+      "pattern": "^[A-Z0-9_]+$",
+      "description": "Unique device identifier. Included in the HMAC canonical string.",
+      "examples": ["CC3220SF_NODE_01"]
+    },
+    "seq_num": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Monotonically increasing packet counter (uint32). Resets to 1 on device reboot."
+    },
+    "timestamp_ms": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Monotonic board time in milliseconds sourced from FreeRTOS xTaskGetTickCount(). Resets on reboot."
+    },
+    "telemetry": {
+      "type": "object",
+      "required": ["temperature_c", "humidity"],
+      "additionalProperties": false,
+      "properties": {
+        "temperature_c": {
+          "type": "number",
+          "description": "Temperature reading in degrees Celsius, one decimal place (%.1f format)."
+        },
+        "humidity": {
+          "type": "number",
+          "description": "Relative humidity percentage, one decimal place (%.1f format)."
+        },
+        "pwm_duty_us": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000,
+          "description": "Vibration motor PWM duty cycle in microseconds. Optional v1.1.0 addition. Range 7000-10000 us at 100 Hz period in nominal operation."
+        },
+        "pwm_period_us": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Vibration motor PWM period in microseconds. Optional v1.1.0 addition. Fixed at 10000 us (100 Hz) in current firmware."
+        }
+      }
+    },
+    "hmac": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "HMAC-SHA256 hex digest (64 chars) computed over the canonical string: device_id|seq_num|timestamp_ms|temperature_c|humidity. The schema_version, pwm_duty_us, and pwm_period_us fields are NOT included in this computation -- the canonical string is identical to v1.0.0 so v1.0.0 receivers continue to validate v1.1.0 packets."
+    }
+  }
+}
