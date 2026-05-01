@@ -9,6 +9,8 @@
  * Import the modules used in this configuration.
  */
 const FreeRTOS = scripting.addModule("/freertos/FreeRTOS");
+const Crypto   = scripting.addModule("/ti/drivers/Crypto", {}, false);
+const Crypto1  = Crypto.addInstance();
 const PWM      = scripting.addModule("/ti/drivers/PWM");
 const PWM1     = PWM.addInstance();
 const PWM2     = PWM.addInstance();
@@ -19,6 +21,8 @@ const Settings = scripting.addModule("/ti/posix/freertos/Settings");
 /**
  * Write custom configuration values to the imported modules.
  */
+Crypto1.$name = "CONFIG_Crypto_0";
+
 PWM1.$name     = "CONFIG_PWM_0";
 PWM1.$hardware = system.deviceData.board.components.LED_YELLOW;
 
