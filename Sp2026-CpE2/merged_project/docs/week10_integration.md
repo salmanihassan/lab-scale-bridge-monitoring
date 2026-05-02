@@ -1,5 +1,14 @@
 # Week 10 -- Integration with CpE-1 Secure Firmware
 
+> **Status -- SUPERSEDED by Week 11 (schema v2.0.0).**  The AES-128-ECB
+> transport and inner HMAC-SHA256 layer described below were replaced
+> in Week 11 by a single hardware-accelerated AES-128-GCM (AEAD) layer.
+> The current wire format and design rationale live in
+> [`week11_gcm.md`](week11_gcm.md); this document is preserved as a
+> historical record of the integration milestone.  Sections below that
+> reference the v1.1.0 ECB+HMAC stack are no longer accurate for the
+> running firmware.
+
 This document is the Spring 2026 Week 10 deliverable for the CpE-2 stream:
 **integration notes for the merged CpE-1 + CpE-2 secure firmware**.  It
 captures the design decisions, the interface mismatches that had to be
@@ -30,7 +39,7 @@ interfaces by design:
 | Layer                | CpE-1 firmware                                           | CpE-2 firmware (pre-merge)                              | Status      |
 |----------------------|----------------------------------------------------------|----------------------------------------------------------|-------------|
 | HMAC PSK             | 32-byte `MySecureDigitalTwinKey2026!@#$%^` in `hmac_auth.h` | Same 32-byte PSK in `hmac_auth.h`                       | Identical   |
-| HMAC canonical       | `device_id\|seq_num\|timestamp_ms\|temperature_c\|humidity` | `device_id\|seq_num\|timestamp_ms\|temperature_c\|humidity` | Identical |
+| HMAC canonical       | `device_id\|seq_num\|timestamp_ms\|temperature_c\|humidity` | `device_id\|seq_num\|timestamp_ms\|temperature_c\|humidity` | Aligned (PWM coverage added in v1.1.0; both sides updated) |
 | Device id            | `CC3220SF_NODE_01`                                       | `CC3220SF_NODE_01`                                       | Identical   |
 | Schema header fields | `schema_version` / `device_id` / `seq_num` / `timestamp_ms` | Same                                                    | Identical   |
 
@@ -38,10 +47,10 @@ The interfaces that **did not match** and had to be reconciled:
 
 | Mismatch                            | CpE-1 design                                                            | CpE-2 design                                       | Resolution (Week 10)                                                                                                              |
 |-------------------------------------|-------------------------------------------------------------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| Transport                           | UART2 only, `[AES] <hex>` prefix                                        | MQTT/TLS only, plaintext JSON                      | Dual transport: firmware now publishes the same `[AES] <hex>` line over **both** MQTT/TLS and UART2 in parallel.                  |
-| Payload encryption                  | AES-128-ECB inside firmware (DTHE hardware)                             | None (TLS terminates at broker, broker sees JSON)  | Adopt AES-128-ECB inside MQTT payload too -- broker never sees plaintext, and the same ciphertext stream feeds the digital twin. |
+| Transport                           | UART2 only, `[AES] <hex>` prefix                                        | MQTT/TLS only, plaintext JSON                      | Single transport: firmware publishes raw uppercase hex ciphertext over MQTT/TLS only.  UART2 retained for board console + future UART-protocol sensors -- no telemetry. |
+| Payload encryption                  | AES-128-ECB inside firmware (DTHE hardware)                             | None (TLS terminates at broker, broker sees JSON)  | Adopt AES-128-ECB inside the MQTT payload -- defense-in-depth so the broker host process never sees plaintext telemetry even if the TLS session is replaced by a `mosquitto_pub` injection. |
 | Schema telemetry fields             | `temperature_c`, `humidity`, `pwm_duty_us`, `pwm_period_us`             | `temperature_c`, `humidity` only                   | Bump schema to **v1.1.0**; PWM fields added as **optional** members of `telemetry`.  `host_receiver.py` accepts both versions.    |
-| HMAC canonical (PWM coverage)       | Excluded                                                                | Excluded                                           | Keep excluded; v1.0.0 HMAC contract is preserved verbatim.                                                                         |
+| HMAC canonical (PWM coverage)       | Excluded                                                                | Excluded                                           | Now **included** in v1.1.0 canonical (`...\|pwm_duty_us\|pwm_period_us`).  Both signer and verifier 0-default missing PWM fields, so v1.0.0 packets without PWM keep validating without coordination. |
 | Publish rate                        | 3000 ms per packet                                                      | 250 ms per packet (4 Hz)                           | Standardize on 3000 ms.  The host-side timing monitor is already a rolling-window z-score and adapts.                              |
 | PWM motor pin (`boosterpack.9/10`)  | Claimed by `CONFIG_PWM_0`                                               | Claimed by `CONFIG_GPIO_LED_1` / `CONFIG_GPIO_LED_2` | Drop the LED_1 / LED_2 GPIO instances; reassign the pins to PWM_0 in [`mqtt_client.syscfg`](../mqtt_client.syscfg).                |
 | Fault injection                     | CORRUPT / DROP / DELAY in firmware                                      | None                                               | Adopt CpE-1 cadence (every 10 / 15 / 20) inside the publish loop.  Used to drive the Week 10 demo.                                 |
@@ -49,21 +58,22 @@ The interfaces that **did not match** and had to be reconciled:
 
 ## 3. Final wire format
 
+```mermaid
+flowchart LR
+  build["Build JSON v1.1.0"]
+  hmac["HMAC-SHA256<br/>(canonical: device_id|seq|ts|temp|hum|duty|period)"]
+  aes["AES-128-ECB encrypt<br/>(DTHE hardware, PKCS7 pad)"]
+  hex["Uppercase hex encode"]
+  pub["MQTT publish<br/>cc32xx/telemetry, QoS 2"]
+  recv["host_receiver.py<br/>AES decrypt -> HMAC verify -><br/>freshness + timing -><br/>raw_dataset_encrypted.csv"]
+
+  build --> hmac --> aes --> hex --> pub
+  pub -->|"TLS 1.2 :8883"| recv
 ```
-Firmware build --> [JSON v1.1.0] --> HMAC-SHA256 --> AES-128-ECB --> hex --> "[AES] <hex>"
-                                                                                       |
-                              ┌────────────────────────────────────────────────────────┴──────────────┐
-                              │                                                                       │
-                       MQTT publish on                                                          UART2 emit at
-                  topic `cc32xx/telemetry`                                                       115200 baud
-                  (QoS 2, MQTT/TLS 1.2 :8883)                                            (/dev/tty.usbmodemE00710091)
-                              │                                                                       │
-                              ▼                                                                       ▼
-                       host_receiver.py                                                        uart_to_twin.py
-                  (decrypt -> verify HMAC ->                                                  (decrypt -> verify HMAC ->
-                   freshness + timing checks ->                                                ME twin feed CSV)
-                   raw_dataset_encrypted.csv)
-```
+
+Every MQTT publish is raw uppercase hex ciphertext.  The broker
+discriminates plaintext JSON (test harnesses, legacy v1.0.0 firmware)
+from ciphertext by leading character: `{` -> JSON, hex digit -> AES.
 
 Inner JSON (v1.1.0):
 
@@ -83,14 +93,19 @@ Inner JSON (v1.1.0):
 }
 ```
 
-HMAC canonical string (unchanged from v1.0.0):
+HMAC canonical string (v1.1.0 contract -- now binds PWM duty / period):
 
 ```
-CC3220SF_NODE_01|4271|12813000|25.1|47.8
+CC3220SF_NODE_01|4271|12813000|25.1|47.8|9000|10000
 ```
 
-PWM fields are **deliberately excluded** from the HMAC so that v1.0.0
-receivers continue to validate v1.1.0 packets without coordination.
+PWM fields are **bound** to the HMAC in v1.1.0 so motor-command tampering
+is also caught by the integrity check.  Receivers default missing PWM
+fields to 0 (signers likewise), so v1.0.0 packets without PWM continue
+to validate without coordination.  This is an intentional deviation
+from the "minor schema bumps preserve the canonical string" rule in
+[`docs/week9_schema.md`](week9_schema.md): widening the canonical was
+worth it because the PWM bytes drive a physical actuator.
 
 ## 4. SysConfig changes ([mqtt_client.syscfg](../mqtt_client.syscfg))
 
@@ -134,7 +149,7 @@ amount of init code.  Key landmarks:
   2. Read sensor (`DHT11_Read`).
   3. Build JSON + HMAC + apply CORRUPT or DROP fault.
   4. AES-encrypt + hex-encode.
-  5. Publish `[AES] <hex>` on `cc32xx/telemetry` AND mirror over UART2.
+  5. Publish hex ciphertext on `cc32xx/telemetry` over MQTT/TLS.
   6. Apply DELAY fault (extra 2 s sleep).
   7. Advance duty index, sleep 3 s, re-enqueue self.
 
@@ -145,11 +160,14 @@ amount of init code.  Key landmarks:
 - Imports `pycryptodome` (`Crypto.Cipher.AES`, `Crypto.Util.Padding.unpad`).
 - New constant `AES_KEY = b"LabKey12LabKey12"`.
 - `SUPPORTED_SCHEMA_VERSIONS = {"1.0.0", "1.1.0"}`.
-- New helper `decrypt_aes_payload()` -- takes a raw payload string,
-  returns the inner JSON or `None` on AES / unpad / hex failure.
-- `on_message()` now branches on `[AES]` prefix: if present, decrypt
-  first; otherwise treat as plaintext JSON (preserves backward
-  compatibility with the v1.0.0 test harnesses and any legacy firmware).
+- New helper `decrypt_aes_payload()` -- takes a hex ciphertext string
+  and returns the inner JSON, or `None` on `bytes.fromhex` / AES decrypt
+  / PKCS7 unpad failure.
+- `on_message()` discriminates plaintext from ciphertext by leading
+  character: stripped payload starts with `{` -> JSON path (legacy
+  v1.0.0 firmware, test_*.py harnesses); otherwise -> AES hex path
+  (decrypt first, then JSON parse).  No prefix tag is needed because
+  every production publish is ciphertext.
 - `aes_fail` counter and `[AES FAIL]` console tag for ciphertext that
   fails to decrypt -- this is exactly how the firmware CORRUPT fault is
   detected when it happens to flip a byte that lands in ciphertext
@@ -158,14 +176,17 @@ amount of init code.  Key landmarks:
 - `_log_csv()` accepts the two new fields and writes them per row.
 - Ctrl+C summary now prints `AES Decrypt Failed:`.
 
-### [`broker/uart_to_twin.py`](../broker/uart_to_twin.py)
+### Digital-twin feed
 
-Copied verbatim from
-[`Sp2026-CpE1/twin-digi/uart_to_twin.py`](../../../Sp2026-CpE1/twin-digi/uart_to_twin.py).
-It already understood the `[AES] <hex>` wire format, the v1.1.0 JSON
-shape with PWM fields, and the HMAC canonical contract -- which
-demonstrates that the cross-team interface contract held end-to-end
-without modification.
+There is no separate UART-side adapter in the merged pipeline.  The ME
+team's digital twin reads `raw_dataset_encrypted.csv` directly --
+that file is the single canonical sink for every accepted packet and
+already carries `Schema_Version`, `Device_ID`, `Seq_Num`, `Board_Time_ms`,
+`Temp_C`, `Humidity_%`, `HMAC_Verified`, `Freshness_Status`,
+`Host_Delta_ms`, `PWM_Duty_us`, `PWM_Period_us` per row (header in
+[`broker/host_receiver.py`](../broker/host_receiver.py) lines 74-78).
+The peer's CpE-1 `uart_to_twin.py` was a bench tool for the dual-
+transport prototype and is no longer part of the merged pipeline.
 
 ### Test helpers
 
@@ -177,7 +198,7 @@ helper that produces real AES-128-ECB ciphertext lines.  New tests:
 - `test_integrity.py` Test 5 -- end-to-end AES wire-format roundtrip
   (encrypt, hex-encode, decrypt, verify HMAC).
 - `test_schema.py` Test 3b -- v1.1.0 packet acceptance and confirmation
-  that PWM fields are excluded from the HMAC.
+  that PWM fields are bound to the HMAC (v1.1.0 contract).
 - `test_schema.py` Test 5 -- AES-wrapped v1.1.0 broker roundtrip.
 
 ## 7. End-to-end secure streaming demo
@@ -193,13 +214,10 @@ firmware while fault injection deliberately exercises each failure mode.
 cd Sp2026-CpE2/merged_project/broker
 ./broker.sh                    # mosquitto with TLS 1.2 on :8883
 
-# Terminal 2: MQTT host receiver
+# Terminal 2: MQTT host receiver (also writes raw_dataset_encrypted.csv
+#             which the ME team's digital twin consumes directly)
 cd Sp2026-CpE2/merged_project/broker
 python3 host_receiver.py       # subscribes to cc32xx/telemetry
-
-# Terminal 3: UART -> digital twin feed (parallel data sink)
-cd Sp2026-CpE2/merged_project/broker
-python3 uart_to_twin.py --port /dev/tty.usbmodemE00710091
 
 # Flash the merged firmware via SimpleLink Image Creator (UniFlash)
 # using the secure-boot certificate chain documented in
@@ -213,15 +231,15 @@ python3 uart_to_twin.py --port /dev/tty.usbmodemE00710091
 
 - Motor cycles 70 -> 80 -> 90 -> 100% duty every 3 s (audible and visible
   on the boosterpack.9 LED).
-- Both terminals print `[HMAC OK]` rows for the majority of packets.
+- Host receiver prints `[ACCEPTED]` rows for the majority of packets.
 - Every 10th packet (`seq % 10 == 0`):
-  `[FAULT] CORRUPT seq=N` on the firmware UART line, followed by
+  `[FAULT] CORRUPT seq=N` on the firmware debug UART, followed by
   `[HMAC FAIL: mismatch]` on the host receiver.  The packet is logged
   with `HMAC_Verified=False` in `raw_dataset_encrypted.csv`.
 - Every 15th packet (`seq % 15 == 0`):
-  `[FAULT] DROP seq=N` on the firmware UART, no MQTT publish, no UART
-  emit.  Host receiver prints `[OOO_GAP]` warning (`packets_lost`
-  counter increments); `uart_to_twin.py` prints `[GAP]`.
+  `[FAULT] DROP seq=N` on the firmware debug UART, no MQTT publish.
+  Host receiver prints `[OOO_GAP]` warning (`packets_lost` counter
+  increments).
 - Every 20th packet (`seq % 20 == 0`):
   `[FAULT] DELAY seq=N`, an extra 2 s sleep.  Host receiver flags
   `[TIMING ALERT z=...]`; `timing_features.csv` row has `Timing_Anomaly=True`.
@@ -252,12 +270,12 @@ Timing Anomalies:     ~2
 
 | Requirement (from project plan) | How verified                                                                                                  | Evidence                                                                  |
 |---------------------------------|---------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
-| Encryption end-to-end           | Broker logs / `mosquitto_sub` show only `[AES] <hex>` payloads; `host_receiver.py` decrypt path runs cleanly. | `aes_fail = 0` for normal packets, ciphertext visible in mqtt console.    |
+| Encryption end-to-end           | Broker logs / `mosquitto_sub` show only uppercase hex ciphertext payloads; `host_receiver.py` decrypt path runs cleanly. | `aes_fail = 0` for normal packets, hex ciphertext visible in mqtt console.|
 | Integrity end-to-end            | Firmware CORRUPT fault flips canonical bytes -> HMAC mismatches at host.  Forged `mosquitto_pub` rejected.    | `[HMAC FAIL: mismatch]` rows, `HMAC_Verified=False` in CSV every 10th seq.|
 | Timing end-to-end               | Firmware DELAY fault adds 2 s -> rolling z-score > 3 on host.                                                 | `[TIMING ALERT z=...]` rows, `Timing_Anomaly=True` in `timing_features.csv`. |
 | Replay detection (carryover)    | `host_receiver.check_freshness()` rejects duplicate / out-of-order seq.                                       | `replays_detected`, `duplicates_detected` counters in summary.            |
 | Schema versioning               | v1.0.0 and v1.1.0 both accepted; unknown versions rejected.                                                   | `test_schema.py` 3b + 5 pass.                                              |
-| Cross-team interface stability  | CpE-1 `uart_to_twin.py` ingests merged firmware output unmodified.                                            | `twin_feed.csv` populated with `pwm_duty_us`, `hmac_ok=True` rows.        |
+| Digital-twin feed               | ME team consumes `raw_dataset_encrypted.csv` directly (no separate UART adapter).                              | CSV header includes `PWM_Duty_us` / `PWM_Period_us`; `HMAC_Verified=True` rows for accepted packets. |
 
 ## 9. Pending items / known limitations
 

@@ -52,8 +52,8 @@ CORRECT_KEY = bytes([
 results = []
 
 
-def sign_packet(key, device_id, seq, ts, temp, hum):
-    canonical = f"{device_id}|{seq}|{ts}|{temp:.1f}|{hum:.1f}"
+def sign_packet(key, device_id, seq, ts, temp, hum, duty=0, period=0):
+    canonical = f"{device_id}|{seq}|{ts}|{temp:.1f}|{hum:.1f}|{duty}|{period}"
     return hmac.new(key, canonical.encode(), hashlib.sha256).hexdigest()
 
 

@@ -2,14 +2,18 @@
 """
 test_integrity.py
 
-Validates HMAC-SHA256 message authentication by publishing four tamper
-scenarios through the Mosquitto broker and verifying detection on the
-host receiver side.
+Validates AES-128-GCM AEAD message authentication (Week 11) by
+publishing six tamper scenarios through the Mosquitto broker and
+verifying detection on the host receiver side.
 
-  1. Valid authenticated packet     -- correct HMAC, should pass
-  2. Modified payload (tampered)    -- changed telemetry, original HMAC
-  3. Wrong key (unauthorized source)-- signed with a different PSK
-  4. Missing HMAC field             -- legacy/stripped packet
+Each test exercises a distinct failure mode of the AEAD envelope:
+
+  1. Valid envelope                  -- correct GCM tag, should pass
+  2. Tampered ciphertext (1 hex flip)-- GCM InvalidTag
+  3. Tampered AAD (outer seq_num)    -- GCM InvalidTag (AAD mismatch)
+  4. Wrong key                       -- GCM InvalidTag
+  5. Missing ciphertext field        -- envelope rejected
+  6. Broker round-trip (valid)       -- end-to-end through Mosquitto
 
 Prerequisites:
   - Mosquitto running with TLS on port 8883 (./broker.sh)
@@ -24,12 +28,10 @@ import ssl
 import os
 import sys
 import json
-import hmac
-import hashlib
 import time
 import threading
-from Crypto.Cipher import AES
-from Crypto.Util.Padding import pad
+from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+from cryptography.exceptions import InvalidTag
 
 BROKER_IP = "127.0.0.1"
 TLS_PORT = 8883
@@ -39,70 +41,79 @@ TIMEOUT = 8
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 CA_CERT = os.path.join(SCRIPT_DIR, "certs", "ca-cert.pem")
 
-# Correct PSK -- matches hmac_auth.h and host_receiver.py
-CORRECT_KEY = bytes([
-    0x4d, 0x79, 0x53, 0x65, 0x63, 0x75, 0x72, 0x65,
-    0x44, 0x69, 0x67, 0x69, 0x74, 0x61, 0x6c, 0x54,
-    0x77, 0x69, 0x6e, 0x4b, 0x65, 0x79, 0x32, 0x30,
-    0x32, 0x36, 0x21, 0x40, 0x23, 0x24, 0x25, 0x5e
-])
+# Week 11 upgrade: AES-128-GCM key (matches AES_KEY[] in mqtt_client_app.c)
+CORRECT_KEY = b"LabKey12LabKey12"   # 16 bytes -> AES-128
+WRONG_KEY   = b"WrongKey00WrongK"   # 16 bytes, intentionally different
+GCM_IV_LEN = 12
+GCM_TAG_LEN = 16
 
-# Wrong PSK -- simulates an unauthorized device
-WRONG_KEY = bytes([0xDE, 0xAD] * 16)
-
-# Week 10 merge: AES-128 ECB key (matches AES_KEY[] in mqtt_client_app.c)
-AES_KEY_BYTES = b"LabKey12LabKey12"
+DEVICE_ID = "CC3220SF_NODE_01"
 
 results = []
 
 
-def aes_wrap(json_str: str) -> str:
-    """Encode plaintext JSON as the new `[AES] <hex>` wire format used by
-    mqtt_client_app.c after the Week 10 merge.  Tests can publish through
-    this helper so the broker pipeline sees real ciphertext."""
-    cipher = AES.new(AES_KEY_BYTES, AES.MODE_ECB)
-    raw = cipher.encrypt(pad(json_str.encode("utf-8"), AES.block_size))
-    return "[AES] " + raw.hex().upper()
+def build_inner_json(temp, hum, duty=None, period=None):
+    """Build the inner (encrypted) JSON exactly like the firmware does."""
+    telemetry = {"temperature_c": temp, "humidity": hum}
+    if duty is not None:
+        telemetry["pwm_duty_us"] = duty
+    if period is not None:
+        telemetry["pwm_period_us"] = period
+    return json.dumps({
+        "schema_version": "2.0.0",
+        "telemetry": telemetry,
+    })
 
 
-def sign_packet(key, device_id, seq, ts, temp, hum):
-    """Build canonical string and compute HMAC-SHA256."""
-    canonical = f"{device_id}|{seq}|{ts}|{temp:.1f}|{hum:.1f}"
-    return hmac.new(key, canonical.encode(), hashlib.sha256).hexdigest()
-
-
-def build_packet(device_id, seq, ts, temp, hum, hmac_hex=None):
-    """Build a JSON telemetry packet, optionally including an HMAC field."""
-    pkt = {
-        "schema_version": "1.0.0",
+def gcm_wrap(inner_json, device_id, seq, ts, key=CORRECT_KEY):
+    """Encrypt + wrap into the v2.0.0 outer envelope.  Returns the
+    JSON string the firmware would publish on cc32xx/telemetry."""
+    iv  = os.urandom(GCM_IV_LEN)
+    aad = f"{device_id}|{seq}|{ts}".encode("utf-8")
+    ct  = AESGCM(key).encrypt(iv, inner_json.encode("utf-8"), aad)
+    blob = (iv + ct).hex().upper()
+    return json.dumps({
+        "schema_version": "2.0.0",
         "device_id": device_id,
         "seq_num": seq,
         "timestamp_ms": ts,
-        "telemetry": {
-            "temperature_c": temp,
-            "humidity": hum
-        }
-    }
-    if hmac_hex is not None:
-        pkt["hmac"] = hmac_hex
-    return json.dumps(pkt)
+        "ciphertext": blob,
+    })
 
 
-def verify_locally(key, packet_json):
-    """Re-verify a packet the same way host_receiver.py does."""
-    data = json.loads(packet_json)
-    received_hmac = data.get("hmac")
-    if received_hmac is None:
-        return False, "missing"
+def verify_locally(envelope_json, key=CORRECT_KEY):
+    """Re-verify the same way host_receiver.decrypt_gcm_envelope does."""
+    try:
+        env = json.loads(envelope_json)
+    except json.JSONDecodeError:
+        return False, "envelope_json_invalid"
 
-    telemetry = data.get("telemetry", {})
-    canonical = (f"{data['device_id']}|{data['seq_num']}|{data['timestamp_ms']}"
-                 f"|{telemetry['temperature_c']:.1f}|{telemetry['humidity']:.1f}")
-    expected = hmac.new(key, canonical.encode(), hashlib.sha256).hexdigest()
+    try:
+        device_id = env["device_id"]
+        seq = env["seq_num"]
+        ts  = env["timestamp_ms"]
+        hex_blob = env["ciphertext"]
+    except KeyError as e:
+        return False, f"missing:{e.args[0]}"
 
-    if hmac.compare_digest(expected, received_hmac):
-        return True, "ok"
-    return False, "mismatch"
+    try:
+        blob = bytes.fromhex(hex_blob)
+    except ValueError:
+        return False, "hex_invalid"
+
+    if len(blob) < GCM_IV_LEN + GCM_TAG_LEN:
+        return False, "blob_too_short"
+
+    iv = blob[:GCM_IV_LEN]
+    ct_and_tag = blob[GCM_IV_LEN:]
+    aad = f"{device_id}|{seq}|{ts}".encode("utf-8")
+
+    try:
+        AESGCM(key).decrypt(iv, ct_and_tag, aad)
+    except InvalidTag:
+        return False, "invalid_tag"
+
+    return True, "ok"
 
 
 def record(name, passed, detail=""):
@@ -112,17 +123,13 @@ def record(name, passed, detail=""):
 
 
 def make_tls_client(client_id):
-    """Create a TLS-configured MQTT client."""
     c = mqtt.Client(client_id=client_id)
     c.tls_set(ca_certs=CA_CERT, tls_version=ssl.PROTOCOL_TLSv1_2)
     return c
 
 
 def roundtrip_test(client_id, payload_json, expect_pass):
-    """
-    Publish a packet and subscribe to receive it back.  Verify HMAC on the
-    received copy to confirm the broker faithfully relayed it.
-    """
+    """Publish a payload through the broker and verify the relay."""
     received = threading.Event()
     received_data = {}
 
@@ -158,7 +165,7 @@ def roundtrip_test(client_id, payload_json, expect_pass):
         if "error" in received_data:
             return False, received_data["error"]
 
-        verified, reason = verify_locally(CORRECT_KEY, received_data["payload"])
+        verified, reason = verify_locally(received_data["payload"])
         return (verified == expect_pass), reason
 
     except Exception as e:
@@ -166,83 +173,104 @@ def roundtrip_test(client_id, payload_json, expect_pass):
 
 
 # ============================================================
-# Test 1: Valid authenticated packet
+# Test 1: Valid envelope
 # ============================================================
-def test_valid_packet():
-    print("\n--- Test 1: Valid Authenticated Packet ---")
-    h = sign_packet(CORRECT_KEY, "CC3220SF_NODE_01", 9001, 2250250, 25.3, 48.7)
-    pkt = build_packet("CC3220SF_NODE_01", 9001, 2250250, 25.3, 48.7, h)
+def test_valid_envelope():
+    print("\n--- Test 1: Valid GCM Envelope ---")
+    inner = build_inner_json(25.3, 48.7, duty=8000, period=10000)
+    env = gcm_wrap(inner, DEVICE_ID, 9001, 2250250)
 
-    verified, reason = verify_locally(CORRECT_KEY, pkt)
-    record("Valid Packet Accepted", verified,
-           "HMAC verified successfully" if verified else f"Unexpected: {reason}")
-
-    ok, detail = roundtrip_test("test_valid", pkt, True)
-    record("Valid Packet Roundtrip", ok,
-           "Survived broker relay" if ok else detail)
+    verified, reason = verify_locally(env)
+    record("Valid Envelope Accepted", verified,
+           "GCM tag verified" if verified else f"Unexpected: {reason}")
 
 
 # ============================================================
-# Test 2: Payload modification (tamper detection)
+# Test 2: Tampered ciphertext (1 byte flipped in hex blob)
 # ============================================================
-def test_tampered_payload():
-    print("\n--- Test 2: Tampered Payload Detection ---")
-    h = sign_packet(CORRECT_KEY, "CC3220SF_NODE_01", 9002, 2250500, 25.3, 48.7)
-    tampered_pkt = build_packet("CC3220SF_NODE_01", 9002, 2250500, 99.9, 48.7, h)
+def test_tampered_ciphertext():
+    print("\n--- Test 2: Tampered Ciphertext Detection ---")
+    inner = build_inner_json(25.3, 48.7, duty=8000, period=10000)
+    env = json.loads(gcm_wrap(inner, DEVICE_ID, 9002, 2250500))
 
-    verified, reason = verify_locally(CORRECT_KEY, tampered_pkt)
-    record("Tampered Payload Detected", not verified,
-           f"HMAC {reason} (tamper caught)" if not verified
-           else "DANGER: tampered packet passed verification")
+    blob = bytearray(bytes.fromhex(env["ciphertext"]))
+    # Flip a byte well inside the ciphertext region (past IV).
+    blob[GCM_IV_LEN + 4] ^= 0xFF
+    env["ciphertext"] = blob.hex().upper()
+    tampered = json.dumps(env)
+
+    verified, reason = verify_locally(tampered)
+    record("Tampered Ciphertext Detected", not verified,
+           f"GCM rejected: {reason}" if not verified
+           else "DANGER: tampered ciphertext passed verification")
 
 
 # ============================================================
-# Test 3: Wrong key (unauthorized source)
+# Test 3: Tampered AAD (outer seq_num bumped)
+# ============================================================
+def test_tampered_aad():
+    print("\n--- Test 3: Tampered AAD (outer seq_num) Detection ---")
+    inner = build_inner_json(25.3, 48.7, duty=8000, period=10000)
+    env = json.loads(gcm_wrap(inner, DEVICE_ID, 9003, 2250750))
+
+    env["seq_num"] = 9999       # AAD mismatch
+    tampered = json.dumps(env)
+
+    verified, reason = verify_locally(tampered)
+    record("AAD Tamper Detected", not verified,
+           f"GCM rejected (AAD mismatch): {reason}" if not verified
+           else "DANGER: AAD-tampered envelope passed verification")
+
+
+# ============================================================
+# Test 4: Wrong key
 # ============================================================
 def test_wrong_key():
-    print("\n--- Test 3: Unauthorized Source (Wrong Key) ---")
-    h = sign_packet(WRONG_KEY, "CC3220SF_NODE_01", 9003, 2250750, 25.3, 48.7)
-    pkt = build_packet("CC3220SF_NODE_01", 9003, 2250750, 25.3, 48.7, h)
+    print("\n--- Test 4: Wrong Key Rejection ---")
+    inner = build_inner_json(25.3, 48.7, duty=8000, period=10000)
+    # Encrypt with WRONG_KEY -- a legitimate envelope from an
+    # unauthorized source -- and try to verify with CORRECT_KEY.
+    env = gcm_wrap(inner, DEVICE_ID, 9004, 2251000, key=WRONG_KEY)
 
-    verified, reason = verify_locally(CORRECT_KEY, pkt)
+    verified, reason = verify_locally(env, key=CORRECT_KEY)
     record("Wrong Key Rejected", not verified,
-           f"HMAC {reason} (unauthorized device caught)" if not verified
-           else "DANGER: wrong-key packet passed verification")
+           f"GCM rejected: {reason}" if not verified
+           else "DANGER: wrong-key envelope passed verification")
 
 
 # ============================================================
-# Test 4: Missing HMAC field
+# Test 5: Missing ciphertext field
 # ============================================================
-def test_missing_hmac():
-    print("\n--- Test 4: Missing HMAC Field ---")
-    pkt = build_packet("CC3220SF_NODE_01", 9004, 2251000, 25.3, 48.7, None)
-
-    verified, reason = verify_locally(CORRECT_KEY, pkt)
-    record("Missing HMAC Flagged", not verified,
-           f"HMAC {reason} (unauthenticated packet caught)" if not verified
-           else "DANGER: packet without HMAC passed verification")
+def test_missing_ciphertext():
+    print("\n--- Test 5: Missing Ciphertext Field ---")
+    env = {
+        "schema_version": "2.0.0",
+        "device_id": DEVICE_ID,
+        "seq_num": 9005,
+        "timestamp_ms": 2251250,
+        # ciphertext omitted
+    }
+    verified, reason = verify_locally(json.dumps(env))
+    record("Missing Field Flagged", not verified,
+           f"Rejected: {reason}" if not verified
+           else "DANGER: envelope without ciphertext passed verification")
 
 
 # ============================================================
-# Test 5: AES wire-format round-trip (Week 10 merge)
+# Test 6: Broker round-trip (valid envelope survives relay)
 # ============================================================
-def test_aes_wire_format():
-    print("\n--- Test 5: AES Wire Format Round-Trip ---")
-    h = sign_packet(CORRECT_KEY, "CC3220SF_NODE_01", 9005, 2251250, 25.3, 48.7)
-    pkt_json = build_packet("CC3220SF_NODE_01", 9005, 2251250, 25.3, 48.7, h)
-    aes_payload = aes_wrap(pkt_json)
+def test_broker_roundtrip():
+    print("\n--- Test 6: Broker Round-Trip (valid envelope) ---")
+    if not os.path.exists(CA_CERT):
+        record("Broker Roundtrip", False, "CA cert not found, skipping")
+        return
 
-    record("AES Prefix Present", aes_payload.startswith("[AES] "),
-           f"prefix={aes_payload.split(' ', 1)[0]}")
+    inner = build_inner_json(25.3, 48.7, duty=9000, period=10000)
+    env = gcm_wrap(inner, DEVICE_ID, 9006, 2251500)
 
-    cipher = AES.new(AES_KEY_BYTES, AES.MODE_ECB)
-    raw = bytes.fromhex(aes_payload[len("[AES] "):])
-    decrypted = cipher.decrypt(raw)
-    pad_byte = decrypted[-1]
-    plaintext = decrypted[:-pad_byte].decode("utf-8")
-    verified, reason = verify_locally(CORRECT_KEY, plaintext)
-    record("AES Roundtrip Verified", verified,
-           "decrypt + HMAC OK" if verified else f"failed: {reason}")
+    ok, detail = roundtrip_test("test_gcm_rt", env, True)
+    record("Valid Envelope Roundtrip", ok,
+           "Survived broker relay + GCM verified" if ok else detail)
 
 
 # ============================================================
@@ -250,19 +278,20 @@ def test_aes_wire_format():
 # ============================================================
 if __name__ == "__main__":
     if not os.path.exists(CA_CERT):
-        print(f"ERROR: CA certificate not found at {CA_CERT}")
+        print(f"WARNING: CA certificate not found at {CA_CERT}")
         print("Run: cd broker/certs && ./generate_certs.sh")
-        sys.exit(1)
+        print("Skipping broker round-trip test (other tests will still run).\n")
 
     print("=" * 55)
-    print("  MQTT Data Integrity & Authentication Tests")
+    print("  MQTT Data Integrity Tests (Week 11: AES-128-GCM)")
     print("=" * 55)
 
-    test_valid_packet()
-    test_tampered_payload()
+    test_valid_envelope()
+    test_tampered_ciphertext()
+    test_tampered_aad()
     test_wrong_key()
-    test_missing_hmac()
-    test_aes_wire_format()
+    test_missing_ciphertext()
+    test_broker_roundtrip()
 
     print("\n" + "=" * 55)
     print("  SUMMARY")
