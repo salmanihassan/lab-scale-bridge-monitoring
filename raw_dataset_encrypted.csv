@@ -1,0 +1,1 @@
+Host_Timestamp,Schema_Version,Device_ID,Seq_Num,Board_Time_ms,Temp_C,Humidity_%,HMAC_Verified,Freshness_Status,Host_Delta_ms,PWM_Duty_us,PWM_Period_us

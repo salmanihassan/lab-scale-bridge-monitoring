@@ -1,0 +1,219 @@
+
+**** Build of configuration MCU+Image for project uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang ****
+
+/Applications/ti/ccs1281/ccs/utils/bin/gmake -k -j 7 all -O 
+ 
+Building file: "../image.syscfg"
+Invoking: SysConfig
+"/Users/dimitricromarty/ti/sysconfig_1_12_0/sysconfig_cli.sh" --script "/Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/image.syscfg" -o "syscfg" -s "/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/.metadata/product.json" --compiler ticlang
+Running script...
+Validating...
+Generating Code (image.syscfg)...
+Writing /Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg/ti_drivers_net_wifi_config.json...
+Finished building: "../image.syscfg"
+ 
+Building file: "../uart2echo.syscfg"
+Invoking: SysConfig
+"/Users/dimitricromarty/ti/sysconfig_1_12_0/sysconfig_cli.sh" --script "/Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/uart2echo.syscfg" -o "syscfg" -s "/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/.metadata/product.json" --compiler ticlang
+Running script...
+Validating...
+Generating Code (uart2echo.syscfg)...
+Writing /Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg/ti_drivers_config.c...
+Writing /Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg/ti_drivers_config.h...
+Writing /Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg/ti_utils_build_linker.cmd.genlibs...
+Writing /Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg/syscfg_c.rov.xs...
+Writing /Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg/FreeRTOSConfig.h...
+Writing /Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg/ti_freertos_config.c...
+Writing /Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg/ti_freertos_portable_config.c...
+Finished building: "../uart2echo.syscfg"
+ 
+Building file: "syscfg/ti_drivers_config.c"
+Invoking: Arm Compiler
+"/Applications/ti/ccs1281/ccs/tools/compiler/ti-cgt-armllvm_3.2.1.LTS/bin/tiarmclang" -c -mcpu=cortex-m4 -mfloat-abi=soft -mfpu=none -mlittle-endian -mthumb -Oz -I"/Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang" -I"/Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/source" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/kernel/freertos" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/source/ti/posix/ticlang" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/kernel/freertos/FreeRTOS/Source/include" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/kernel/freertos/FreeRTOS/Source/portable/GCC/ARM_CM3" -DDeviceFamily_CC3220 -gdwarf-3 -march=armv7e-m -MMD -MP -MF"syscfg/ti_drivers_config.d_raw" -MT"syscfg/ti_drivers_config.o" -I"/Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg"   -o"syscfg/ti_drivers_config.o" "syscfg/ti_drivers_config.c"
+Finished building: "syscfg/ti_drivers_config.c"
+ 
+Building file: "../main_freertos.c"
+Invoking: Arm Compiler
+"/Applications/ti/ccs1281/ccs/tools/compiler/ti-cgt-armllvm_3.2.1.LTS/bin/tiarmclang" -c -mcpu=cortex-m4 -mfloat-abi=soft -mfpu=none -mlittle-endian -mthumb -Oz -I"/Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang" -I"/Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/source" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/kernel/freertos" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/source/ti/posix/ticlang" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/kernel/freertos/FreeRTOS/Source/include" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/kernel/freertos/FreeRTOS/Source/portable/GCC/ARM_CM3" -DDeviceFamily_CC3220 -gdwarf-3 -march=armv7e-m -MMD -MP -MF"main_freertos.d_raw" -MT"main_freertos.o" -I"/Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg"   -o"main_freertos.o" "../main_freertos.c"
+Finished building: "../main_freertos.c"
+ 
+Building file: "../uart2echo.c"
+Invoking: Arm Compiler
+"/Applications/ti/ccs1281/ccs/tools/compiler/ti-cgt-armllvm_3.2.1.LTS/bin/tiarmclang" -c -mcpu=cortex-m4 -mfloat-abi=soft -mfpu=none -mlittle-endian -mthumb -Oz -I"/Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang" -I"/Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/source" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/kernel/freertos" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/source/ti/posix/ticlang" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/kernel/freertos/FreeRTOS/Source/include" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/kernel/freertos/FreeRTOS/Source/portable/GCC/ARM_CM3" -DDeviceFamily_CC3220 -gdwarf-3 -march=armv7e-m -MMD -MP -MF"uart2echo.d_raw" -MT"uart2echo.o" -I"/Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg"   -o"uart2echo.o" "../uart2echo.c"
+Finished building: "../uart2echo.c"
+ 
+Building file: "syscfg/ti_freertos_portable_config.c"
+Invoking: Arm Compiler
+"/Applications/ti/ccs1281/ccs/tools/compiler/ti-cgt-armllvm_3.2.1.LTS/bin/tiarmclang" -c -mcpu=cortex-m4 -mfloat-abi=soft -mfpu=none -mlittle-endian -mthumb -Oz -I"/Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang" -I"/Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/source" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/kernel/freertos" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/source/ti/posix/ticlang" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/kernel/freertos/FreeRTOS/Source/include" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/kernel/freertos/FreeRTOS/Source/portable/GCC/ARM_CM3" -DDeviceFamily_CC3220 -gdwarf-3 -march=armv7e-m -MMD -MP -MF"syscfg/ti_freertos_portable_config.d_raw" -MT"syscfg/ti_freertos_portable_config.o" -I"/Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg"   -o"syscfg/ti_freertos_portable_config.o" "syscfg/ti_freertos_portable_config.c"
+Finished building: "syscfg/ti_freertos_portable_config.c"
+ 
+Building file: "syscfg/ti_freertos_config.c"
+Invoking: Arm Compiler
+"/Applications/ti/ccs1281/ccs/tools/compiler/ti-cgt-armllvm_3.2.1.LTS/bin/tiarmclang" -c -mcpu=cortex-m4 -mfloat-abi=soft -mfpu=none -mlittle-endian -mthumb -Oz -I"/Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang" -I"/Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/source" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/kernel/freertos" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/source/ti/posix/ticlang" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/kernel/freertos/FreeRTOS/Source/include" -I"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/kernel/freertos/FreeRTOS/Source/portable/GCC/ARM_CM3" -DDeviceFamily_CC3220 -gdwarf-3 -march=armv7e-m -MMD -MP -MF"syscfg/ti_freertos_config.d_raw" -MT"syscfg/ti_freertos_config.o" -I"/Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg"   -o"syscfg/ti_freertos_config.o" "syscfg/ti_freertos_config.c"
+Finished building: "syscfg/ti_freertos_config.c"
+ 
+Building target: "uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang.out"
+Invoking: Arm Linker
+"/Applications/ti/ccs1281/ccs/tools/compiler/ti-cgt-armllvm_3.2.1.LTS/bin/tiarmclang" -mcpu=cortex-m4 -mfloat-abi=soft -mfpu=none -mlittle-endian -mthumb -Oz -DDeviceFamily_CC3220 -gdwarf-3 -march=armv7e-m -Wl,-m"uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang.map" -Wl,-i"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/source" -Wl,-i"/Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg" -Wl,-i"/Applications/ti/ccs1281/ccs/tools/compiler/ti-cgt-armllvm_3.2.1.LTS/lib" -Wl,--diag_wrap=off -Wl,--display_error_number -Wl,--warn_sections -Wl,--xml_link_info="uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang_linkInfo.xml" -Wl,--rom_model -o "uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang.out" "./main_freertos.o" "./uart2echo.o" "./syscfg/ti_drivers_config.o" "./syscfg/ti_freertos_config.o" "./syscfg/ti_freertos_portable_config.o" "../cc32xxsf_freertos.cmd"  -Wl,-lti_utils_build_linker.cmd.genlibs -Wl,-l"ti/devices/cc32xx/driverlib/ticlang/Release/driverlib.a" -Wl,-llibc.a 
+Finished building target: "uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang.out"
+ 
+Building secondary target: "uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang.bin"
+Invoking: TI Arm ObjCopy
+"/Applications/ti/ccs1281/ccs/tools/compiler/ti-cgt-armllvm_3.2.1.LTS/bin/tiarmobjcopy" -O binary --only-section .text --only-section .const --only-section .cinit --only-section .rodata --only-section .resetVecs "uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang.out" "uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang.bin"
+Finished building secondary target: "uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang.bin"
+ 
+Building secondary target: "syscfg/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang.sli"
+Invoking: Image Creator
+"/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/source/ti/drivers/net/imagecreator/bin/SLImageCreator" syscfg create_image --sdk_path "/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13" --json "/Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg/ti_drivers_net_wifi_config.json" --file "/Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang.sli" --mcu "/Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang.bin"
+INFO:slbootloader.slbootloader:Connecting to device
+INFO:slbootloader.slbootloader:Power off
+INFO:slbootloader.slbootloader:Set break signal
+INFO:slbootloader.slbootloader:Power on
+INFO:slbootloader.slbootloader:Clear break signal
+INFO:slbootloader.slbootloader:Connection succeeded
+INFO:slbootloader.slbootloader:Received storage list
+ 
+------------------------
+ 
+ 
+ 
+Copyright 2014 TI.com. All rights reserved, SimpleLink programming image builder
+Builder = 5.0.0.5
+ 
+Interface version   = 1.0.2.16
+Recommended command line window resolution W124 X H67
+ 
+The output directory is  :[/Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg/sl_image]
+The XML file is          :[/Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg/sl_image/ImageConfig.xml]
+ 
+Validate the XML against the schema. 
+ 
+The XML validation passed.
+ 
+ 
+------------------------
+ 
+ Commands Set Number = 0 
+	CommandNum = 0
+		CommandFormatStorage:
+	CommandNum = 1
+		CommandWriteCertificateStore:
+		FileLocation = /Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/tools/cc32xx_tools/certificate-playground/certcatalogPlayGround20160911.lst
+		FileSystemName = /sys/certstore.lst 
+		File max size is 7000 bytes, actual size 504 bytes 
+		After running the extracting the file will require 4 blocks on the device 
+	CommandNum = 2
+		CommandWriteServicePack:
+		Service pack versions, NWP = (3, 21, 0, 0)  MAC = (2, 7, 0, 0)  PHY = (2, 2, 0, 7) 
+		Max Service Pack file size = 131072
+		FileLocation = /Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/tools/cc32xx_tools/servicepack-cc3x20/sp_3.22.0.1_2.7.0.0_2.2.0.7.bin
+		FileSystemName = b'/sys/servicepack.ucf\x00'
+		File max size is 131072 bytes, actual size 74852 bytes 
+		After running the extracting the file will require 66 blocks on the device 
+	CommandNum = 3
+		CommandWriteSystemFile:
+		FileLocation = /Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg/sl_fs/sys/ipcfg.bin
+		FileSystemName = 17 
+		File max size is 200 bytes, actual size 200 bytes 
+		After running the extracting the file will require 2 blocks on the device 
+	CommandNum = 4
+		CommandWriteSystemFile:
+		FileLocation = /Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg/sl_fs/sys/device.name.bin
+		FileSystemName = 5 
+		File max size is 98 bytes, actual size 98 bytes 
+		After running the extracting the file will require 2 blocks on the device 
+	CommandNum = 5
+		CommandWriteSystemFile:
+		FileLocation = /Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg/sl_fs/sys/ap.cfg.bin
+		FileSystemName = 1 
+		File max size is 158 bytes, actual size 158 bytes 
+		After running the extracting the file will require 2 blocks on the device 
+	CommandNum = 6
+		CommandWriteSystemFile:
+		FileLocation = /Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg/sl_fs/sys/httpsrv.cfg.bin
+		FileSystemName = 4 
+		File max size is 387 bytes, actual size 387 bytes 
+		After running the extracting the file will require 2 blocks on the device 
+	CommandNum = 7
+		CommandWriteSystemFile:
+		FileLocation = /Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg/sl_fs/sys/mode.cfg.bin
+		FileSystemName = 0 
+		File max size is 80 bytes, actual size 80 bytes 
+		After running the extracting the file will require 2 blocks on the device 
+	CommandNum = 8
+		CommandWriteSystemFile:
+		FileLocation = /Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg/sl_fs/sys/sta.cfg.bin
+		FileSystemName = 12 
+		File max size is 116 bytes, actual size 116 bytes 
+		After running the extracting the file will require 2 blocks on the device 
+	CommandNum = 9
+		CommandWriteSystemFile:
+		FileLocation = /Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg/sl_fs/sys/dhcpsrv.cfg.bin
+		FileSystemName = 3 
+		File max size is 12 bytes, actual size 12 bytes 
+		After running the extracting the file will require 2 blocks on the device 
+	CommandNum = 10
+		CommandWriteFile:
+		FileLocation = /Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/source/ti/drivers/net/imagecreator/files/tmp.tmp
+		FileSystemName = @@.tmp 
+		File max size is 255 bytes, actual size 0 bytes 
+		After running the extracting the file will require 1 blocks on the device 
+	CommandNum = 11
+		CommandWriteFile:
+		FileLocation = /Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg/sl_fs/dummy-root-ca-cert
+		FileSystemName = dummy-root-ca-cert 
+		File max size is 975 bytes, actual size 975 bytes 
+		After running the extracting the file will require 1 blocks on the device 
+	CommandNum = 12
+		CommandWriteFile:
+		FileLocation = /Users/dimitricromarty/Documents/LocalDigitalTwin/DigitalTwin-TI/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang/MCU+Image/syscfg/sl_fs/sys/mcuflashimg.bin
+		FileSystemName = /sys/mcuflashimg.bin 
+		File max size is 1048576 bytes, actual size 24440 bytes 
+		After running the extracting the file will require 514 blocks on the device 
+	CommandNum = 13
+		CommandWriteFile:
+		FileLocation = /Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/source/ti/drivers/net/imagecreator/files/CrashMiniDump.bin
+		FileSystemName = /tmp/CrashMiniDump.bin 
+		File max size is 24576 bytes, actual size 1 bytes 
+		After running the extracting the file will require 7 blocks on the device 
+ 
+	For Set Number = 0 ,
+	Set Files will require 607 blocks on the device after running the extraction  ( Programming image is not included )
+ 
+------------------------
+	The actual size of the image data is 108544 bytes 
+		=> The  image data requires minimum of 28 blocks on the device.
+ 
+Block size is 4096 bytes.
+Configured Storage size is 1024 blocks.
+ 
+ 
+Total size of image( 28 blocks )
+	Total size of user files after extraction( 9 blocks )
+	Total size of FileSystem( 4 blocks )
+ 
+	Total System files after extraction(includes reserved space for system files)( 620 blocks )
+		Total reserved for system files ( 620 blocks )
+			Service pack after extraction size ( 66 blocks )
+			Application code  after extraction size ( 514 blocks )
+			Kept for system files ( 32 blocks )
+		System files after extraction size (includes the service-pack) ( 598 blocks )
+	Reserved size for the Image (includes image protecting) ( 32 blocks )
+	 ==> After the extraction the set will require total size of 665 blocks.<==
+	 ==> During the extraction process the set will require total size of 665 blocks.<==
+ 
+Non-encrypted files generated successfully.
+ 
+ 
+ 
+Finished successfully.
+ 
+------------------------
+ 
+ 
+ 
+ 
+Finished building secondary target: "syscfg/uart2echo_CC3220SF_LAUNCHXL_freertos_ticlang.sli"
+ 
+
+**** Build Finished ****

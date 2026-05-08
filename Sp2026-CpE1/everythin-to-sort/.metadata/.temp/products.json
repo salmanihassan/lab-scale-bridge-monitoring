@@ -1,0 +1,16 @@
+[
+  {
+    "name": "simplelink_cc32xx_sdk",
+    "displayName": "SimpleLink CC32XX SDK",
+    "version": "7.10.00.13",
+    "path": "/Applications/ti/simplelink_cc32xx_sdk_7_10_00_13/.metadata/product.json",
+    "includesCCXXImageComponents": true,
+    "rtos": [
+      "freertos",
+      "none",
+      "nortos",
+      "tirtos",
+      "tirtos7"
+    ]
+  }
+]

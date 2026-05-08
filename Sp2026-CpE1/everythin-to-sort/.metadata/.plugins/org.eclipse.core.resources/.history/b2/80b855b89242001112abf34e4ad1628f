@@ -1,0 +1,142 @@
+/*
+ *  ======== pwmled2.c ========
+ *  Vibration Motor PWM Driver
+ *  Week 9: AES-128 Encrypted Telemetry using TI CryptoCC32XX driver
+ */
+#include <unistd.h>
+#include <stddef.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdint.h>
+
+#include <ti/drivers/PWM.h>
+#include <ti/drivers/UART2.h>
+#include <ti/drivers/crypto/CryptoCC32XX.h>
+#include "ti_drivers_config.h"
+
+#define MOTOR_PERIOD_US  10000
+
+/* AES-128 key — 16 bytes — must match host decryption key */
+static const uint8_t AES_KEY[16] = {
+    0x4C,0x61,0x62,0x4B,0x65,0x79,0x31,0x32,
+    0x4C,0x61,0x62,0x4B,0x65,0x79,0x31,0x32
+};
+
+/* AES block size is 16 bytes */
+#define AES_BLOCK_SIZE 16
+
+static CryptoCC32XX_Handle cryptoHandle = NULL;
+static uint32_t g_seq_num = 0;
+static uint32_t g_now_ms  = 0;
+
+/* Pad plaintext to multiple of AES_BLOCK_SIZE using PKCS7 */
+static size_t pkcs7_pad(const char *input, size_t inLen, uint8_t *output, size_t outMax) {
+    size_t padded = ((inLen / AES_BLOCK_SIZE) + 1) * AES_BLOCK_SIZE;
+    if (padded > outMax) return 0;
+    memcpy(output, input, inLen);
+    uint8_t padByte = (uint8_t)(padded - inLen);
+    memset(output + inLen, padByte, padded - inLen);
+    return padded;
+}
+
+/* Pre-allocated static buffers */
+static char     s_plaintext[64];
+static uint8_t  s_padded[64];
+static uint8_t  s_cipher[64];
+static char     s_hexbuf[256];
+static char     s_outbuf[300];
+
+void *mainThread(void *arg0)
+{
+    PWM_Handle motorPwm = NULL;
+    PWM_Params pwmParams;
+    UART2_Handle uart;
+    UART2_Params uartParams;
+    int len, i;
+
+    /* Init UART */
+    UART2_Params_init(&uartParams);
+    uartParams.baudRate = 115200;
+    uart = UART2_open(CONFIG_UART2_0, &uartParams);
+    if (uart == NULL) { while (1) {} }
+
+    UART2_write(uart, "=== Firmware v1.0.0 | Week 9: AES-128 Encrypted Telemetry ===\r\n", 63, NULL);
+
+    /* Init TI Crypto driver */
+    CryptoCC32XX_init();
+    cryptoHandle = CryptoCC32XX_open(CONFIG_CRYPTO_0, CryptoCC32XX_AES);
+    if (cryptoHandle == NULL) {
+        UART2_write(uart, "ERROR: Crypto open failed\r\n", 27, NULL);
+        while (1) {}
+    }
+    UART2_write(uart, "[CRYPTO] AES-128 hardware engine initialized\r\n", 46, NULL);
+
+    /* Init PWM */
+    PWM_init();
+    PWM_Params_init(&pwmParams);
+    pwmParams.dutyUnits   = PWM_DUTY_US;
+    pwmParams.dutyValue   = 0;
+    pwmParams.periodUnits = PWM_PERIOD_US;
+    pwmParams.periodValue = MOTOR_PERIOD_US;
+
+    motorPwm = PWM_open(CONFIG_PWM_0, &pwmParams);
+    if (motorPwm == NULL) {
+        UART2_write(uart, "ERROR: PWM failed\r\n", 19, NULL);
+        while (1) {}
+    }
+    PWM_start(motorPwm);
+
+    uint16_t duties[] = {7000, 8000, 9000, 10000};
+    uint8_t idx = 0;
+
+    while (1)
+    {
+        g_seq_num++;
+        g_now_ms += 3000;
+
+        PWM_setDuty(motorPwm, duties[idx]);
+
+        /* Build plaintext packet */
+        len = snprintf(s_plaintext, sizeof(s_plaintext),
+            "SEQ=%u,TS=%u,DUTY=%d",
+            (unsigned)g_seq_num, (unsigned)g_now_ms, duties[idx]);
+
+        /* Pad to AES block size */
+        size_t paddedLen = pkcs7_pad(s_plaintext, len, s_padded, sizeof(s_padded));
+        if (paddedLen == 0) {
+            UART2_write(uart, "ERROR: Padding failed\r\n", 23, NULL);
+            continue;
+        }
+
+        /* AES-128 ECB encrypt using TI hardware */
+        CryptoCC32XX_EncryptParams encParams;
+        encParams.aes.keySize = CryptoCC32XX_AES_KEY_SIZE_128BIT;
+        encParams.aes.pKey    = (uint32_t *)AES_KEY;
+        encParams.aes.pIV     = NULL;
+
+        int ret = CryptoCC32XX_encrypt(cryptoHandle,
+                                       CryptoCC32XX_AES_ECB,
+                                       s_padded, s_cipher,
+                                       paddedLen, &encParams);
+        if (ret != CryptoCC32XX_STATUS_SUCCESS) {
+            UART2_write(uart, "ERROR: AES encrypt failed\r\n", 27, NULL);
+            idx = (idx + 1) % 4;
+            usleep(3000000);
+            continue;
+        }
+
+        /* Convert ciphertext to hex string */
+        for (i = 0; i < (int)paddedLen; i++) {
+            snprintf(s_hexbuf + (i * 2), 3, "%02X", s_cipher[i]);
+        }
+        s_hexbuf[paddedLen * 2] = '\0';
+
+        /* Output encrypted packet */
+        int outlen = snprintf(s_outbuf, sizeof(s_outbuf),
+            "[AES] %s\r\n", s_hexbuf);
+        UART2_write(uart, s_outbuf, outlen, NULL);
+
+        idx = (idx + 1) % 4;
+        usleep(3000000);
+    }
+}
