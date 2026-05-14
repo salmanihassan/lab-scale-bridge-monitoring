@@ -98,8 +98,8 @@
  * Define AP_SSID and optionally AP_PASSWORD - to connect to local network
  * Hard-Coded Definition: update AP_SSID and AP_PASSWORD (NULL means OPEN, else is WPA2)
  */
-#define AP_SSID                     "njoyAnna" // "network-name"
-#define AP_PASSWORD                 "Lev3lUp40" // "network-password"
+#define AP_SSID                     "NETGEAR42" // "network-name"
+#define AP_PASSWORD                 "dynamicplum866" // "network-password"
 
 /* Static Profile setting  - Method 2: Configuration file
  * File format should be:

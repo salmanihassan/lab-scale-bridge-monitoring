@@ -5,16 +5,15 @@ test_freshness.py
 Validates the replay-detection, duplicate-rejection, freshness-window,
 and reboot-reset logic added in Week 7.
 
-Each test constructs v2.0.0 GCM-authenticated envelopes (Week 11 wire
-format) and feeds them through the same check_freshness() /
-accept_packet() pipeline used by host_receiver.py.
+Each test constructs HMAC-signed packets and feeds them through the same
+check_freshness() / accept_packet() pipeline used by host_receiver.py.
 
-  1. Normal sequential envelopes     -- all accepted
+  1. Normal sequential packets       -- all accepted
   2. Exact replay                    -- flagged REPLAY
   3. Duplicate (same seq twice)      -- flagged DUPLICATE
-  4. Out-of-order arrival            -- late envelope flagged REPLAY
+  4. Out-of-order arrival            -- late packet flagged REPLAY
   5. Simulated device reboot         -- detected REBOOT_RESET
-  6. Stale envelope (host-clock gap) -- flagged STALE
+  6. Stale packet (host-clock gap)   -- flagged STALE
 
 Prerequisites:
   - Mosquitto running with TLS on port 8883 (./broker.sh)
@@ -27,11 +26,14 @@ Usage:
 import os
 import sys
 import json
+import hmac
+import hashlib
 import time
 import ssl
 import threading
 import paho.mqtt.client as mqtt
-from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import pad
 
 BROKER_IP = "127.0.0.1"
 TLS_PORT = 8883
@@ -40,41 +42,59 @@ TOPIC = "cc32xx/telemetry"
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 CA_CERT = os.path.join(SCRIPT_DIR, "certs", "ca-cert.pem")
 
-# Week 11 upgrade: AES-128-GCM key (matches AES_KEY[] in mqtt_client_app.c)
+CORRECT_KEY = bytes([
+    0x4d, 0x79, 0x53, 0x65, 0x63, 0x75, 0x72, 0x65,
+    0x44, 0x69, 0x67, 0x69, 0x74, 0x61, 0x6c, 0x54,
+    0x77, 0x69, 0x6e, 0x4b, 0x65, 0x79, 0x32, 0x30,
+    0x32, 0x36, 0x21, 0x40, 0x23, 0x24, 0x25, 0x5e
+])
+
+# Week 10 merge: AES-128 ECB key (matches AES_KEY[] in mqtt_client_app.c)
 AES_KEY_BYTES = b"LabKey12LabKey12"
-GCM_IV_LEN = 12
-
-DEVICE_ID = "CC3220SF_NODE_01"
 
 
-def gcm_wrap(inner_json, device_id, seq, ts, key=AES_KEY_BYTES):
-    """Encrypt + wrap into the v2.0.0 outer envelope."""
-    iv  = os.urandom(GCM_IV_LEN)
-    aad = f"{device_id}|{seq}|{ts}".encode("utf-8")
-    ct  = AESGCM(key).encrypt(iv, inner_json.encode("utf-8"), aad)
-    blob = (iv + ct).hex().upper()
-    return json.dumps({
-        "schema_version": "2.0.0",
-        "device_id": device_id,
-        "seq_num": seq,
-        "timestamp_ms": ts,
-        "ciphertext": blob,
-    })
-
-
-def make_envelope(seq, ts, temp=25.3, hum=48.7):
-    """Build a complete v2.0.0 envelope ready to publish."""
-    inner = json.dumps({
-        "schema_version": "2.0.0",
-        "telemetry": {"temperature_c": temp, "humidity": hum},
-    })
-    return gcm_wrap(inner, DEVICE_ID, seq, ts)
+def aes_wrap(json_str: str) -> str:
+    """Encode plaintext JSON as raw uppercase hex ciphertext -- the
+    Week 10 wire format used by mqtt_client_app.c after the prefix
+    cleanup.  Wraps freshness/replay test packets so the broker
+    pipeline can be exercised end-to-end."""
+    cipher = AES.new(AES_KEY_BYTES, AES.MODE_ECB)
+    raw = cipher.encrypt(pad(json_str.encode("utf-8"), AES.block_size))
+    return raw.hex().upper()
 
 
 REBOOT_SEQ_THRESHOLD = 5
 MAX_STALENESS_SEC = 30.0
 
 results = []
+
+
+# ============================================================
+# Packet helpers (same as test_integrity.py)
+# ============================================================
+
+def sign_packet(key, device_id, seq, ts, temp, hum):
+    canonical = f"{device_id}|{seq}|{ts}|{temp:.1f}|{hum:.1f}"
+    return hmac.new(key, canonical.encode(), hashlib.sha256).hexdigest()
+
+
+def build_packet(device_id, seq, ts, temp, hum, hmac_hex=None):
+    pkt = {
+        "schema_version": "1.0.0",
+        "device_id": device_id,
+        "seq_num": seq,
+        "timestamp_ms": ts,
+        "telemetry": {"temperature_c": temp, "humidity": hum}
+    }
+    if hmac_hex is not None:
+        pkt["hmac"] = hmac_hex
+    return json.dumps(pkt)
+
+
+def make_signed_packet(seq, ts, temp=25.3, hum=48.7):
+    device = "CC3220SF_NODE_01"
+    h = sign_packet(CORRECT_KEY, device, seq, ts, temp, hum)
+    return build_packet(device, seq, ts, temp, hum, h)
 
 
 # ============================================================
@@ -181,7 +201,7 @@ def record(name, passed, detail=""):
 # Test 1: Normal sequential packets
 # ============================================================
 def test_sequential():
-    print("\n--- Test 1: Normal Sequential Envelopes ---")
+    print("\n--- Test 1: Normal Sequential Packets ---")
     tracker = FreshnessTracker()
 
     pkts = [
@@ -191,31 +211,26 @@ def test_sequential():
     ]
 
     all_ok = True
-    last_seq = None
-    last_status = None
     for seq, ts in pkts:
         accepted, status = tracker.check(seq, ts)
         if accepted:
             tracker.accept(seq, ts)
-        last_seq, last_status = seq, status
         if not accepted or status != "ACCEPTED":
             all_ok = False
             break
 
     record("Sequential Accepted", all_ok,
-           "All 3 envelopes accepted in order" if all_ok
-           else f"Unexpected rejection at seq {last_seq}: {last_status}")
+           "All 3 packets accepted in order" if all_ok
+           else f"Unexpected rejection at seq {seq}: {status}")
 
     # Roundtrip through broker
-    payloads = [make_envelope(s, t) for s, t in pkts]
+    payloads = [make_signed_packet(s, t) for s, t in pkts]
     received, err = publish_and_receive("test_seq", payloads)
     if err:
         record("Sequential Roundtrip", False, err)
-    elif received is None:
-        record("Sequential Roundtrip", False, "no result")
     else:
         record("Sequential Roundtrip", len(received) == 3,
-               f"Received {len(received)}/3 envelopes via broker")
+               f"Received {len(received)}/3 packets via broker")
 
 
 # ============================================================
@@ -235,7 +250,7 @@ def test_replay():
     accepted, status = tracker.check(2, 500)
     record("Replay Rejected", not accepted and status == "REPLAY",
            f"seq=2 after accepting seq=3 -> {status}"
-           if not accepted else "DANGER: replayed envelope accepted")
+           if not accepted else "DANGER: replayed packet accepted")
 
 
 # ============================================================
@@ -277,7 +292,7 @@ def test_out_of_order():
     accepted, status = tracker.check(2, 500)
     record("Late Packet Rejected", not accepted and status == "REPLAY",
            f"seq=2 after accepting seq=3 -> {status}"
-           if not accepted else "DANGER: late envelope accepted")
+           if not accepted else "DANGER: late packet accepted")
 
 
 # ============================================================
@@ -310,7 +325,7 @@ def test_reboot():
 # Test 6: Stale packet (simulated host-clock gap)
 # ============================================================
 def test_stale():
-    print("\n--- Test 6: Stale Envelope Detection ---")
+    print("\n--- Test 6: Stale Packet Detection ---")
     tracker = FreshnessTracker()
 
     tracker.check(1, 250)
@@ -320,9 +335,9 @@ def test_stale():
     tracker.last_accepted_wall_time = time.time() - (MAX_STALENESS_SEC + 5)
 
     accepted, status = tracker.check(2, 500)
-    record("Stale Envelope Flagged", not accepted and status == "STALE",
+    record("Stale Packet Flagged", not accepted and status == "STALE",
            f"35s gap -> {status}"
-           if not accepted else "DANGER: stale envelope accepted")
+           if not accepted else "DANGER: stale packet accepted")
 
 
 # ============================================================
@@ -330,13 +345,12 @@ def test_stale():
 # ============================================================
 if __name__ == "__main__":
     if not os.path.exists(CA_CERT):
-        print(f"WARNING: CA certificate not found at {CA_CERT}")
+        print(f"ERROR: CA certificate not found at {CA_CERT}")
         print("Run: cd broker/certs && ./generate_certs.sh")
-        print("Tests 2-6 do not require the broker; only test 1 will skip "
-              "the roundtrip leg if the broker is offline.\n")
+        sys.exit(1)
 
     print("=" * 55)
-    print("  MQTT Freshness Tests (Week 11 wire format)")
+    print("  MQTT Freshness & Replay Detection Tests (Week 7)")
     print("=" * 55)
 
     test_sequential()

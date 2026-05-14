@@ -74,6 +74,7 @@
 #include "ifmod/ota_if.h"
 #include "ifmod/utils_if.h"
 #include "ifmod/ota_vendors.h"
+#include "hmac_auth.h"
 
 #include "ti_drivers_config.h"
 
@@ -96,42 +97,32 @@ bool gNewImageLoaded = false;
 
 
 #define APPLICATION_NAME         "MQTT client"
-#define APPLICATION_VERSION      "2.2.0"
+#define APPLICATION_VERSION      "2.1.0"
 /*
- * Schema bumped to v2.0.0 in Week 11: AES-128-GCM (AEAD) replaces the
- * Week 10 AES-128-ECB + inner HMAC-SHA256 stack.  Wire format is now a
- * plaintext outer JSON envelope:
- *   {
- *     "schema_version":"2.0.0",
- *     "device_id":"...","seq_num":N,"timestamp_ms":T,
- *     "ciphertext":"<UPPERCASE_HEX of (IV[12]||CT[N]||TAG[16])>"
- *   }
- * device_id|seq_num|timestamp_ms is bound to the GCM tag as Additional
- * Authenticated Data (AAD), so tampering with any of those outer fields
- * fails GCM verification on the host.  The 16-byte tag also covers the
- * inner ciphertext for telemetry integrity, which makes the legacy
- * inner HMAC-SHA256 layer redundant -- it has been removed.
+ * Schema bumped to v1.1.0 in Week 10 merge: telemetry now optionally
+ * carries pwm_duty_us / pwm_period_us alongside temperature/humidity.
+ * The HMAC canonical string is intentionally unchanged from v1.0.0
+ * (device_id|seq_num|timestamp_ms|temperature_c|humidity), so the PWM
+ * fields are pipeline metadata and v1.0.0 receivers stay compatible.
  */
-#define SCHEMA_VERSION           "2.0.0"
+#define SCHEMA_VERSION           "1.1.0"
 #define DEVICE_ID                "CC3220SF_NODE_01"
 
 /* Vibration motor / DTHE / fault-injection constants merged from CpE-1 */
 #define MOTOR_PERIOD_US          10000
-#define GCM_IV_LEN               12   /* 96-bit standard GCM nonce */
-#define GCM_TAG_LEN              16   /* 128-bit authentication tag */
+#define AES_BLOCK_SIZE           16
 #define FAULT_DROP_EVERY         15
 #define FAULT_CORRUPT_EVERY      10
 #define FAULT_DELAY_EVERY        20
 
-/* AES-128-GCM key for payload encryption -- must match the AES_KEY
- * constant in broker/host_receiver.py byte-for-byte.
- * (16 bytes = "LabKey12LabKey12") */
+/* AES-128 key for payload encryption -- must match the AES_KEY constant
+ * in broker/host_receiver.py byte-for-byte. (16 bytes = "LabKey12LabKey12") */
 static const uint8_t AES_KEY[16] = {
     0x4C,0x61,0x62,0x4B,0x65,0x79,0x31,0x32,
     0x4C,0x61,0x62,0x4B,0x65,0x79,0x31,0x32
 };
 
-#define MQTT_SECURE_CLIENT
+// #define MQTT_SECURE_CLIENT
 
 #define MQTT_MODULE_TASK_PRIORITY   2
 #define MQTT_MODULE_TASK_STACK_SIZE 2048
@@ -150,11 +141,11 @@ static const uint8_t AES_KEY[16] = {
 
 #ifndef MQTT_SECURE_CLIENT
 #define MQTT_CONNECTION_FLAGS           MQTTCLIENT_NETCONN_IP4
-#define MQTT_CONNECTION_ADDRESS         "10.0.0.123" //"mqtt.eclipse.org"
+#define MQTT_CONNECTION_ADDRESS         "192.168.1.2" //"mqtt.eclipse.org"
 #define MQTT_CONNECTION_PORT_NUMBER     1883
 #else
 #define MQTT_CONNECTION_FLAGS           MQTTCLIENT_NETCONN_IP4 | MQTTCLIENT_NETCONN_SEC | MQTTCLIENT_NETCONN_SKIP_CERTIFICATE_CATALOG_VERIFICATION
-#define MQTT_CONNECTION_ADDRESS         "10.0.0.123"
+#define MQTT_CONNECTION_ADDRESS         "192.168.1.2"
 #define MQTT_CONNECTION_PORT_NUMBER     8883
 #endif
 
@@ -172,27 +163,18 @@ typedef struct {
 static uint32_t g_seq_num = 0;
 static uint32_t g_timestamp_ms = 0;
 
-/* === Week 11: vibration motor + AES-128-GCM hardware crypto === */
+/* === Week 10 merge: vibration motor + AES-128-ECB hardware crypto === */
 static CryptoCC32XX_Handle g_cryptoHandle = NULL;
 static PWM_Handle          g_motorPwm     = NULL;
 static const uint16_t      g_duties[]     = {7000, 8000, 9000, 10000};
 static uint8_t             g_dutyIdx      = 0;
 
-/* Scratch buffers (file-scope to keep the publish-thread stack small).
- *
- *   s_innerJson  : plaintext inner JSON (telemetry only) before encrypt.
- *   s_gcmIn      : [AAD || plaintext] handed to CryptoCC32XX_encrypt --
- *                  the driver expects AAD prefixed in the same buffer
- *                  (see CryptoCC32XX.c MAP_AESDataProcessAE call).
- *   s_gcmOut     : ciphertext output buffer (same length as plaintext).
- *   s_iv         : per-publish 96-bit GCM nonce from the NWP TRNG.
- *   s_outbuf     : final outer JSON envelope published over MQTT/TLS. */
-static char    s_innerJson[384];
-static uint8_t s_gcmIn[512];
-static uint8_t s_gcmOut[512];
-static uint8_t s_iv[GCM_IV_LEN];
-static char    s_aad[96];
-static char    s_outbuf[1600];
+/* Scratch buffers (file-scope to keep the publish-thread stack small) */
+static char    s_canonical[192];
+static char    s_jsonPayload[384];
+static uint8_t s_padded[512];
+static uint8_t s_cipher[512];
+static char    s_outbuf[1200];
 
 
 
@@ -335,148 +317,73 @@ int32_t DHT11_Read(DHT11_Data_t *sensorData) {
     return 0; // Return 0 on successful read
 }
 
-/* * Pull `len` cryptographically-secure random bytes from the CC3220SF
- * NWP True Random Number Generator via sl_NetUtilGet().  Per the TI
- * SimpleLink Wi-Fi host driver API, SL_NETUTIL_TRUE_RANDOM (option 3 in
- * netutil.h) is sourced from the NWP hardware TRNG and is the same
- * entropy source that mbedtls_hardware_poll() uses inside the SDK.
- *
- * Requires the NWP to be powered up, i.e. callable only after Wi-Fi
- * has been brought up by WIFI_IF_init() / SlNetConn_start().
- *
- * Returns 0 on success, non-zero on failure.
+/* * PKCS7 padding helper (lifted from CpE-1 firmware). AES-ECB requires
+ * input to be a multiple of the 16-byte block size; we always append at
+ * least one byte of padding (RFC 5652).  Returns padded length, or 0 on
+ * buffer overflow.
  */
-static int gcm_get_random(uint8_t *out, uint16_t len)
+static size_t pkcs7_pad(const char *input, size_t inLen,
+                        uint8_t *output, size_t outMax)
 {
-    uint16_t lenIO = len;
-    int16_t  ret   = sl_NetUtilGet((uint16_t)SL_NETUTIL_TRUE_RANDOM,
-                                   (uint32_t)0,
-                                   out, &lenIO);
-    if (ret != 0 || lenIO != len) {
-        return -1;
-    }
-    return 0;
+    size_t padded = ((inLen / AES_BLOCK_SIZE) + 1) * AES_BLOCK_SIZE;
+    if (padded > outMax) return 0;
+    memcpy(output, input, inLen);
+    uint8_t padByte = (uint8_t)(padded - inLen);
+    memset(output + inLen, padByte, padded - inLen);
+    return padded;
 }
 
-/* * Hex-encode `in` of length `inLen` into `out` as uppercase ASCII.
- * `out` must hold at least 2*inLen + 1 bytes (NUL terminator included).
- * Returns the number of chars written (excluding NUL), or 0 on overflow.
- */
-static int bytes_to_upper_hex(const uint8_t *in, size_t inLen,
-                              char *out, size_t outMax)
-{
-    static const char digits[] = "0123456789ABCDEF";
-    if (outMax < (inLen * 2u + 1u)) return 0;
-    size_t i;
-    for (i = 0; i < inLen; i++) {
-        out[2*i]     = digits[(in[i] >> 4) & 0x0F];
-        out[2*i + 1] = digits[in[i] & 0x0F];
-    }
-    out[2*inLen] = '\0';
-    return (int)(2 * inLen);
-}
-
-/* * AES-128-GCM encrypt the inner JSON payload + emit the outer envelope.
+/* * AES-128-ECB encrypt + uppercase hex-encode of the JSON payload.
+ * Wraps TI's CryptoCC32XX hardware DTHE block.  Output buffer must hold
+ * at least 2*paddedLen + 1 bytes (NUL-terminated).  Returns number of
+ * chars written (excluding NUL), or 0 on failure.
  *
- * Pipeline:
- *   1. Pull a fresh 12-byte GCM nonce from the NWP TRNG.
- *   2. Build the AAD canonical string "<device>|<seq>|<ts>" (ASCII).
- *   3. Concatenate [AAD || plaintext] into s_gcmIn -- the CryptoCC32XX
- *      driver consumes the AAD from the front of the input buffer
- *      (see MAP_AESDataProcessAE() call inside the SDK driver).
- *   4. CryptoCC32XX_encrypt(... AES_GCM ...) writes ciphertext to
- *      s_gcmOut and the 16-byte tag to params.aes.aadParams.tag.
- *   5. Hex-encode (IV || ciphertext || tag) and wrap into the outer
- *      JSON envelope written to outBuf.
- *
- * Returns the length of the outer JSON written (excluding NUL), or 0
- * on any error (TRNG failure, buffer overflow, hardware AES failure).
+ * Wire format: every MQTT publish is AES ciphertext, so no decorative
+ * prefix is needed.  The host receiver discriminates plaintext JSON
+ * (test harnesses) from ciphertext by leading character (`{` vs hex).
  */
-static int gcm_encrypt_envelope(const char *plaintext, size_t plainLen,
-                                uint32_t seq, uint32_t ts,
-                                char *outBuf, size_t outBufSize)
+static int aes_encrypt_hex(const char *plaintext, size_t plainLen,
+                           char *outBuf, size_t outBufSize)
 {
-    if (plaintext == NULL || outBuf == NULL || outBufSize < 1) return 0;
+    if (outBufSize < 1) return 0;
 
-    if (gcm_get_random(s_iv, GCM_IV_LEN) != 0) {
-        LOG_ERROR("TRNG failed -- cannot derive GCM nonce");
-        return 0;
-    }
-
-    int aadLen = snprintf(s_aad, sizeof(s_aad),
-                          "%s|%lu|%lu",
-                          DEVICE_ID,
-                          (unsigned long)seq,
-                          (unsigned long)ts);
-    if (aadLen <= 0 || (size_t)aadLen >= sizeof(s_aad)) return 0;
-
-    if ((size_t)aadLen + plainLen > sizeof(s_gcmIn)) return 0;
-    memcpy(s_gcmIn, s_aad, (size_t)aadLen);
-    memcpy(s_gcmIn + aadLen, plaintext, plainLen);
+    size_t paddedLen = pkcs7_pad(plaintext, plainLen, s_padded, sizeof(s_padded));
+    if (paddedLen == 0) return 0;
 
     CryptoCC32XX_EncryptParams encParams;
-    memset(&encParams, 0, sizeof(encParams));
-    encParams.aes.keySize           = CryptoCC32XX_AES_KEY_SIZE_128BIT;
-    encParams.aes.pKey              = AES_KEY;
-    encParams.aes.pIV               = s_iv;
-    encParams.aes.aadParams.input.len = (size_t)aadLen;
+    encParams.aes.keySize = CryptoCC32XX_AES_KEY_SIZE_128BIT;
+    encParams.aes.pKey    = (uint32_t *)AES_KEY;
+    encParams.aes.pIV     = NULL;
 
-    size_t cipherLen = plainLen;
+    size_t cipherLen = paddedLen;
     int ret = CryptoCC32XX_encrypt(g_cryptoHandle,
-                                   CryptoCC32XX_AES_GCM,
-                                   s_gcmIn, plainLen,
-                                   s_gcmOut, &cipherLen,
+                                   CryptoCC32XX_AES_ECB,
+                                   s_padded, paddedLen,
+                                   s_cipher, &cipherLen,
                                    &encParams);
-    if (ret != CryptoCC32XX_STATUS_SUCCESS || cipherLen != plainLen) {
-        LOG_ERROR("CryptoCC32XX_encrypt(AES_GCM) failed (%d)", ret);
-        return 0;
+    if (ret != CryptoCC32XX_STATUS_SUCCESS) return 0;
+
+    int outlen = 0;
+    size_t i;
+    for (i = 0; i < cipherLen; i++) {
+        if ((size_t)outlen + 3 > outBufSize) return 0;
+        outlen += snprintf(outBuf + outlen, 3, "%02X", s_cipher[i]);
     }
-
-    /* Hex-encode IV || ciphertext || tag into a stack-friendly buffer
-     * inside s_outbuf so we can splice it into the outer envelope. */
-    size_t blobLen = (size_t)GCM_IV_LEN + cipherLen + (size_t)GCM_TAG_LEN;
-    if (blobLen * 2u + 1u > sizeof(s_gcmIn)) return 0;
-    /* Reuse s_gcmIn as a scratch hex buffer now that the encrypt is
-     * done -- saves another file-scope buffer. */
-    char *hexBuf = (char *)s_gcmIn;
-    int p = 0;
-    p += bytes_to_upper_hex(s_iv, GCM_IV_LEN,
-                            hexBuf + p, sizeof(s_gcmIn) - (size_t)p);
-    if (p == 0) return 0;
-    int q = bytes_to_upper_hex(s_gcmOut, cipherLen,
-                               hexBuf + p, sizeof(s_gcmIn) - (size_t)p);
-    if (q == 0) return 0;
-    p += q;
-    q = bytes_to_upper_hex(encParams.aes.aadParams.tag, GCM_TAG_LEN,
-                           hexBuf + p, sizeof(s_gcmIn) - (size_t)p);
-    if (q == 0) return 0;
-    p += q;
-
-    int outLen = snprintf(outBuf, outBufSize,
-        "{\"schema_version\":\"" SCHEMA_VERSION "\","
-        "\"device_id\":\"" DEVICE_ID "\","
-        "\"seq_num\":%lu,\"timestamp_ms\":%lu,"
-        "\"ciphertext\":\"%s\"}",
-        (unsigned long)seq,
-        (unsigned long)ts,
-        hexBuf);
-
-    if (outLen <= 0 || (size_t)outLen >= outBufSize) return 0;
-    return outLen;
+    return outlen;
 }
 
-/* * The Inner Payload Formatter:
- * Builds the *inner* JSON that gets handed to gcm_encrypt_envelope().
+/* * The Payload Formatter:
+ * Builds a JSON telemetry packet with an HMAC-SHA256 tag computed over a
+ * canonical pipe-delimited representation of the data fields.  The HMAC
+ * binds the payload to the device identity and prevents undetected tampering.
  *
- * Schema v2.0.0 (Week 11): inner JSON only carries telemetry fields.
- * device_id / seq_num / timestamp_ms move to the *outer* envelope and
- * are bound to the GCM tag as Additional Authenticated Data (AAD), so
- * the legacy inner HMAC is no longer required.  The CORRUPT fault still
- * flips a byte of the inner JSON pre-encrypt so the host sees an inner
- * parse failure even though the GCM tag itself is valid.
+ * Schema v1.1.0 adds optional pwm_duty_us / pwm_period_us inside the
+ * telemetry object.  These PWM fields are intentionally NOT included in
+ * the HMAC canonical string so v1.0.0 receivers can still validate
+ * integrity without firmware coordination.
  *
  * Returns a "fault" code so the caller knows whether to inject CORRUPT
- * or DROP (skip transmit entirely):
+ * (HMAC will fail at the host) or DROP (skip transmit entirely):
  *   0 = normal, 1 = CORRUPT, 2 = DROP
  */
 #define FAULT_NONE     0
@@ -487,7 +394,9 @@ static int buildTelemetryPayload(char *payloadBuffer, size_t bufferSize,
                                  DHT11_Data_t *sensorData,
                                  uint16_t duty_us, uint16_t period_us)
 {
-    int fault = FAULT_NONE;
+    uint8_t digest[SHA256_DIGEST_SIZE];
+    char    hmac_hex[SHA256_DIGEST_SIZE * 2 + 1];
+    int     fault = FAULT_NONE;
 
     g_seq_num++;
     g_timestamp_ms = (uint32_t)(xTaskGetTickCount() * portTICK_PERIOD_MS);
@@ -497,28 +406,36 @@ static int buildTelemetryPayload(char *payloadBuffer, size_t bufferSize,
         return FAULT_DROP;
     }
 
-    int len = snprintf(payloadBuffer, bufferSize,
+    /* Canonical HMAC string -- PWM fields excluded, matches v1.0.0 contract. */
+    snprintf(s_canonical, sizeof(s_canonical),
+        "%s|%lu|%lu|%.1f|%.1f",
+        DEVICE_ID, g_seq_num, g_timestamp_ms,
+        sensorData->temperature_c, sensorData->humidity);
+
+    /* Fault: CORRUPT -- flip a byte BEFORE HMAC so digest will mismatch. */
+    if ((g_seq_num % FAULT_CORRUPT_EVERY) == 0) {
+        s_canonical[4] ^= 0xFF;
+        fault = FAULT_CORRUPT;
+    }
+
+    hmac_sha256(HMAC_KEY, sizeof(HMAC_KEY),
+                (const uint8_t *)s_canonical, strlen(s_canonical),
+                digest);
+    bytes_to_hex(digest, SHA256_DIGEST_SIZE, hmac_hex);
+
+    snprintf(payloadBuffer, bufferSize,
         "{\"schema_version\":\"" SCHEMA_VERSION "\","
+        "\"device_id\":\"" DEVICE_ID "\","
+        "\"seq_num\":%lu,\"timestamp_ms\":%lu,"
         "\"telemetry\":{"
             "\"temperature_c\":%.1f,\"humidity\":%.1f,"
             "\"pwm_duty_us\":%u,\"pwm_period_us\":%u"
-        "}}",
+        "},"
+        "\"hmac\":\"%s\"}",
+        g_seq_num, g_timestamp_ms,
         sensorData->temperature_c, sensorData->humidity,
-        (unsigned)duty_us, (unsigned)period_us);
-    if (len <= 0 || (size_t)len >= bufferSize) {
-        return FAULT_DROP;
-    }
-
-    /* Fault: CORRUPT -- flip a byte of the inner JSON before encryption.
-     * GCM still produces a valid tag over the corrupted bytes, so the
-     * host decrypt succeeds; the inner JSON.parse() fails and the host
-     * logs a [JSON FAIL] row equivalent to the v1.x [HMAC FAIL]. */
-    if ((g_seq_num % FAULT_CORRUPT_EVERY) == 0) {
-        if (len > 4) {
-            payloadBuffer[4] ^= 0xFF;
-        }
-        fault = FAULT_CORRUPT;
-    }
+        (unsigned)duty_us, (unsigned)period_us,
+        hmac_hex);
 
     return fault;
 }
@@ -1006,10 +923,10 @@ void mainThread(void * args)
 
     GPIO_write(CONFIG_GPIO_LED_0, CONFIG_GPIO_LED_OFF);
 
-    /* === Week 11: open DTHE hardware crypto handle for AES-128-GCM === */
+    /* === Week 10 merge: open DTHE hardware crypto handle === */
     g_cryptoHandle = CryptoCC32XX_open(CONFIG_Crypto_0, CryptoCC32XX_AES);
     if (g_cryptoHandle == NULL) {
-        LOG_ERROR("CryptoCC32XX_open failed -- AES-GCM unavailable");
+        LOG_ERROR("CryptoCC32XX_open failed -- AES unavailable");
         while (1) {}
     }
 
@@ -1171,39 +1088,36 @@ MQTT_DEMO:
                 /* 2. Read sensor (simulated DHT11). */
                 if (DHT11_Read(&currentData) == 0) {
 
-                    /* 3. Build the inner telemetry JSON. May inject
-                     *    CORRUPT (byte-flip) or DROP (skip). */
-                    int fault = buildTelemetryPayload(s_innerJson,
-                                                     sizeof(s_innerJson),
+                    /* 3. Build JSON v1.1.0 + HMAC. May inject CORRUPT/DROP. */
+                    int fault = buildTelemetryPayload(s_jsonPayload,
+                                                     sizeof(s_jsonPayload),
                                                      &currentData,
                                                      dutyNow,
                                                      MOTOR_PERIOD_US);
 
                     if (fault == FAULT_DROP) {
-                        /* Skip MQTT publish entirely -- broker sees seq gap. */
+                        /* Skip MQTT publish AND UART emit -- broker sees seq gap. */
                         UART_PRINT("[FAULT] DROP seq=%u\r\n", (unsigned)g_seq_num);
                     } else {
                         if (fault == FAULT_CORRUPT) {
-                            UART_PRINT("[FAULT] CORRUPT seq=%u (inner JSON parse will fail at host)\r\n",
+                            UART_PRINT("[FAULT] CORRUPT seq=%u (HMAC will fail at host)\r\n",
                                        (unsigned)g_seq_num);
                         }
 
-                        /* 4. AES-128-GCM encrypt + wrap in outer envelope. */
-                        int outLen = gcm_encrypt_envelope(s_innerJson,
-                                                          strlen(s_innerJson),
-                                                          g_seq_num,
-                                                          g_timestamp_ms,
-                                                          s_outbuf,
-                                                          sizeof(s_outbuf));
-                        if (outLen > 0) {
-                            /* 5. Publish authenticated envelope over MQTT/TLS. */
+                        /* 4. AES-128-ECB encrypt the JSON payload. */
+                        int hexLen = aes_encrypt_hex(s_jsonPayload,
+                                                    strlen(s_jsonPayload),
+                                                    s_outbuf,
+                                                    sizeof(s_outbuf));
+                        if (hexLen > 0) {
+                            /* 5. Publish ciphertext over MQTT/TLS to the broker. */
                             MQTT_IF_Publish(mqttClientHandle,
                                             "cc32xx/telemetry",
                                             s_outbuf,
-                                            outLen,
+                                            hexLen,
                                             MQTT_QOS_2);
                         } else {
-                            LOG_ERROR("AES-GCM encrypt failed seq=%u",
+                            LOG_ERROR("AES encrypt failed seq=%u",
                                       (unsigned)g_seq_num);
                         }
 

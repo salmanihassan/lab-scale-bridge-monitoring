@@ -71,11 +71,7 @@ the host.
 ### Host-side verification (`host_receiver.py`)
 
 1. Extracts all data fields and the `hmac` tag from the received JSON
-2. Reconstructs the same canonical string with
-   `f"{device_id}|{seq}|{ts}|{temp:.1f}|{hum:.1f}|{duty}|{period}"`
-   (v1.1.0 widens the canonical to include `pwm_duty_us` /
-   `pwm_period_us`; missing PWM fields default to `0` on both signer
-   and verifier so v1.0.0 packets without them keep validating)
+2. Reconstructs the same canonical string with `f"{device_id}|{seq}|{ts}|{temp:.1f}|{hum:.1f}"`
 3. Computes the expected HMAC using Python's `hmac.new(key, msg, sha256)`
 4. Uses `hmac.compare_digest()` for timing-safe comparison
 5. Logs `[HMAC OK]` or `[HMAC FAIL: <reason>]` per packet

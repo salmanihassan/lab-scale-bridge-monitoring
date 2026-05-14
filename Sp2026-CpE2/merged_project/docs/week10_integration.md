@@ -1,14 +1,5 @@
 # Week 10 -- Integration with CpE-1 Secure Firmware
 
-> **Status -- SUPERSEDED by Week 11 (schema v2.0.0).**  The AES-128-ECB
-> transport and inner HMAC-SHA256 layer described below were replaced
-> in Week 11 by a single hardware-accelerated AES-128-GCM (AEAD) layer.
-> The current wire format and design rationale live in
-> [`week11_gcm.md`](week11_gcm.md); this document is preserved as a
-> historical record of the integration milestone.  Sections below that
-> reference the v1.1.0 ECB+HMAC stack are no longer accurate for the
-> running firmware.
-
 This document is the Spring 2026 Week 10 deliverable for the CpE-2 stream:
 **integration notes for the merged CpE-1 + CpE-2 secure firmware**.  It
 captures the design decisions, the interface mismatches that had to be
@@ -39,7 +30,7 @@ interfaces by design:
 | Layer                | CpE-1 firmware                                           | CpE-2 firmware (pre-merge)                              | Status      |
 |----------------------|----------------------------------------------------------|----------------------------------------------------------|-------------|
 | HMAC PSK             | 32-byte `MySecureDigitalTwinKey2026!@#$%^` in `hmac_auth.h` | Same 32-byte PSK in `hmac_auth.h`                       | Identical   |
-| HMAC canonical       | `device_id\|seq_num\|timestamp_ms\|temperature_c\|humidity` | `device_id\|seq_num\|timestamp_ms\|temperature_c\|humidity` | Aligned (PWM coverage added in v1.1.0; both sides updated) |
+| HMAC canonical       | `device_id\|seq_num\|timestamp_ms\|temperature_c\|humidity` | `device_id\|seq_num\|timestamp_ms\|temperature_c\|humidity` | Identical |
 | Device id            | `CC3220SF_NODE_01`                                       | `CC3220SF_NODE_01`                                       | Identical   |
 | Schema header fields | `schema_version` / `device_id` / `seq_num` / `timestamp_ms` | Same                                                    | Identical   |
 
@@ -50,7 +41,7 @@ The interfaces that **did not match** and had to be reconciled:
 | Transport                           | UART2 only, `[AES] <hex>` prefix                                        | MQTT/TLS only, plaintext JSON                      | Single transport: firmware publishes raw uppercase hex ciphertext over MQTT/TLS only.  UART2 retained for board console + future UART-protocol sensors -- no telemetry. |
 | Payload encryption                  | AES-128-ECB inside firmware (DTHE hardware)                             | None (TLS terminates at broker, broker sees JSON)  | Adopt AES-128-ECB inside the MQTT payload -- defense-in-depth so the broker host process never sees plaintext telemetry even if the TLS session is replaced by a `mosquitto_pub` injection. |
 | Schema telemetry fields             | `temperature_c`, `humidity`, `pwm_duty_us`, `pwm_period_us`             | `temperature_c`, `humidity` only                   | Bump schema to **v1.1.0**; PWM fields added as **optional** members of `telemetry`.  `host_receiver.py` accepts both versions.    |
-| HMAC canonical (PWM coverage)       | Excluded                                                                | Excluded                                           | Now **included** in v1.1.0 canonical (`...\|pwm_duty_us\|pwm_period_us`).  Both signer and verifier 0-default missing PWM fields, so v1.0.0 packets without PWM keep validating without coordination. |
+| HMAC canonical (PWM coverage)       | Excluded                                                                | Excluded                                           | Keep excluded; v1.0.0 HMAC contract is preserved verbatim.                                                                         |
 | Publish rate                        | 3000 ms per packet                                                      | 250 ms per packet (4 Hz)                           | Standardize on 3000 ms.  The host-side timing monitor is already a rolling-window z-score and adapts.                              |
 | PWM motor pin (`boosterpack.9/10`)  | Claimed by `CONFIG_PWM_0`                                               | Claimed by `CONFIG_GPIO_LED_1` / `CONFIG_GPIO_LED_2` | Drop the LED_1 / LED_2 GPIO instances; reassign the pins to PWM_0 in [`mqtt_client.syscfg`](../mqtt_client.syscfg).                |
 | Fault injection                     | CORRUPT / DROP / DELAY in firmware                                      | None                                               | Adopt CpE-1 cadence (every 10 / 15 / 20) inside the publish loop.  Used to drive the Week 10 demo.                                 |
@@ -61,7 +52,7 @@ The interfaces that **did not match** and had to be reconciled:
 ```mermaid
 flowchart LR
   build["Build JSON v1.1.0"]
-  hmac["HMAC-SHA256<br/>(canonical: device_id|seq|ts|temp|hum|duty|period)"]
+  hmac["HMAC-SHA256<br/>(canonical: device_id|seq|ts|temp|hum)"]
   aes["AES-128-ECB encrypt<br/>(DTHE hardware, PKCS7 pad)"]
   hex["Uppercase hex encode"]
   pub["MQTT publish<br/>cc32xx/telemetry, QoS 2"]
@@ -93,19 +84,14 @@ Inner JSON (v1.1.0):
 }
 ```
 
-HMAC canonical string (v1.1.0 contract -- now binds PWM duty / period):
+HMAC canonical string (unchanged from v1.0.0):
 
 ```
-CC3220SF_NODE_01|4271|12813000|25.1|47.8|9000|10000
+CC3220SF_NODE_01|4271|12813000|25.1|47.8
 ```
 
-PWM fields are **bound** to the HMAC in v1.1.0 so motor-command tampering
-is also caught by the integrity check.  Receivers default missing PWM
-fields to 0 (signers likewise), so v1.0.0 packets without PWM continue
-to validate without coordination.  This is an intentional deviation
-from the "minor schema bumps preserve the canonical string" rule in
-[`docs/week9_schema.md`](week9_schema.md): widening the canonical was
-worth it because the PWM bytes drive a physical actuator.
+PWM fields are **deliberately excluded** from the HMAC so that v1.0.0
+receivers continue to validate v1.1.0 packets without coordination.
 
 ## 4. SysConfig changes ([mqtt_client.syscfg](../mqtt_client.syscfg))
 
@@ -198,7 +184,7 @@ helper that produces real AES-128-ECB ciphertext lines.  New tests:
 - `test_integrity.py` Test 5 -- end-to-end AES wire-format roundtrip
   (encrypt, hex-encode, decrypt, verify HMAC).
 - `test_schema.py` Test 3b -- v1.1.0 packet acceptance and confirmation
-  that PWM fields are bound to the HMAC (v1.1.0 contract).
+  that PWM fields are excluded from the HMAC.
 - `test_schema.py` Test 5 -- AES-wrapped v1.1.0 broker roundtrip.
 
 ## 7. End-to-end secure streaming demo

@@ -8,94 +8,6 @@ schema starting at v1.0.0.
 
 ---
 
-## [2.0.0] -- 2026-05-02 (Week 11: AES-128-GCM AEAD Upgrade) -- BREAKING
-
-Replaces the Week 10 AES-128-ECB + inner HMAC-SHA256 stack with a single
-hardware-accelerated AES-128-GCM (AEAD) layer on the CC3220SF DTHE crypto
-engine.  The GCM authentication tag now provides both ciphertext integrity
-and identity / replay metadata authentication via Additional Authenticated
-Data (AAD), making the inner HMAC-SHA256 redundant -- it has been removed.
-
-### BREAKING
-- Wire format changed from raw uppercase hex (PKCS7-padded ECB ciphertext)
-  to a plaintext outer JSON envelope containing the ciphertext as a hex
-  string field.  v1.x firmware and v1.x test harnesses no longer interop
-  with the v2.0.0 broker; everything must be upgraded together.
-- Inner JSON schema dropped `device_id`, `seq_num`, `timestamp_ms`, and
-  `hmac` fields -- those moved to the outer envelope (and the `hmac` field
-  is gone entirely; GCM tag replaces it).
-- `host_receiver.py` `SUPPORTED_SCHEMA_VERSIONS` is now `{"2.0.0"}`; the
-  `legacy` (no-version) acceptance path was removed because every wire
-  packet must now be a v2.0.0 envelope.
-
-### Added
-- `gcm_encrypt_envelope()` in `mqtt_client_app.c` -- hardware AES-128-GCM
-  via `CryptoCC32XX_encrypt(handle, CryptoCC32XX_AES_GCM, ...)` (DTHE
-  block, mode `AES_CFG_MODE_GCM_HY0CALC`).
-- `gcm_get_random()` -- pulls 12-byte GCM nonces from the CC3220SF NWP
-  TRNG via `sl_NetUtilGet(SL_NETUTIL_TRUE_RANDOM, ...)`.  Same entropy
-  source mbedtls uses for `mbedtls_hardware_poll()` inside the SDK.
-- `decrypt_gcm_envelope()` in `host_receiver.py` -- uses `cryptography`
-  package's `AESGCM` AEAD primitive.
-- `gcm_wrap()` test helper in `test_integrity.py`, `test_schema.py`, and
-  `test_freshness.py` so tests publish the same wire format the firmware
-  produces.
-- `docs/week11_gcm.md` -- wire-format spec, AAD canonical form, hardware
-  API call shape, and TRNG sourcing rationale.
-- `inner_parse_fail` counter on the broker for the "GCM-verified but
-  inner JSON corrupt" case (firmware CORRUPT fault path under v2.0.0).
-- New CSV freshness statuses: `GCM_FAIL`, `INNER_PARSE_FAIL`.
-
-### Changed
-- `SCHEMA_VERSION` bumped to `"2.0.0"`.
-- MCU firmware (`mqtt_client_app.c`):
-  - Removed `#include "hmac_auth.h"` and all HMAC-SHA256 compute calls
-    from the publish path.  The `hmac_auth.h` header file is left in
-    place so other modules that may use it still compile.
-  - Removed `pkcs7_pad()` and `aes_encrypt_hex()` (ECB stack).
-  - `buildTelemetryPayload()` now emits ONLY the inner JSON
-    (`schema_version` + `telemetry`).  Identity / replay metadata is
-    appended by `gcm_encrypt_envelope()` as the outer envelope and
-    bound to the GCM tag as AAD.
-  - CORRUPT fault now flips a byte of the inner JSON pre-encrypt
-    (host sees `[JSON FAIL]` -- GCM tag valid, inner parse fails)
-    instead of the legacy "HMAC mismatch" path.
-- `host_receiver.py`:
-  - Replaced `pycryptodome` (`Crypto.Cipher.AES`, `Crypto.Util.Padding`)
-    with `cryptography` (`cryptography.hazmat.primitives.ciphers.aead.AESGCM`).
-  - Removed `verify_hmac()` -- GCM tag now provides AEAD over both the
-    encrypted telemetry and the AAD-bound metadata.
-  - CSV column `HMAC_Verified` renamed to `GCM_Verified`.
-  - Counters renamed: `hmac_pass` -> `gcm_pass`, `hmac_fail` -> `gcm_fail`.
-  - Removed leading-character JSON-vs-hex discriminator: every payload
-    is now a JSON envelope (with hex ciphertext nested as a string).
-
-### Removed
-- AES-128-ECB transport (insecure: deterministic, no integrity).
-- PKCS7 padding helper.
-- Inner `hmac` JSON field and the `verify_hmac()` host-side check.
-- The `legacy` (missing `schema_version`) acceptance path on the host.
-
-### Design decisions
-- AAD canonical form mirrors the v1.x HMAC canonical's first three
-  fields verbatim: `"<device_id>|<seq_num>|<timestamp_ms>"`.  Tampering
-  with any of those plaintext outer-envelope fields fails GCM
-  verification on the host -- the GCM tag thus binds identity and
-  replay metadata even though they ride in plaintext for inspectability.
-- Random per-publish nonces from the NWP TRNG keep the GCM nonce-reuse
-  budget at `2^96` per key, well within safe limits for telemetry rates.
-  No persistent counter state is required across reboots.
-- Key length stays at 128-bit (matching the existing 16-byte `AES_KEY`).
-  Promoting to AES-256 later is a one-line change to `keySize` plus a
-  32-byte key array on both sides.
-- The CC3220SF NWP TRNG (`SL_NETUTIL_TRUE_RANDOM`, option 3 in
-  `netutil.h`) is the same entropy source `mbedtls_hardware_poll()` uses
-  inside the SDK -- it requires the NWP to be powered up, so
-  `gcm_encrypt_envelope()` is only called from inside the publish loop
-  after `WIFI_IF_init()` / `SlNetConn_start()`.
-
----
-
 ## [1.1.0] -- 2026-05-01 (Week 10: Integration with Secure Firmware)
 
 Merge of CpE-1 secure firmware (PWM motor driver, AES-128-ECB hardware
@@ -106,11 +18,8 @@ is preserved for reference only.
 
 ### Added
 - `pwm_duty_us` and `pwm_period_us` as optional fields inside
-  `telemetry`.  v1.1.0 widens the HMAC canonical string to bind these
-  PWM fields (`...|temperature_c|humidity|pwm_duty_us|pwm_period_us`)
-  so motor-command tampering is also caught by the integrity check.
-  Both signer and verifier default missing PWM fields to 0, so v1.0.0
-  packets without PWM continue to validate without coordination.
+  `telemetry`.  HMAC canonical string is unchanged from v1.0.0 so
+  v1.0.0 receivers continue to validate v1.1.0 packets.
 - AES-128-ECB encryption of the JSON payload in firmware using the
   CC3220SF DTHE hardware block (`CryptoCC32XX_AES`).  Wire format is
   raw uppercase hex ciphertext published over MQTT/TLS to
@@ -160,13 +69,9 @@ is preserved for reference only.
 - Single transport: telemetry is published over MQTT/TLS only.  UART
   is reserved for the board console, `[FAULT]` diagnostics, and any
   future UART-protocol sensor reads -- no telemetry over UART.
-- PWM telemetry fields are **bound** to the HMAC canonical string in
-  v1.1.0 so any tampering with motor commands is also caught by the
-  integrity check.  Backward compat is preserved by 0-defaulting
-  missing PWM fields on both signer and verifier.  This is an
-  intentional deviation from the Week 9 rule that minor schema bumps
-  preserve the canonical string verbatim -- the PWM bytes drive a
-  physical actuator and warrant coverage.
+- PWM telemetry fields are excluded from the HMAC canonical string so
+  the v1.0.0 contract is preserved verbatim and minor schema bumps do
+  not require firmware/host coordination.
 - Fault injection is intentionally always-on for the Week 10 demo so
   the broker pipeline visibly catches each failure mode (CORRUPT ->
   HMAC fail, DROP -> seq gap, DELAY -> timing z-score spike).
