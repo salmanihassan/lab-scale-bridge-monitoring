@@ -122,7 +122,7 @@ static const uint8_t AES_KEY[16] = {
     0x4C,0x61,0x62,0x4B,0x65,0x79,0x31,0x32
 };
 
-// #define MQTT_SECURE_CLIENT
+#define MQTT_SECURE_CLIENT
 
 #define MQTT_MODULE_TASK_PRIORITY   2
 #define MQTT_MODULE_TASK_STACK_SIZE 2048
@@ -262,13 +262,13 @@ MQTTClient_ConnParams mqttConnParams =
  */
 
 /* Day of month (DD format) range 1-31                                       */
-#define DAY                      17
+#define DAY                      15
 /* Month (MM format) in the range of 1-12                                    */
-#define MONTH                    4
+#define MONTH                    5
 /* Year (YYYY format)                                                        */
 #define YEAR                     2026
 /* Hours in the range of 0-23                                                */
-#define HOUR                     12
+#define HOUR                     0
 /* Minutes in the range of 0-59                                              */
 #define MINUTES                  00
 /* Seconds in the range of 0-59                                              */
