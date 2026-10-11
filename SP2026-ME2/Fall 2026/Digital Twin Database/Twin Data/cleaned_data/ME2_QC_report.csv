@@ -1,0 +1,250 @@
+test_id,filename,source_subfolder,qc_status,qc_notes,raw_rows,clean_rows,malformed_rows,bad_timestamps,flagged_accel_values,flagged_temp_values,flagged_loadcell_values
+THERMAL_01_PART1,first half of temp data.xlsx,,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,16062,16057,5,0,50,8,8
+THERMAL_01_PART2,second half of temp data.xlsx,,CHECK,1 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,22489,22488,1,0,5552,7,18
+T0253,ME2_T0253_L00_P00_V03_TEMP01_WIND.xlsx,10_9_Wind&Impact,CHECK,11 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,9668,9657,11,0,1867,0,2
+T0254,ME2_T0254_L00_P00_V03_TEMP01_WIND.xlsx,10_9_Wind&Impact,CHECK,16 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,10465,10449,16,0,794,3,0
+T0255,ME2_T0255_L00_P00_V00_TEMP01_IMPACT.xlsx,10_9_Wind&Impact,CHECK,7 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,5350,5343,7,0,1871,0,2
+T0256,ME2_T0256_L00_P00_V00_TEMP01_WIND.xlsx,10_9_Wind&Impact,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2340,2334,6,0,1698,0,1
+T0257,ME2_T0257_L00_P00_V00_TEMP01_IMPACT.xlsx,10_9_Wind&Impact,CHECK,9 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,4020,4011,9,0,2458,1,1
+T0258,ME2_T0258_L00_P00_V00_TEMP00_IMPACT.xlsx,10_9_Wind&Impact,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2270,2265,5,0,1439,0,3
+T0049,ME2_T0049_L01_PL_V01_TEMP01.csv.xlsx,911_data,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3152,3146,6,0,1872,3,1
+T0050,ME2_T0050_L01_PL_V01_TEMP01.csv.xlsx,911_data,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2852,2849,3,0,1611,0,0
+T0051,ME2_T0051_L01_PL_V01_TEMP01.csv.xlsx,911_data,CHECK,2 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3196,3194,2,0,1838,0,1
+T0052,ME2_T0052_L01_PL_V02_TEMP01.csv.xlsx,911_data,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,4069,4063,6,0,2299,0,1
+T0053,ME2_T0053_L01_PL_V02_TEMP01.xlsx,911_data,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3230,3225,5,0,1902,0,1
+T0054,ME2_T0054_L01_PL_V02_TEMP01.xlsx,911_data,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3058,3053,5,0,1981,1,1
+T0055,ME2_T0055_L01_PL_V03_TEMP01.xlsx,911_data,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3097,3092,5,0,1371,0,0
+T0056,ME2_T0056_L01_PL_V03_TEMP01.csv.xlsx,911_data,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2992,2989,3,0,1338,1,0
+T0057,ME2_T0057_L01_PL_V03_TEMP01.xlsx,911_data,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3172,3168,4,0,1291,0,1
+T0058,ME2_T0058_L01_PC_V01_TEMP01.csv.xlsx,911_data,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3108,3104,4,0,2555,0,1
+T0059,ME2_T0059_L01_PC_V01_TEMP01.xlsx,911_data,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3345,3342,3,0,2784,1,1
+T0060,ME2_T0060_L01_PC_V01_TEMP01.xlsx,911_data,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2973,2967,6,0,2426,0,0
+T0061,ME2_T0061_L01_PC_V02_TEMP01.xlsx,911_data,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3040,3037,3,0,2504,1,2
+T0062,ME2_T0062_L01_PC_V02_TEMP01.xlsx,911_data,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2948,2943,5,0,2240,2,0
+T0063,ME2_T0063_L01_PC_V02_TEMP01.xlsx,911_data,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2984,2979,5,0,2469,0,0
+T0064,ME2_T0064_L01_PC_V03_TEMP01.xlsx,911_data,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3067,3064,3,0,1630,4,0
+T0065,ME2_T0065_L01_PC_V03_TEMP01.xlsx,911_data,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2933,2928,5,0,1459,0,1
+T0066,ME2_T0066_L01_PC_V03_TEMP01.xlsx,911_data,CHECK,7 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3139,3132,7,0,1581,1,0
+T0067,ME2_T0067_L01_PR_V01_TEMP01.xlsx,911_data,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3511,3505,6,0,2346,1,1
+T0068,ME2_T0068_L01_PR_V01_TEMP01.xlsx,911_data,CHECK,9 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3088,3079,9,0,2343,0,0
+T0069,ME2_T0069_L01_PR_V01_TEMP01.xlsx,911_data,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3197,3193,4,0,2283,0,0
+T0070,ME2_T0070_L01_PR_V02_TEMP01.xlsx,911_data,CHECK,2 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,4204,4202,2,0,2604,1,0
+T0071,ME2_T0071_L01_PR_V02_TEMP01.xlsx,911_data,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2958,2955,3,0,2160,1,0
+T0072,ME2_T0072_L01_PR_V02_TEMP01.xlsx,911_data,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2971,2968,3,0,2293,0,0
+T0073,ME2_T0073_L01_PR_V03_TEMP01.xlsx,911_data,CHECK,18 malformed/header rows removed | 1 timestamp resets detected | 3663 records outside longest segment omitted | Irregular sampling intervals | Large timestamp gaps | Excessive timestamp-related record loss,13726,10045,18,1,7128,0,1
+T0074,ME2_T0074_L01_PR_V03_TEMP01.xlsx,911_data,CHECK,1 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3436,3435,1,0,1334,1,0
+T0075,ME2_T0075_L01_PR_V03_TEMP01.xlsx,911_data,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3035,3029,6,0,1303,1,1
+T0076,ME2_T0076_L02_PL_V01_TEMP01.xlsx,911_data,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3314,3311,3,0,2536,0,0
+T0077,ME2_T0077_L02_PL_V01_TEMP01.xlsx,911_data,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,4317,4312,5,0,3297,0,1
+T0078,ME2_T0078_L02_PL_V01_TEMP01.xlsx,911_data,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3142,3138,4,0,2570,0,0
+T0079,ME2_T0079_L02_PL_V02_TEMP01.xlsx,911_data,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,4301,4295,6,0,2895,0,1
+T0080,ME2_T0080_L02_PL_V02_TEMP01.xlsx,911_data,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3071,3067,4,0,2138,1,0
+T0081,ME2_T0081_L02_PL_V02_TEMP01.csv.xlsx,911_data,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3140,3137,3,0,2218,0,0
+T0082,ME2_T0082_L02_PL_V03_TEMP01.xlsx,911_data,CHECK,9 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,4046,4037,9,0,2514,1,2
+T0083,ME2_T0083_L02_PL_V03_TEMP01.xlsx,911_data,CHECK,7 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2893,2886,7,0,1881,0,0
+T0084,ME2_T0084_L02_PL_V03_TEMP01.xlsx,911_data,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2831,2825,6,0,2001,1,0
+T0085,ME2_T0085_L02_PC_V01_TEMP01.xlsx,911_data,CHECK,8 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3114,3106,8,0,2526,0,1
+T0086,ME2_T0086_L02_PC_V01_TEMP01.xlsx,911_data,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3127,3124,3,0,2412,1,0
+T0087,ME2_T0087_L02_PC_V01_TEMP01.xlsx,911_data,CHECK,7 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3128,3121,7,0,2420,1,1
+T0088,ME2_T0088_L02_PC_V02_TEMP01.xlsx,911_data,CHECK,16 malformed/header rows removed | 1 timestamp resets detected | 3019 records outside longest segment omitted | Irregular sampling intervals | Large timestamp gaps | Excessive timestamp-related record loss,11358,8323,16,1,6431,1,1
+T0089,ME2_T0089_L02_PC_V02_TEMP01.xlsx,911_data,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2964,2960,4,0,1917,0,2
+T0090,ME2_T0090_L02_PC_V02_TEMP01.xlsx,911_data,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3347,3342,5,0,2204,0,1
+T0091,ME2_T0091_L02_PC_V03_TEMP01.xlsx,911_data,CHECK,9 malformed/header rows removed | 1 timestamp resets detected | 3093 records outside longest segment omitted | Irregular sampling intervals | Large timestamp gaps | Excessive timestamp-related record loss,9120,6018,9,1,3926,0,1
+T0092,ME2_T0092_L02_PC_V03_TEMP01.xlsx,911_data,CHECK,2 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3001,2999,2,0,806,2,0
+T0093,ME2_T0093_L02_PC_V03_TEMP01.xlsx,911_data,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3010,3004,6,0,773,1,0
+T0094,ME2_T0094_L02_PR_V01_TEMP01.xlsx,911_data,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3067,3063,4,0,2337,1,0
+T0095,ME2_T0095_L02_PR_V01_TEMP01.xlsx,911_data,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2994,2991,3,0,2352,0,0
+T0096,ME2_T0096_L02_PR_V01_TEMP01.xlsx,911_data,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3217,3212,5,0,2449,0,1
+T0097,ME2_T0097_L02_PR_V02_TEMP01.xlsx,911_data,CHECK,1 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3107,3106,1,0,2107,0,0
+T0098,ME2_T0098_L02_PR_V02_TEMP01.xlsx,911_data,CHECK,7 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2992,2985,7,0,1953,2,0
+T0099,ME2_T0099_L02_PR_V02_TEMP01.xlsx,911_data,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3023,3018,5,0,2047,0,0
+T0100,ME2_T0100_L02_PR_V03_TEMP01.xlsx,911_data,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3491,3487,4,0,1011,0,1
+T0101,ME2_T0101_L02_PR_V03_TEMP01.xlsx,911_data,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3034,3028,6,0,916,0,0
+T0102,ME2_T0102_L02_PR_V03_TEMP01.xlsx,911_data,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3315,3311,4,0,973,0,2
+T0103,ME2_T0103_L03_PL_V01_TEMP01.xlsx,911_data,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3009,3004,5,0,1801,0,1
+T0104,ME2_T0104_L03_PL_V01_TEMP01.xlsx,911_data,CHECK,8 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3058,3050,8,0,1694,0,1
+T0105,ME2_T0105_L03_PL_V01_TEMP01.xlsx,911_data,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3196,3191,5,0,1703,0,1
+T0106,ME2_T0106_L03_PL_V02_TEMP01.csv.xlsx,911_data,CHECK,7 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3362,3355,7,0,1726,1,1
+T0107,ME2_T0107_L03_PL_V02_TEMP01.xlsx,911_data,CHECK,9 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3361,3352,9,0,1855,0,0
+T0108,ME2_T0108_L03_PL_V02_TEMP01.csv.xlsx,911_data,CHECK,2 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3015,3013,2,0,1810,0,0
+T0109,ME2_T0109_L03_PL_V03_TEMP01.xlsx,911_data,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3359,3355,4,0,265,0,2
+T0110,ME2_T0110_L03_PL_V03_TEMP01.xlsx,911_data,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3118,3113,5,0,226,0,0
+T0111,ME2_T0111_L03_PL_V03_TEMP01.xlsx,911_data,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3051,3047,4,0,268,0,2
+T0112,ME2_T0112_L03_PC_V01_TEMP01.xlsx,911_data,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3292,3288,4,0,2755,0,2
+T0113,ME2_T0113_L03_PC_V01_TEMP01.xlsx,911_data,CHECK,1 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3092,3091,1,0,2490,0,0
+T0114,ME2_T0114_L03_PC_V01_TEMP01.xlsx,911_data,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3540,3535,5,0,3008,0,1
+T0115,ME2_T0115_L03_PC_V02_TEMP01.xlsx,911_data,CHECK,11 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,4160,4149,11,0,3308,2,2
+T0116,ME2_T0116_L03_PC_V02_TEMP01.xlsx,911_data,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3501,3497,4,0,2661,0,0
+T0117,ME2_T0117_L03_PC_V02_TEMP01.xlsx,911_data,CHECK,7 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3187,3180,7,0,2464,0,0
+T0118,ME2_T0118_L03_PC_V03_TEMP01.csv.xlsx,911_data,CHECK,8 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2986,2978,8,0,368,0,1
+T0119,ME2_T0119_L03_PC_V03_TEMP01.xlsx,911_data,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3620,3614,6,0,454,0,0
+T0120,ME2_T0120_L03_PC_V03_TEMP01.xlsx,911_data,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3212,3208,4,0,193,0,1
+T0121,ME2_T0121_L03_PR_V01_TEMP01.xlsx,911_data,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3055,3050,5,0,2381,0,0
+T0122,ME2_T0122_L03_PR_V01_TEMP01.xlsx,911_data,CHECK,9 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2922,2913,9,0,2458,2,0
+T0123,ME2_T0123_L03_PR_V01_TEMP01.xlsx,911_data,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3098,3094,4,0,2619,0,0
+T0124,ME2_T0124_L03_PR_V02_TEMP01.xlsx,911_data,CHECK,9 malformed/header rows removed | 1 timestamp resets detected | 3376 records outside longest segment omitted | Irregular sampling intervals | Large timestamp gaps | Excessive timestamp-related record loss,9238,5853,9,1,4617,0,1
+T0125,ME2_T0125_L03_PR_V02_TEMP01.xlsx,911_data,CHECK,2 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3041,3039,2,0,2044,1,0
+T0126,ME2_T0126_L03_PR_V02_TEMP01.xlsx,911_data,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3119,3114,5,0,1987,1,1
+T0127,ME2_T0127_L03_PR_V03_TEMP01.xlsx,911_data,CHECK,3 malformed/header rows removed | 1 timestamp resets detected | 1720 records outside longest segment omitted | Irregular sampling intervals | Large timestamp gaps | Excessive timestamp-related record loss,5089,3366,3,1,287,0,1
+T0128,ME2_T0128_L03_PR_V03_TEMP01.xlsx,911_data,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3142,3137,5,0,446,1,1
+T0129,ME2_T0129_L03_PR_V03_TEMP01.xlsx,911_data,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3040,3037,3,0,357,0,0
+T0167,T0167_L02_PL_V00_TEMP01.xlsx,918 load variation,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3014,3011,3,0,1052,1,1
+T0168,T0168_L02_PL_V00_TEMP01.csv.xlsx,918 load variation,CHECK,8 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2976,2968,8,0,1064,0,0
+T0169,T0169_L02_PL_V00_TEMP01.xlsx,918 load variation,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2854,2850,4,0,1111,0,0
+T0170,T0170_L02_PC_V00_TEMP01.xlsx,918 load variation,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3023,3020,3,0,2318,0,0
+T0171,T0171_L02_PC_V00_TEMP01.xlsx,918 load variation,CHECK,8 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3159,3151,8,0,2481,0,0
+T0172,T0172_L02_PC_V00_TEMP01.xlsx,918 load variation,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3118,3112,6,0,2220,1,1
+T0173,T0173_L02_PR_V00_TEMP01.xlsx,918 load variation,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3044,3039,5,0,2088,2,0
+T0174,T0174_L02_PR_V00_TEMP01.csv.xlsx,918 load variation,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3312,3306,6,0,2351,0,2
+T0175,T0175_L02_PR_V00_TEMP01.xlsx,918 load variation,CHECK,2 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3005,3003,2,0,2022,0,0
+T0176,T0176_L03_PL_V00_TEMP01.xlsx,918 load variation,CHECK,7 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3047,3040,7,0,1974,0,0
+T0177,T0177_L03_PL_V00_TEMP01.xlsx,918 load variation,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3022,3019,3,0,1932,0,1
+T0178,T0178_L03_PL_V00_TEMP01.xlsx,918 load variation,CHECK,1 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2943,2942,1,0,1996,0,0
+T0179,T0179_L03_PC_V00_TEMP01.xlsx,918 load variation,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2955,2949,6,0,2290,0,0
+T0180,T0180_L03_PC_V00_TEMP01.xlsx,918 load variation,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3204,3199,5,0,2611,0,1
+T0181,T0181_L03_PC_V00_TEMP01.xlsx,918 load variation,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2897,2894,3,0,2133,0,0
+T0182,T0182_L03_PR_V00_TEMP01.xlsx,918 load variation,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3082,3079,3,0,2245,0,0
+T0183,T0183_L03_PR_V00_TEMP01.xlsx,918 load variation,CHECK,7 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2893,2886,7,0,2027,0,1
+T0184,T0184_L03_PR_V00_TEMP01.xlsx,918 load variation,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3332,3329,3,0,2294,1,0
+T0133,T0133_L00_P00_V01_TEMP01.xlsx,918 vibration variation,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3759,3754,5,0,2642,0,0
+T0134,T0134_L00_P00_V01_TEMP01.xlsx,918 vibration variation,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3146,3142,4,0,1805,1,1
+T0135,T0135_L00_P00_V01_TEMP01.xlsx,918 vibration variation,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3042,3037,5,0,2007,0,1
+T0136,T0136_L00_P00_V02_TEMP01.xlsx,918 vibration variation,CHECK,1 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3202,3201,1,0,1380,0,1
+T0137,T0137_L00_P00_V02_TEMP01.xlsx,918 vibration variation,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2956,2950,6,0,1386,0,0
+T0138,T0138_L00_P00_V02_TEMP01.xlsx,918 vibration variation,CHECK,7 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2953,2946,7,0,1303,1,0
+T0139,T0139_L00_P00_V03_TEMP01.xlsx,918 vibration variation,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3370,3365,5,0,55,1,0
+T0140,T0140_L00_P00_V03_TEMP01.xlsx,918 vibration variation,CHECK,7 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3175,3168,7,0,29,1,0
+T0141,T0141_L00_P00_V03_TEMP01.xlsx,918 vibration variation,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3119,3116,3,0,24,0,0
+T0142,T0142_L00_P00_V02_F02_TEMP01.xlsx,918_freq,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2862,2856,6,0,290,0,0
+T0143,T0143_L00_P00_V02_F02_TEMP01.xlsx,918_freq,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2985,2982,3,0,184,0,0
+T0144,T0144_L00_P00_V02_F04_TEMP01.xlsx,918_freq,CHECK,8 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2836,2828,8,0,54,0,0
+T0145,T0145_L00_P00_V02_F04_TEMP01.xlsx,918_freq,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2999,2993,6,0,202,0,0
+T0146,T0146_L00_P00_V02_F06_TEMP01.xlsx,918_freq,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3015,3009,6,0,57,0,0
+T0147,T0147_L00_P00_V02_F06_TEMP01.xlsx,918_freq,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2997,2993,4,0,189,1,0
+T0148,T0148_L00_P00_V02_F08_TEMP01.xlsx,918_freq,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3132,3127,5,0,250,0,0
+T0149,T0149_L00_P00_V02_F08_TEMP01.xlsx,918_freq,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3153,3150,3,0,434,0,0
+T0150,T0150_L00_P00_V02_F10_TEMP01.xlsx,918_freq,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2796,2791,5,0,328,1,0
+T0151,T0151_L00_P00_V02_F10_TEMP01.xlsx,918_freq,CHECK,1 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2988,2987,1,0,598,0,0
+T0152,T0152_L00_P00_V02_F12_TEMP01.xlsx,918_freq,CHECK,9 malformed/header rows removed | 1 timestamp resets detected | 232 records outside longest segment omitted | Irregular sampling intervals | Large timestamp gaps,7554,7313,9,1,1495,1,0
+T0153,T0153_L00_P00_V02_F12_TEMP01.xlsx,918_freq,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2912,2909,3,0,790,0,0
+T0154,T0154_L00_P00_V02_F14_TEMP01.xlsx,918_freq,CHECK,7 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2944,2937,7,0,582,1,0
+T0155,T0155_L00_P00_V02_F14_TEMP01.xlsx,918_freq,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2999,2996,3,0,747,1,0
+T0156,T0156_L00_P00_V02_F16_TEMP01.xlsx,918_freq,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3280,3276,4,0,1044,1,2
+T0157,T0157_L00_P00_V02_F16_TEMP01.xlsx,918_freq,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3088,3084,4,0,1051,0,0
+T0,ME234_T0_L03_PC_V03_TEMP01.csv.xlsx,9_25_loadvib,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3352,3347,5,0,2210,0,1
+T0194,ME2_T0194_L01_PL_V01_TEMP01.xlsx,9_25_loadvib,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2948,2942,6,0,1815,0,0
+T0195,ME2_T0195_L01_PL_V01_TEMP01.csv.xlsx,9_25_loadvib,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2984,2980,4,0,1913,0,1
+T0196,ME2_T0196_L01_PL_V01_TEMP01.csv.xlsx,9_25_loadvib,CHECK,1 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2913,2912,1,0,1960,0,0
+T0197,ME2_T0197_L01_PL_V02_TEMP01.csv.xlsx,9_25_loadvib,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2977,2972,5,0,1324,1,0
+T0198,ME2_T0198_L01_PL_V02_TEMP01.csv.xlsx,9_25_loadvib,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2867,2864,3,0,1246,0,0
+T0199,ME2_T0199_L01_PL_V02_TEMP01.csv.xlsx,9_25_loadvib,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3356,3351,5,0,1919,0,0
+T0200,ME2_T0200_L01_PL_V03_TEMP01.csv.xlsx,9_25_loadvib,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3142,3139,3,0,532,2,0
+T0201,ME2_T0201_L01_PL_V03_TEMP01.csv.xlsx,9_25_loadvib,CHECK,2 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3125,3123,2,0,833,0,3
+T0202,ME2_T0202_L01_PL_V03_TEMP01.csv.xlsx,9_25_loadvib,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3029,3025,4,0,773,1,0
+T0203,ME2_T0203_L02_PL_V01_TEMP01.csv.xlsx,9_25_loadvib,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2975,2970,5,0,1744,1,1
+T0204,ME2_T0204_L02_PL_V01_TEMP01.csv.xlsx,9_25_loadvib,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2919,2913,6,0,1766,0,1
+T0205,ME2_T0205_L02_PL_V01_TEMP01.csv.xlsx,9_25_loadvib,CHECK,1 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2870,2869,1,0,1955,0,1
+T0206,ME2_T0206_L02_PL_V02_TEMP01.csv.xlsx,9_25_loadvib,CHECK,6 malformed/header rows removed | 1 timestamp resets detected | 3121 records outside longest segment omitted | Irregular sampling intervals | Large timestamp gaps | Excessive timestamp-related record loss,10536,7409,6,1,4973,2,1
+T0207,ME2_T0207_L02_PL_V02_TEMP01.xlsx,9_25_loadvib,CHECK,7 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3063,3056,7,0,1613,1,1
+T0208,ME2_T0208_L02_PL_V02_TEMP01.csv.xlsx,9_25_loadvib,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2883,2880,3,0,1377,0,0
+T0209,ME2_T0209_L02_PL_V03_TEMP01.csv.xlsx,9_25_loadvib,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2877,2872,5,0,790,0,0
+T0210,ME2_T0210_L02_PL_V03_TEMP01.csv.xlsx,9_25_loadvib,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3913,3907,6,0,1163,0,0
+T0211,ME2_T0211_L02_PL_V03_TEMP01.csv.xlsx,9_25_loadvib,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2977,2971,6,0,942,1,0
+T0212,ME2_T0212_L03_PL_V01_TEMP01.xlsx,9_25_loadvib,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2876,2872,4,0,1735,0,0
+T0213,ME2_T0213_L03_PL_V01_TEMP01.xlsx,9_25_loadvib,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2966,2963,3,0,1760,0,0
+T0214,ME2_T0214_L03_PL_V02_TEMP01.xlsx,9_25_loadvib,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3029,3025,4,0,1751,0,0
+T0215,ME2_T0215_L03_PL_V02_TEMP01.xlsx,9_25_loadvib,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3001,2998,3,0,1713,1,0
+T0216,ME2_T0216_L03_PL_V03_TEMP01.csv.xlsx,9_25_loadvib,CHECK,2 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3106,3104,2,0,1358,1,0
+T0217,ME2_T0217_L03_PL_V03_TEMP01.xlsx,9_25_loadvib,CHECK,8 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2960,2952,8,0,1260,0,0
+T0218,ME2_T0218_L01_PC_V01_TEMP01.xlsx,9_25_loadvib,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3401,3397,4,0,2759,0,0
+T0219,ME2_T0219_L01_PC_V01_TEMP01.csv.xlsx,9_25_loadvib,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2941,2937,4,0,2095,1,1
+T0220,ME2_T0220_L01_PC_V02_TEMP01.csv.xlsx,9_25_loadvib,CHECK,Irregular sampling intervals | Large timestamp gaps,3013,3013,0,0,1796,0,0
+T0221,ME2_T0221_L01_PC_V02_TEMP01.csv.xlsx,9_25_loadvib,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2940,2936,4,0,1834,1,0
+T0222,ME2_T0222_L01_PC_V03_TEMP01.csv.xlsx,9_25_loadvib,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2901,2896,5,0,285,0,2
+T0223,ME2_T0223_L01_PC_V03_TEMP01.csv.xlsx,9_25_loadvib,CHECK,2 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,783,781,2,0,138,0,0
+T0224,ME2_T0224_L02_PC_V01_TEMP01.csv.xlsx,9_25_loadvib,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2930,2927,3,0,2200,0,0
+T0225,ME2_T0225_L02_PC_V01_TEMP01.xlsx,9_25_loadvib,CHECK,9 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2890,2881,9,0,2048,1,0
+T0226,ME2_T0226_L02_PC_V02_TEMP01.csv.xlsx,9_25_loadvib,CHECK,11 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3334,3323,11,0,1938,1,0
+T0227,ME2_T0227_L02_PC_V02_TEMP01.csv.xlsx,9_25_loadvib,CHECK,2 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3006,3004,2,0,1906,1,0
+T0228,ME2_T0228_L02_PC_V03_TEMP01.csv.xlsx,9_25_loadvib,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3259,3256,3,0,1404,0,0
+T0229,ME2_T0229_L02_PC_V03_TEMP01.csv.xlsx,9_25_loadvib,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3003,2997,6,0,1413,1,0
+T0230,ME2_T0230_L02_PC_V01_TEMP01.csv.xlsx,9_25_loadvib,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3103,3099,4,0,2500,1,0
+T0231,ME2_T0231_L03_PC_V01_TEMP01.csv.xlsx,9_25_loadvib,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3028,3022,6,0,2301,0,2
+T0232,ME2_T0232_L03_PC_V02_TEMP01.csv.xlsx,9_25_loadvib,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3201,3195,6,0,2016,0,1
+T0233,ME2_T0233_L03_PC_V02_TEMP01.csv.xlsx,9_25_loadvib,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3466,3461,5,0,2741,0,0
+T0235,ME2_T0235_L03_PC_V03_TEMP01.csv.xlsx,9_25_loadvib,CHECK,8 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2947,2939,8,0,1542,0,2
+T0236,ME2_T0236_L01_PR_V01_TEMP01.csv.xlsx,9_25_loadvib,CHECK,10 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3312,3302,10,0,1838,9906,1
+T0237,ME2_T0237_L01_PR_V01_TEMP01.csv.xlsx,9_25_loadvib,CHECK,2 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2958,2956,2,0,1675,0,0
+T0238,ME2_T0238_L01_PR_V02_TEMP01.xlsx,9_25_loadvib,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3059,3056,3,0,1903,2,1
+T0239,ME2_T0239_L01_PR_V02_TEMP01.xlsx,9_25_loadvib,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3263,3259,4,0,2374,0,1
+T0240,ME2_T0240_L01_PR_V03_TEMP01.xlsx,9_25_loadvib,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2939,2935,4,0,382,0,1
+T0241,ME2_T0241_L01_PR_V03_TEMP01.csv.xlsx,9_25_loadvib,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2961,2958,3,0,426,0,1
+T0242,ME2_T0242_L02_PR_V01_TEMP01.xlsx,9_25_loadvib,CHECK,2 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3007,3005,2,0,2102,0,0
+T0243,ME2_T0243_L02_PR_V01_TEMP01.csv.xlsx,9_25_loadvib,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2936,2933,3,0,2213,0,1
+T0244,ME2_T0244_L02_PR_V02_TEMP01.xlsx,9_25_loadvib,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2885,2879,6,0,1451,0,0
+T0245,ME2_T0245_L02_PR_V02_TEMP01.xlsx,9_25_loadvib,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2916,2912,4,0,1454,0,3
+T0246,ME2_T0246_L02_PR_V03_TEMP01.xlsx,9_25_loadvib,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2905,2901,4,0,56,0,1
+T0247,ME2_T0247_L02_PR_V03_TEMP01.xlsx,9_25_loadvib,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2913,2908,5,0,185,0,0
+T0248,ME2_T0248_L03_PR_V01_TEMP01.csv.xlsx,9_25_loadvib,CHECK,8 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,4648,4640,8,0,3229,1,1
+T0249,ME2_T0249_L03_PR_V01_TEMP01.xlsx,9_25_loadvib,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3098,3092,6,0,2178,1,0
+T0250,ME2_T0250_L03_PR_V02_TEMP01..xlsx,9_25_loadvib,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2876,2873,3,0,1554,0,0
+T0251,ME2_T0251_L03_PR_V02_TEMP01.csv.xlsx,9_25_loadvib,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3279,3273,6,0,1855,0,1
+T0252,ME2_T0252_L03_PR_V03_TEMP01.csv.xlsx,9_25_loadvib,CHECK,2 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2923,2921,2,0,416,2,1
+T0253,ME2_T0253_L03_PR_V03_TEMP01.xlsx,9_25_loadvib,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2968,2964,4,0,689,1,0
+T0185,T0185_L01_PL_V00_TEMP01.xlsx,9_25_loadvib,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2978,2975,3,0,1278,0,0
+T0186,T0186_L01_PL_V00_TEMP01.xlsx,9_25_loadvib,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3199,3195,4,0,2009,1,1
+T0187,T0187_L01_PL_V00_TEMP01.xlsx,9_25_loadvib,CHECK,7 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2956,2949,7,0,1937,0,1
+T0188,T0188_L01_PC_V00_TEMP01.xlsx,9_25_loadvib,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2956,2952,4,0,2245,0,0
+T0189,T0189_L01_PC_V00_TEMP01.csv.xlsx,9_25_loadvib,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3034,3028,6,0,2335,0,0
+T0190,T0190_L01_PC_V00_TEMP01.xlsx,9_25_loadvib,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2984,2980,4,0,2285,1,1
+T0191,T0191_L01_PR_V00_TEMP01.csv.xlsx,9_25_loadvib,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2936,2933,3,0,2008,0,0
+T0192,T0192_L01_PR_V00_TEMP01.csv.xlsx,9_25_loadvib,FAIL,Empty input file.,NaN,0,NaN,NaN,NaN,NaN,NaN
+T0193,T0193_L01_PR_V00_TEMP01.csv.xlsx,9_25_loadvib,CHECK,19 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,12383,12364,19,0,8374,2,2
+T0001,ME2_T0001_L00_P00_V00_TEMP01.csv.xlsx,9_4_26,FAIL,Insufficient aligned sensor records.,NaN,0,NaN,NaN,NaN,NaN,NaN
+T0002,ME2_T0002_L00_P00_V00_TEMP01.csv.xlsx,9_4_26,CHECK,7 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,10436,10429,7,0,8184,2,0
+T0003,ME2_T0003_L00_P00_V00_TEMP01.csv.xlsx,9_4_26,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3691,3685,6,0,2851,0,2
+T0004,ME2_T0004_L00_P00_V01_TEMP01.csv.xlsx,9_4_26,CHECK,11 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,7977,7966,11,0,6282,0,3
+T0005,ME2_T0005_L00_P00_V01_TEMP01.csv.xlsx,9_4_26,CHECK,12 malformed/header rows removed | 1 timestamp resets detected | 2050 records outside longest segment omitted | Irregular sampling intervals | Large timestamp gaps | Excessive timestamp-related record loss,4886,2824,12,1,2156,1,0
+T0006,ME2_T0006_L00_P00_V01_TEMP01.csv.xlsx,9_4_26,CHECK,12 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,7413,7401,12,0,5896,7,6
+T0007,ME2_T0007_L00_P00_V02_TEMP01.csv.xlsx,9_4_26,CHECK,12 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3656,3644,12,0,2232,1,1
+T0008,ME2_T0008_L00_P00_V02_TEMP01.csv.xlsx,9_4_26,CHECK,7 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3475,3468,7,0,2064,1,0
+T0009,ME2_T0009_L00_P00_V02_TEMP01.csv.xlsx,9_4_26,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,5991,5985,6,0,3602,1,2
+T0010,ME2_T0010_L00_P00_V03_TEMP01.csv.xlsx,9_4_26,CHECK,11 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,9480,9469,11,0,4560,1,0
+T0011,ME2_T0011_L00_P00_V03_TEMP01.csv.xlsx,9_4_26,CHECK,7 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,4222,4215,7,0,1975,0,1
+T0012,ME2_T0012_L00_P00_V03_TEMP01.csv.xlsx,9_4_26,CHECK,8 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,5113,5105,8,0,2625,3,3
+T0013,ME2_T0013_L00__F05_V02_TEMP01.csv.xlsx,9_4_26,CHECK,8 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3061,3053,8,0,1728,1,0
+T0014,ME2_T0014_L00_F05_V02_TEMP01.csv.xlsx,9_4_26,CHECK,9 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,4352,4343,9,0,2687,0,0
+T0015,ME2_T0015_L00_F05_V02_TEMP01.csv.xlsx,9_4_26,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3601,3595,6,0,2186,0,1
+T0016,ME2_T0016_L00_F10_V02_TEMP01.csv.xlsx,9_4_26,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3996,3992,4,0,2665,0,0
+T0017,ME2_T0017_L00_F10_V02_TEMP01.csv.xlsx,9_4_26,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3210,3204,6,0,1976,0,0
+T0018,ME2_T0018_L00_F10_V02_TEMP01.csv.xlsx,9_4_26,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3443,3437,6,0,2034,1,0
+T0019,ME2_T0019_L00_F15_V02_TEMP01.csv.xlsx,9_4_26,CHECK,2 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3182,3180,2,0,2151,1,0
+T0020,ME2_T0020_L00_F15_V02_TEMP01.csv.xlsx,9_4_26,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3242,3236,6,0,2244,0,0
+T0021,ME2_T0021_L00_F15_V02_TEMP01.csv.xlsx,9_4_26,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3165,3159,6,0,2126,0,1
+T0022,ME2_T0022_L01_PL_V00_TEMP01.csv.xlsx,9_4_26,CHECK,8 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,6587,6579,8,0,4336,1,0
+T0023,ME2_T0023_L02_PL_V00_TEMP01.csv.xlsx,9_4_26,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,4400,4396,4,0,2606,0,1
+T0024,ME2_T0024_L01_PL_V00_TEMP01.csv.xlsx,9_4_26,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3283,3277,6,0,2303,0,1
+T0025,ME2_T0025_L01_PL_V00_TEMP01.csv.xlsx,9_4_26,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3859,3856,3,0,2629,0,1
+T0026,ME2_T0026_L02_PL_V00_TEMP01.csv.xlsx,9_4_26,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3434,3430,4,0,2617,0,0
+T0027,ME2_T0027_L02_PL_V00_TEMP01.csv.xlsx,9_4_26,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3125,3121,4,0,2208,0,1
+T0028,ME2_T0028_L03_PL_V00_TEMP01.csv.xlsx,9_4_26,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3164,3159,5,0,2228,2,0
+T0029,ME2_T0029_L03_PL_V00_TEMP01.csv.xlsx,9_4_26,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2859,2854,5,0,2078,1,0
+T0030,ME2_T0030_L03_PL_V00_TEMP01.csv.xlsx,9_4_26,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3257,3252,5,0,2435,1,0
+T0031,ME2_T0031_L01_PC_V00_TEMP01.csv.xlsx,9_4_26,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3131,3127,4,0,2435,0,1
+T0032,ME2_T0032_L01_PC_V00_TEMP01.csv.xlsx,9_4_26,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3137,3134,3,0,2416,0,0
+T0033,ME2_T0033_L01_PC_V00_TEMP01.csv.xlsx,9_4_26,CHECK,7 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,6775,6768,7,0,5518,1,2
+T0034,ME2_T0034_L02_PC_V00_TEMP01.csv.xlsx,9_4_26,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,2802,2797,5,0,2214,1,0
+T0035,ME2_T0035_L02_PC_V00_TEMP01.csv.xlsx,9_4_26,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3150,3144,6,0,2511,1,1
+T0036,ME2_T0036_L02_PC_V00_TEMP01.csv.xlsx,9_4_26,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3256,3253,3,0,2689,0,0
+T0037,ME2_T0037_L03_PC_V00_TEMP01.csv.xlsx,9_4_26,CHECK,2 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3198,3196,2,0,2606,1,0
+T0038,ME2_T0038_L03_PC_V00_TEMP01.csv.xlsx,9_4_26,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3057,3053,4,0,2375,1,1
+T0039,ME2_T0039_L01_PR_V00_TEMP01.csv.xlsx,9_4_26,CHECK,8 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3374,3366,8,0,2301,0,0
+T0039,ME2_T0039_L03_PC_V00_TEMP01.csv.xlsx,9_4_26,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,5352,5347,5,0,3743,1,1
+T0040,ME2_T0040_L01_PR_V00_TEMP01.csv.xlsx,9_4_26,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3514,3509,5,0,2714,0,1
+T0041,ME2_T0041_L01_PR_V00_TEMP01.csv.xlsx,9_4_26,CHECK,4 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3389,3385,4,0,2802,2,0
+T0042,ME2_T0042_L02_PR_V00_TEMP01.xlsx,9_4_26,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3151,3146,5,0,1809,0,0
+T0043,ME2_T0043_L02_PR_V00_TEMP01.xlsx,9_4_26,CHECK,5 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3694,3689,5,0,2528,1,0
+T0044,ME2_T0044_L02_PR_V00_TEMP01.csv.xlsx,9_4_26,CHECK,3 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3055,3052,3,0,2102,1,1
+T0045,ME2_T0045_L03_PR_V00_TEMP01.csv.xlsx,9_4_26,CHECK,8 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3135,3127,8,0,2601,2,0
+T0046,ME2_T0046_L03_PR_V00_TEMP01.csv.xlsx,9_4_26,CHECK,2 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3202,3200,2,0,2654,0,2
+T0047,ME2_T0047_L03_PR_V00_TEMP01.csv.xlsx,9_4_26,CHECK,6 malformed/header rows removed | Irregular sampling intervals | Large timestamp gaps,3108,3102,6,0,2421,1,0
