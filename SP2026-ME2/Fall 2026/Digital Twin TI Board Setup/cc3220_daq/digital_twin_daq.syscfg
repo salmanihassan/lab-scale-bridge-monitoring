@@ -1,0 +1,51 @@
+/**
+ * CC3220SF LaunchPad configuration for the digital-twin data-acquisition app.
+ *
+ * IMPORTANT: GPIO instance names are deliberately allocated without physical
+ * hardware bindings.  Confirm the actual wire/header placement in SysConfig
+ * before building or flashing; see PIN_MAPPING.md.  This prevents invented
+ * Arduino-to-CC3220 pin translations.
+ *
+ * @cliArgs --board /ti/boards/CC3220SF_LAUNCHXL --rtos freertos
+ */
+
+const FreeRTOS = scripting.addModule("/freertos/FreeRTOS");
+const Settings = scripting.addModule("/ti/posix/freertos/Settings");
+const I2C = scripting.addModule("/ti/drivers/I2C");
+const UART2 = scripting.addModule("/ti/drivers/UART2", {}, false);
+const GPIO = scripting.addModule("/ti/drivers/GPIO");
+const Power = scripting.addModule("/ti/drivers/Power", {}, false);
+
+const i2c = I2C.addInstance();
+i2c.$name = "CONFIG_I2C_0";
+/* CC3220 GPIO10/GPIO11 on LaunchPad silkscreen P01/P02, header 9/10.
+ * This shares the onboard sensor bus; leave J15/J16 installed for onboard
+ * pullups, or fit external 3.3-V pullups when those jumpers are removed. */
+i2c.$hardware = system.deviceData.board.components.LP_I2C;
+
+const uart = UART2.addInstance();
+uart.$name = "CONFIG_UART2_0";
+uart.$hardware = system.deviceData.board.components.XDS110UART;
+
+/* The free P18 header route is GPIO only.  The launchpad's exposed hardware
+ * PWM alternatives overlap I2C, boot/JTAG, or LEDs, so this is a safe
+ * low-frequency motor envelope gate rather than a hardware duty PWM output. */
+const motor = GPIO.addInstance();
+motor.$name = "CONFIG_MOTOR_EN";
+motor.mode = "Output";
+motor.gpioPin.$assign = "boosterpack.19"; /* P18 */
+
+/* Every following header position is physically connected by the installed
+ * CC3220SF_LAUNCHXL board definition and avoids XDS110, onboard controls,
+ * JTAG, SOP, LED, and op-amp routes. */
+const hx1Dout = GPIO.addInstance(); hx1Dout.$name = "CONFIG_HX711_1_DOUT"; hx1Dout.mode = "Input";  hx1Dout.gpioPin.$assign = "boosterpack.4";  /* P03 */
+const hx1Clk  = GPIO.addInstance(); hx1Clk.$name  = "CONFIG_HX711_1_CLK";  hx1Clk.mode = "Output"; hx1Clk.gpioPin.$assign  = "boosterpack.5";  /* P61 */
+const hx2Dout = GPIO.addInstance(); hx2Dout.$name = "CONFIG_HX711_2_DOUT"; hx2Dout.mode = "Input";  hx2Dout.gpioPin.$assign = "boosterpack.7";  /* P05 */
+const hx2Clk  = GPIO.addInstance(); hx2Clk.$name  = "CONFIG_HX711_2_CLK";  hx2Clk.mode = "Output"; hx2Clk.gpioPin.$assign  = "boosterpack.8";  /* P62 */
+/* DS18B20 buses idle as inputs. temperature.c temporarily drives each line
+ * low/open-drain at runtime, then restores it to input. */
+const ds1     = GPIO.addInstance(); ds1.$name     = "CONFIG_DS18B20_1";    ds1.mode = "Input";  ds1.gpioPin.$assign     = "boosterpack.27"; /* P63 */
+const ds2     = GPIO.addInstance(); ds2.$name     = "CONFIG_DS18B20_2";    ds2.mode = "Input";  ds2.gpioPin.$assign     = "boosterpack.28"; /* P53 */
+const ds3     = GPIO.addInstance(); ds3.$name     = "CONFIG_DS18B20_3";    ds3.mode = "Input";  ds3.gpioPin.$assign     = "boosterpack.30"; /* P50 */
+
+Power.parkPins.$name = "ti_drivers_power_PowerCC32XXPins0";

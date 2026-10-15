@@ -1,0 +1,1154 @@
+Log started 09/25/2026 at 15:54:17
+Preferred installation mode : unattended
+Trying to init installer in mode unattended
+Mode unattended successfully initialized
+[15:54:18] windowsSoftwareRegistryPrefix = Texas Instruments\TI System Configuration Tool
+[15:54:18] installer_is_root_install value: 0
+Preparing to Install
+Preparing to Install
+Directory already exists: C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\swiftshader
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nodejs
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\spice64
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\spice64\lib
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\spice64\lib\ngspice
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\spice64\bin
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\spice64\share
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\spice64\share\ngspice
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\spice64\share\ngspice\scripts
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\icons
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\icons\apps
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\css
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L110X
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L110X\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA75xP_DRA74xP_SR1.0
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA75xP_DRA74xP_SR1.0\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J721E_DRA829_TDA4VM_AM752x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J721E_DRA829_TDA4VM_AM752x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28P65x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28P65x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3200
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3200\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPS003FX
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPS003FX\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2674R10RSK
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2674R10RSK\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1350RGZ
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1350RGZ\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2Px_ABZ_SR1.0
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2Px_ABZ_SR1.0\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM62Ax
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM62Ax\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652R7RGZ
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652R7RGZ\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR294X
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR294X\.metadata
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R2RGE
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R2RGE\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5766_SR1.0
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5766_SR1.0\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652R1FSIP
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652R1FSIP\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1312R7RGZ
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1312R7RGZ\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1352P7RGZ
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1352P7RGZ\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5706_SR2.x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5706_SR2.x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR18XX
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR18XX\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J721S2_TDA4VE_TDA4AL_TDA4VL_AM68x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J721S2_TDA4VE_TDA4AL_TDA4VL_AM68x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2Px_ACD_SR1.0
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2Px_ACD_SR1.0\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2802x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2802x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3220S
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3220S\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2640R2FRGZ
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2640R2FRGZ\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652P1FRGZ
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652P1FRGZ\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\XWRL14XX
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\XWRL14XX\.metadata
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0G150X
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0G150X\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2755P10RKP
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2755P10RKP\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2803x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2803x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2838x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2838x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28003x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28003x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM62Px
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM62Px\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA77xP_DRA76xP_SR1.0
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA77xP_DRA76xP_SR1.0\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA72x_SR2.0
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA72x_SR2.0\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L130X
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L130X\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3235SF
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3235SF\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2642R1FRTCQ1
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2642R1FRTCQ1\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J7200_DRA821_SR1.0_alpha
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J7200_DRA821_SR1.0_alpha\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR14XX
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR14XX\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651R3RGZ
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651R3RGZ\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R22RKP
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R22RKP\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSP432E
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSP432E\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA72x_SR1.0
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA72x_SR1.0\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5726_SR1.1_beta
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5726_SR1.1_beta\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TM4C123x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TM4C123x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F280013x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F280013x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2640R2FRHB
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2640R2FRHB\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1314R10RGZ
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1314R10RGZ\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA3x_SR2.0_beta
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA3x_SR2.0_beta\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1354P10RSK
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1354P10RSK\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2745P10RHAQ1
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2745P10RHAQ1\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1311R3RKP
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1311R3RKP\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5716_SR2.x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5716_SR2.x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28002x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28002x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR68XXAOP
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR68XXAOP\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3235S
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3235S\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5746_SR1.0
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5746_SR1.0\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR68XX
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR68XX\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2653P10RGZ
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2653P10RGZ\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR2544
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR2544\.metadata
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM62x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM62x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR18XX
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR18XX\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1310RGZ
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1310RGZ\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651P3RKP
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651P3RKP\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\66AK2G12
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\66AK2G12\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2642R1FRGZQ1
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2642R1FRGZQ1\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM3351
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM3351\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5718_SR2.x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5718_SR2.x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R5RGE
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R5RGE\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TM4C129x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TM4C129x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2Ex-17_SR2.x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2Ex-17_SR2.x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR64XX
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR64XX\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1354R10RSK
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1354R10RSK\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR14XX
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR14XX\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM243x_ALX_beta
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM243x_ALX_beta\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AMIC110
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AMIC110\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2807x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2807x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2640R2FRSM
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2640R2FRSM\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28P55x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28P55x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R5RKP
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R5RKP\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR68XXAOP
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR68XXAOP\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM263x_beta
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM263x_beta\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM243x_ALV_beta
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM243x_ALV_beta\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2662R1FRGZQ1
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2662R1FRGZQ1\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652RB1FRGZ
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652RB1FRGZ\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1354P10RGZ
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1354P10RGZ\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM65xx_SR1.0
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM65xx_SR1.0\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1312R1F3RGZ
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1312R1F3RGZ\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J722S_TDA4VEN_TDA4AEN_AM67
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J722S_TDA4VEN_TDA4AEN_AM67\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0G110X
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0G110X\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5728_SR1.1_beta
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5728_SR1.1_beta\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\XWRL64XX
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\XWRL64XX\.metadata
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM273x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM273x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM273x\.metadata
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2x_AAS_SR2.0
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2x_AAS_SR2.0\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM65xx_SR2.0_beta
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM65xx_SR2.0_beta\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28004x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28004x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2745P7RHAQ1
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2745P7RHAQ1\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2833x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2833x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2642R1FRGZ
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2642R1FRGZ\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R53RKP
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R53RKP\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2837xS
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2837xS\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1312PSIP
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1312PSIP\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA78x_SR2.0_beta
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA78x_SR2.0_beta\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651R3RKP
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651R3RKP\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651R3SIPA
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651R3SIPA\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3230SF
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3230SF\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM263Px
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM263Px\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC13x0F128RSM
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC13x0F128RSM\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DM50x_SR2.0_beta
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DM50x_SR2.0_beta\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2x_ABC_SR2.0
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2x_ABC_SR2.0\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR16XX
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR16XX\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J784S4_TDA4AP_TDA4VP_TDA4AH_TDA4VH_AM69x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J784S4_TDA4AP_TDA4VP_TDA4AH_TDA4VH_AM69x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1311P3RGZ
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1311P3RGZ\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1310RHB
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1310RHB\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA80x_SR1.0
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA80x_SR1.0\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR68XX
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR68XX\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM437x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM437x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR16XX
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR16XX\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1350RHB
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1350RHB\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651P3RGZ
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651P3RGZ\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F280015x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F280015x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2Ex-23_SR2.0
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2Ex-23_SR2.0\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM62SIP
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM62SIP\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L122X
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L122X\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652P7RGZ
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652P7RGZ\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652P1FSIP
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652P1FSIP\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM438x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM438x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM335x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM335x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2674P10RSK
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2674P10RSK\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1352R1F3RGZ
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1352R1F3RGZ\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2674P10RGZ
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2674P10RGZ\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5748_SR1.0
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5748_SR1.0\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA80xM_SR2.0_beta
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA80xM_SR2.0_beta\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2755R10RKP
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2755R10RKP\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0G350X
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0G350X\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM64x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM64x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2805x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2805x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AMIC120
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AMIC120\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3230S
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3230S\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L222X
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L222X\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L134X
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L134X\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2806x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2806x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\legacy
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0G310X
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0G310X\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2674R10RGZ
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2674R10RGZ\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R5RHB
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R5RHB\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652R1FRGZ
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652R1FRGZ\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA71x_SR2.x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA71x_SR2.x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0C110X
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0C110X\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1314R10RSK
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1314R10RSK\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5708_SR2.x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5708_SR2.x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC13x0F128RHB
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC13x0F128RHB\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1311R3RGZ
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1311R3RGZ\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2745R7RHAQ1
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2745R7RHAQ1\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5728_SR2.0
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5728_SR2.0\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5726_SR2.0
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5726_SR2.0\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1350RSM
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1350RSM\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1354R10RGZ
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1354R10RGZ\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1352P1F3RGZ
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1352P1F3RGZ\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA75x_74x_SR2.0
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA75x_74x_SR2.0\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3220SF
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3220SF\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2837xD
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2837xD\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2745R10RHAQ1
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2745R10RHAQ1\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA79x_SR2.x
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA79x_SR2.x\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5768_SR1.0
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5768_SR1.0\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1310RSM
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1310RSM\templates
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\tests
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\tests\jasmine-core
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\.metadata
+Creating directory C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\.metadata\.tirex
+Unpacking files
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\sysconfig_cli.bat
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\sysconfig_gui.bat
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\node.dll
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\vulkan-1.dll
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\nw.dll
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\package.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\nw_200_percent.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\nw_100_percent.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\libEGL.dll
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\nw_elf.dll
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\d3dcompiler_47.dll
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\vk_swiftshader.dll
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\v8_context_snapshot.bin
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\libGLESv2.dll
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\nw.exe
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\vk_swiftshader_icd.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\credits.html
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\icudtl.dat
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\resources.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\notification_helper.exe
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\ffmpeg.dll
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\swiftshader\libEGL.dll
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\swiftshader\libGLESv2.dll
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\tr.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\te.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\ta.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\am.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\lv.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\cs.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\bn.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\th.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\nb.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\en-GB.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\bg.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\sw.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\lv.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\el.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\es.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\ar.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\ca.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\pt-PT.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\id.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\fil.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\hr.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\ru.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\fr.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\et.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\sv.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\en-XA.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\da.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\ur.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\pt-PT.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\hi.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\he.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\el.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\hr.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\th.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\nl.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\da.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\cs.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\ar.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\sr.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\sk.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\en-US.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\he.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\id.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\am.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\fi.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\sl.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\zh-TW.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\pl.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\ta.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\it.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\sv.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\ms.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\zh-TW.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\nl.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\es-419.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\sl.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\kn.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\af.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\ro.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\sr.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\de.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\hu.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\en-GB.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\ko.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\nb.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\vi.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\fa.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\ar-XB.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\uk.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\mr.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\ms.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\fr.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\hu.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\zh-CN.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\ur.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\gu.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\sk.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\pt-BR.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\pt-BR.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\af.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\it.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\ja.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\hi.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\ru.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\ja.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\de.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\uk.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\sw.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\fil.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\fa.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\es-419.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\te.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\mr.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\ro.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\ko.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\pl.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\fi.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\vi.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\en-XA.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\tr.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\gu.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\bg.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\ca.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\en-US.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\ml.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\kn.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\es.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\bn.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\lt.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\zh-CN.pak
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\et.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\lt.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\ar-XB.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nw\locales\ml.pak.info
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\nodejs\node.exe
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\spice64\lib\ngspice\analog.cm
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\spice64\lib\ngspice\xtraevt.cm
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\spice64\lib\ngspice\digital.cm
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\spice64\lib\ngspice\spice2poly.cm
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\spice64\lib\ngspice\xtradev.cm
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\spice64\bin\vcomp140.dll
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\spice64\bin\ngspice_con.exe
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\39.embed.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\plotly.js-basic-dist-min.bundle.js.map
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\LazyEditor.bundle.js.map
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\960.bundle.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\130.bundle.js.map
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\295.embed.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\index.html
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\json.worker.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\editor.worker.js.map
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\918.embed.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\565.bundle.js.map
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\130.embed.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\elk-worker.min.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\LazyTerminal.bundle.js.map
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\484.embed.js.map
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\475.embed.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\785.bundle.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\version.txt
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\sysconfig.png
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\SysConfig_Core_Tool_1.20.0_manifest.html
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\295.embed.js.map
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\json.worker.js.map
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\embed.js.map
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\editor.worker.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\cli.js.map
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\960.embed.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\ui.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\785.embed.js.map
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\295.bundle.js.map
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\cli.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\785.bundle.js.map
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\130.embed.js.map
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\sysconfig.ico
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\embed.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\pinmux.ico
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\960.bundle.js.map
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\LazyTerminal.bundle.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\565.bundle.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\39.embed.js.map
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\785.embed.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\130.bundle.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\484.embed.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\plotly.js-basic-dist-min.bundle.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\LazyEditor.bundle.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\295.bundle.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\960.embed.js.map
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\license.txt
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\ui.js.map
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\918.embed.js.map
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\475.embed.js.map
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\codicon.ttf
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\icons\apps\bpchecker.png
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\icons\apps\cloud_tools.png
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\icons\apps\launchpad-social-e2e.png
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\icons\apps\pinmux.png
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\icons\apps\ccs_cloud.png
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\icons\apps\ti_logo_red.svg
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\icons\apps\sysconfig.ico
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\icons\apps\trex.png
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\icons\apps\TIDesignsLogo.png
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\css\main.css
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\devices.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L110X\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L110X\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L110X\MSPM0L110X.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L110X\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA75xP_DRA74xP_SR1.0\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA75xP_DRA74xP_SR1.0\DRA75xP_DRA74xP_SR1.0.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA75xP_DRA74xP_SR1.0\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J721E_DRA829_TDA4VM_AM752x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J721E_DRA829_TDA4VM_AM752x\J721E_DRA829_TDA4VM_AM752x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\spice64\share\ngspice\scripts\spinit
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\xdg-open
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\roboto-latin-300italic.woff
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\roboto-latin-900italic.woff2
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\roboto-latin-700italic.woff
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\roboto-latin-300.woff2
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\roboto-latin-400italic.woff2
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\roboto-latin-500italic.woff2
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\roboto-latin-400.woff2
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\roboto-latin-700italic.woff2
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\roboto-latin-400italic.woff
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\roboto-latin-900.woff2
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\roboto-latin-700.woff2
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\roboto-latin-500.woff
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\roboto-latin-900italic.woff
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\roboto-latin-100.woff2
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\roboto-latin-100italic.woff2
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\roboto-latin-400.woff
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\roboto-latin-300italic.woff2
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\roboto-latin-900.woff
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\roboto-latin-100italic.woff
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\roboto-latin-500.woff2
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\roboto-latin-300.woff
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\roboto-latin-100.woff
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\roboto-latin-700.woff
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\fonts\roboto-latin-500italic.woff
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J721E_DRA829_TDA4VM_AM752x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28P65x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28P65x\F28P65x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28P65x\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28P65x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3200\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3200\CC3200.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3200\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPS003FX\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPS003FX\MSPS003FX.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPS003FX\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPS003FX\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2674R10RSK\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2674R10RSK\CC2674R10RSK.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2674R10RSK\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1350RGZ\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1350RGZ\CC1350RGZ.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1350RGZ\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2Px_ABZ_SR1.0\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2Px_ABZ_SR1.0\TDA2Px_ABZ_SR1.0.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2Px_ABZ_SR1.0\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM62Ax\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM62Ax\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM62Ax\AM62Ax.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM62Ax\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652R7RGZ\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652R7RGZ\CC2652R7RGZ.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652R7RGZ\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR294X\AWR294X.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR294X\.metadata\product.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR294X\.metadata\product.json.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R2RGE\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R2RGE\CC2340R2RGE.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R2RGE\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5766_SR1.0\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5766_SR1.0\AM5766_SR1.0.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5766_SR1.0\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652R1FSIP\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652R1FSIP\CC2652R1FSIP.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652R1FSIP\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1312R7RGZ\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1312R7RGZ\CC1312R7RGZ.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1312R7RGZ\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1352P7RGZ\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1352P7RGZ\CC1352P7RGZ.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1352P7RGZ\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5706_SR2.x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5706_SR2.x\AM5706_SR2.x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5706_SR2.x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR18XX\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR18XX\AWR18XX.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR18XX\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J721S2_TDA4VE_TDA4AL_TDA4VL_AM68x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J721S2_TDA4VE_TDA4AL_TDA4VL_AM68x\J721S2_TDA4VE_TDA4AL_TDA4VL_AM68x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J721S2_TDA4VE_TDA4AL_TDA4VL_AM68x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2Px_ACD_SR1.0\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2Px_ACD_SR1.0\TDA2Px_ACD_SR1.0.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2Px_ACD_SR1.0\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2802x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2802x\F2802x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2802x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3220S\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3220S\CC3220S.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3220S\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2640R2FRGZ\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2640R2FRGZ\CC2640R2FRGZ.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2640R2FRGZ\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652P1FRGZ\CC2652P1FRGZ.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652P1FRGZ\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652P1FRGZ\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\XWRL14XX\.metadata\product.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\XWRL14XX\.metadata\product.json.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0G150X\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0G150X\MSPM0G150X.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0G150X\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0G150X\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2755P10RKP\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2755P10RKP\CC2755P10RKP.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2755P10RKP\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2803x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2803x\F2803x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2803x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2838x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2838x\F2838x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2838x\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2838x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28003x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28003x\F28003x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28003x\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28003x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM62Px\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM62Px\AM62Px.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM62Px\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM62Px\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA77xP_DRA76xP_SR1.0\DRA77xP_DRA76xP_SR1.0.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA77xP_DRA76xP_SR1.0\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA77xP_DRA76xP_SR1.0\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA72x_SR2.0\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA72x_SR2.0\DRA72x_SR2.0.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA72x_SR2.0\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L130X\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L130X\MSPM0L130X.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L130X\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L130X\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3235SF\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3235SF\CC3235SF.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3235SF\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2642R1FRTCQ1\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2642R1FRTCQ1\CC2642R1FRTCQ1.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2642R1FRTCQ1\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J7200_DRA821_SR1.0_alpha\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J7200_DRA821_SR1.0_alpha\J7200_DRA821_SR1.0_alpha.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J7200_DRA821_SR1.0_alpha\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR14XX\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR14XX\IWR14XX.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR14XX\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651R3RGZ\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651R3RGZ\CC2651R3RGZ.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651R3RGZ\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R22RKP\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R22RKP\CC2340R22RKP.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R22RKP\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSP432E\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSP432E\MSP432E.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSP432E\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA72x_SR1.0\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA72x_SR1.0\DRA72x_SR1.0.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA72x_SR1.0\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5726_SR1.1_beta\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5726_SR1.1_beta\AM5726_SR1.1_beta.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5726_SR1.1_beta\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TM4C123x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TM4C123x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F280013x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F280013x\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F280013x\F280013x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F280013x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2640R2FRHB\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2640R2FRHB\CC2640R2FRHB.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2640R2FRHB\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1314R10RGZ\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1314R10RGZ\CC1314R10RGZ.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1314R10RGZ\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA3x_SR2.0_beta\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA3x_SR2.0_beta\TDA3x_SR2.0_beta.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA3x_SR2.0_beta\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1354P10RSK\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1354P10RSK\CC1354P10RSK.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1354P10RSK\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2745P10RHAQ1\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2745P10RHAQ1\CC2745P10RHAQ1.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2745P10RHAQ1\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1311R3RKP\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1311R3RKP\CC1311R3RKP.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1311R3RKP\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5716_SR2.x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5716_SR2.x\AM5716_SR2.x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J721E_DRA829_TDA4VM_AM752x\version.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J721E_DRA829_TDA4VM_AM752x\templates\version.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5766_SR1.0\templates\version.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J721S2_TDA4VE_TDA4AL_TDA4VL_AM68x\version.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J721S2_TDA4VE_TDA4AL_TDA4VL_AM68x\templates\version.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\XWRL14XX\XWRL14XX.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J7200_DRA821_SR1.0_alpha\version.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J7200_DRA821_SR1.0_alpha\templates\version.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TM4C123x\TM4C123x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5716_SR2.x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28002x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28002x\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28002x\F28002x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28002x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR68XXAOP\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR68XXAOP\IWR68XXAOP.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR68XXAOP\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3235S\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3235S\CC3235S.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3235S\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5746_SR1.0\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5746_SR1.0\AM5746_SR1.0.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5746_SR1.0\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR68XX\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR68XX\AWR68XX.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR68XX\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2653P10RGZ\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2653P10RGZ\CC2653P10RGZ.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2653P10RGZ\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR2544\AWR2544.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR2544\.metadata\product.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR2544\.metadata\product.json.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM62x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM62x\AM62x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM62x\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM62x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR18XX\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR18XX\IWR18XX.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR18XX\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1310RGZ\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1310RGZ\CC1310RGZ.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1310RGZ\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651P3RKP\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651P3RKP\CC2651P3RKP.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651P3RKP\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\66AK2G12\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\66AK2G12\66AK2G12.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\66AK2G12\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2642R1FRGZQ1\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2642R1FRGZQ1\CC2642R1FRGZQ1.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2642R1FRGZQ1\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM3351\AM3351.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM3351\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM3351\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5718_SR2.x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5718_SR2.x\AM5718_SR2.x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5718_SR2.x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R5RGE\CC2340R5RGE.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R5RGE\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R5RGE\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TM4C129x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TM4C129x\TM4C129x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TM4C129x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2Ex-17_SR2.x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2Ex-17_SR2.x\TDA2Ex-17_SR2.x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2Ex-17_SR2.x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR64XX\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR64XX\IWR64XX.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR64XX\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1354R10RSK\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1354R10RSK\CC1354R10RSK.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1354R10RSK\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR14XX\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR14XX\AWR14XX.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR14XX\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM243x_ALX_beta\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM243x_ALX_beta\AM243x_ALX_beta.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM243x_ALX_beta\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AMIC110\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AMIC110\AMIC110.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AMIC110\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2807x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2807x\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2807x\F2807x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2807x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2640R2FRSM\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2640R2FRSM\CC2640R2FRSM.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2640R2FRSM\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28P55x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28P55x\F28P55x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28P55x\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28P55x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R5RKP\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R5RKP\CC2340R5RKP.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R5RKP\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR68XXAOP\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR68XXAOP\AWR68XXAOP.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR68XXAOP\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM263x_beta\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM263x_beta\AM263x_beta.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM263x_beta\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM243x_ALV_beta\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM243x_ALV_beta\AM243x_ALV_beta.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM243x_ALV_beta\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2662R1FRGZQ1\CC2662R1FRGZQ1.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2662R1FRGZQ1\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2662R1FRGZQ1\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652RB1FRGZ\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652RB1FRGZ\CC2652RB1FRGZ.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652RB1FRGZ\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1354P10RGZ\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1354P10RGZ\CC1354P10RGZ.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1354P10RGZ\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM65xx_SR1.0\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM65xx_SR1.0\version.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM65xx_SR1.0\AM65xx_SR1.0.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM65xx_SR1.0\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM65xx_SR1.0\templates\version.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1312R1F3RGZ\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1312R1F3RGZ\CC1312R1F3RGZ.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1312R1F3RGZ\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J722S_TDA4VEN_TDA4AEN_AM67\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J722S_TDA4VEN_TDA4AEN_AM67\J722S_TDA4VEN_TDA4AEN_AM67.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J722S_TDA4VEN_TDA4AEN_AM67\version.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J722S_TDA4VEN_TDA4AEN_AM67\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J722S_TDA4VEN_TDA4AEN_AM67\templates\version.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0G110X\MSPM0G110X.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0G110X\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0G110X\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0G110X\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5728_SR1.1_beta\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5728_SR1.1_beta\AM5728_SR1.1_beta.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5728_SR1.1_beta\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\XWRL64XX\XWRL64XX.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\XWRL64XX\.metadata\product.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\XWRL64XX\.metadata\product.json.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM273x\AM273x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM273x\templates\AM273x_pinmux_data.c.xdt
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM273x\templates\AM273x_pinmux.h.xdt
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM273x\templates\summary.csv.xdt
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM273x\.metadata\product.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM273x\.metadata\product.json.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2x_AAS_SR2.0\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2x_AAS_SR2.0\TDA2x_AAS_SR2.0.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2x_AAS_SR2.0\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM65xx_SR2.0_beta\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM65xx_SR2.0_beta\version.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM65xx_SR2.0_beta\AM65xx_SR2.0_beta.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM65xx_SR2.0_beta\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM65xx_SR2.0_beta\templates\version.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28004x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28004x\F28004x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28004x\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F28004x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2745P7RHAQ1\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2745P7RHAQ1\CC2745P7RHAQ1.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2745P7RHAQ1\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2833x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2833x\F2833x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2833x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2642R1FRGZ\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2642R1FRGZ\CC2642R1FRGZ.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2642R1FRGZ\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R53RKP\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R53RKP\CC2340R53RKP.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R53RKP\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2837xS\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2837xS\F2837xS.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2837xS\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2837xS\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1312PSIP\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1312PSIP\CC1312PSIP.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1312PSIP\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA78x_SR2.0_beta\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA78x_SR2.0_beta\DRA78x_SR2.0_beta.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA78x_SR2.0_beta\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651R3RKP\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651R3RKP\CC2651R3RKP.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651R3RKP\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651R3SIPA\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651R3SIPA\CC2651R3SIPA.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651R3SIPA\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3230SF\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3230SF\CC3230SF.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3230SF\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM263Px\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM263Px\AM263Px.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM263Px\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC13x0F128RSM\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC13x0F128RSM\CC13x0F128RSM.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC13x0F128RSM\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DM50x_SR2.0_beta\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DM50x_SR2.0_beta\DM50x_SR2.0_beta.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DM50x_SR2.0_beta\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2x_ABC_SR2.0\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2x_ABC_SR2.0\TDA2x_ABC_SR2.0.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2x_ABC_SR2.0\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR16XX\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR16XX\AWR16XX.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AWR16XX\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J784S4_TDA4AP_TDA4VP_TDA4AH_TDA4VH_AM69x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J784S4_TDA4AP_TDA4VP_TDA4AH_TDA4VH_AM69x\J784S4_TDA4AP_TDA4VP_TDA4AH_TDA4VH_AM69x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J784S4_TDA4AP_TDA4VP_TDA4AH_TDA4VH_AM69x\version.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J784S4_TDA4AP_TDA4VP_TDA4AH_TDA4VH_AM69x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\J784S4_TDA4AP_TDA4VP_TDA4AH_TDA4VH_AM69x\templates\version.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1311P3RGZ\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1311P3RGZ\CC1311P3RGZ.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1311P3RGZ\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1310RHB\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1310RHB\CC1310RHB.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1310RHB\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA80x_SR1.0\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA80x_SR1.0\version.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA80x_SR1.0\DRA80x_SR1.0.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA80x_SR1.0\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA80x_SR1.0\templates\version.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR68XX\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR68XX\IWR68XX.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR68XX\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM437x\AM437x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM437x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM437x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR16XX\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR16XX\IWR16XX.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\IWR16XX\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1350RHB\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1350RHB\CC1350RHB.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1350RHB\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651P3RGZ\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651P3RGZ\CC2651P3RGZ.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2651P3RGZ\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F280015x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F280015x\F280015x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F280015x\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F280015x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2Ex-23_SR2.0\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2Ex-23_SR2.0\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM62SIP\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM62SIP\AM62SIP.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM62SIP\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM62SIP\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L122X\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L122X\MSPM0L122X.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L122X\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L122X\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652P7RGZ\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652P7RGZ\CC2652P7RGZ.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652P7RGZ\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652P1FSIP\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652P1FSIP\CC2652P1FSIP.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652P1FSIP\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM438x\AM438x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM438x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM438x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM335x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM335x\AM335x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM335x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2674P10RSK\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2674P10RSK\CC2674P10RSK.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2674P10RSK\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1352R1F3RGZ\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1352R1F3RGZ\CC1352R1F3RGZ.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1352R1F3RGZ\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2674P10RGZ\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2674P10RGZ\CC2674P10RGZ.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2674P10RGZ\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5748_SR1.0\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5748_SR1.0\AM5748_SR1.0.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5748_SR1.0\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA80xM_SR2.0_beta\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA80xM_SR2.0_beta\DRA80xM_SR2.0_beta.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA80xM_SR2.0_beta\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2755R10RKP\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2755R10RKP\CC2755R10RKP.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2755R10RKP\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0G350X\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0G350X\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0G350X\MSPM0G350X.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0G350X\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM64x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM64x\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM64x\AM64x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM64x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2805x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2805x\F2805x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2805x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AMIC120\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AMIC120\AMIC120.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AMIC120\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3230S\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3230S\CC3230S.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3230S\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L222X\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L222X\MSPM0L222X.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L222X\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L222X\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L134X\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L134X\MSPM0L134X.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L134X\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0L134X\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2806x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2806x\F2806x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2806x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\legacy\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\legacy\buildSolution.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\legacy\adapt.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0G310X\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0G310X\MSPM0G310X.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0G310X\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0G310X\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2674R10RGZ\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2674R10RGZ\CC2674R10RGZ.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2674R10RGZ\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R5RHB\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R5RHB\CC2340R5RHB.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2340R5RHB\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652R1FRGZ\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652R1FRGZ\CC2652R1FRGZ.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2652R1FRGZ\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA71x_SR2.x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA71x_SR2.x\DRA71x_SR2.x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA71x_SR2.x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0C110X\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0C110X\MSPM0C110X.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0C110X\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\MSPM0C110X\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1314R10RSK\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1314R10RSK\CC1314R10RSK.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1314R10RSK\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5708_SR2.x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5708_SR2.x\AM5708_SR2.x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5708_SR2.x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC13x0F128RHB\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC13x0F128RHB\CC13x0F128RHB.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC13x0F128RHB\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1311R3RGZ\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1311R3RGZ\CC1311R3RGZ.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1311R3RGZ\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2745R7RHAQ1\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2745R7RHAQ1\CC2745R7RHAQ1.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2745R7RHAQ1\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5728_SR2.0\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5728_SR2.0\AM5728_SR2.0.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5728_SR2.0\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5726_SR2.0\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5726_SR2.0\AM5726_SR2.0.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5726_SR2.0\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1350RSM\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1350RSM\CC1350RSM.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1350RSM\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1354R10RGZ\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1354R10RGZ\CC1354R10RGZ.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1354R10RGZ\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1352P1F3RGZ\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1352P1F3RGZ\CC1352P1F3RGZ.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1352P1F3RGZ\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA75x_74x_SR2.0\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA75x_74x_SR2.0\DRA75x_74x_SR2.0.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA75x_74x_SR2.0\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3220SF\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3220SF\CC3220SF.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC3220SF\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2837xD\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2837xD\F2837xD.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2837xD\clocktree.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\F2837xD\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2745R10RHAQ1\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2745R10RHAQ1\CC2745R10RHAQ1.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC2745R10RHAQ1\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA79x_SR2.x\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA79x_SR2.x\DRA79x_SR2.x.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA79x_SR2.x\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5768_SR1.0\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5768_SR1.0\AM5768_SR1.0.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5768_SR1.0\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1310RSM\metadata.bundle
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1310RSM\CC1310RSM.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\CC1310RSM\templates\index.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\tests\runTests.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\tests\sanityTests.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\TDA2Ex-23_SR2.0\TDA2Ex-23_SR2.0.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA80xM_SR2.0_beta\version.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\DRA80xM_SR2.0_beta\templates\version.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\dist\deviceData\AM5768_SR1.0\templates\version.json
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\tests\toolBackwardsCompatibilityTests.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\tests\backwardsCompatibilityTests.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\tests\sysConfig.js
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\tests\jasmine-core\ReadMe.txt
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\.metadata\.tirex\package.tirex.json
+Directory already exists: C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20
+Unpacking files
+Unpacking C:\Users\blayn\Downloads\Digital Twin TI Board Setup\cc3220_daq\tools\sysconfig_1.20\autoupdate-windows.exe

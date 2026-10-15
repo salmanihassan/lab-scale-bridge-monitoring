@@ -1,0 +1,75 @@
+{
+	"name": "AWR2544",
+	"displayName": "AWR2544",
+	"version": "0.0.1",
+	"documentationPath": "../docs/",
+	"includePaths": [
+		".."
+	],
+	"devices": [
+		"AWR2544",
+	],
+    "topModules": [
+		{
+			"displayName": "Peripherals",
+			"modules": [
+				"/ti/peripherals/CHIRP_START",
+				"/ti/peripherals/CHIRP_END",
+				"/ti/peripherals/FRAME_START",
+				"/ti/peripherals/ADC_VALID",
+				"/ti/peripherals/SYNC_OUT",
+				"/ti/peripherals/BSS_UARTA_TX",
+				"/ti/peripherals/LVDS_VALID",
+				"/ti/peripherals/ERROR",
+				"/ti/peripherals/JTAG",
+				"/ti/peripherals/MSS_RTI",
+				"/ti/peripherals/MCU_CLKOUT",
+				"/ti/peripherals/CPTS",
+				"/ti/peripherals/EPWM",
+				"/ti/peripherals/GPIO",
+				"/ti/peripherals/I2C",
+				"/ti/peripherals/MDIO",
+				"/ti/peripherals/MII",
+				"/ti/peripherals/MIBSPI",
+				"/ti/peripherals/RGMII",
+				"/ti/peripherals/RMII",
+				"/ti/peripherals/RS232",
+				"/ti/peripherals/UART",
+				"/ti/peripherals/QSPI",
+				"/ti/peripherals/OBS_CLKOUT",
+				"/ti/peripherals/PMIC_CLKOUT",
+				"/ti/peripherals/RCOSC_CLK",
+			 	"/ti/peripherals/SYNC_IN",
+				"/ti/peripherals/TRACE",
+				"/ti/peripherals/TZ",
+				"/ti/peripherals/XREF_CLK0",
+				"/ti/peripherals/XREF_CLK1"
+			]
+		}
+	],
+	 "templates": [
+	{
+	"name": "/ti/templates/AWR2544_pinmux_data.c.xdt",
+	"outputPath": "AWR2544_pinmux_data.c",
+	"alwaysRun" : true
+	},
+	{
+		"name": "/ti/templates/AWR2544_pinmux.h.xdt",
+		"outputPath": "AWR2544_pinmux.h",
+		"alwaysRun" : true
+	},
+	{
+		"name": "/ti/templates/summary.csv.xdt",
+		"outputPath": "Summary.csv",
+		"alwaysRun" : true
+	}
+],
+
+	"pinmuxUIOptions": {
+		"showUsed": true,
+		"showSignals": true,
+		"group": "merged",
+		"hidePeripheralTab": true,
+		"showPinTable": true
+	}
+}

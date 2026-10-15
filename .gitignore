@@ -1,0 +1,10 @@
+# GitHub rejects ordinary Git objects larger than 100 MiB.  These TI installer
+# and bundled-runtime files are reproducible from their documented installers.
+SP2026-ME2/Fall 2026/Digital Twin TI Board Setup/cc3220_daq/tools/sysconfig-1.15.0_2826-setup.exe
+SP2026-ME2/Fall 2026/Digital Twin TI Board Setup/cc3220_daq/tools/sysconfig-1.20.0_3587-setup.exe
+SP2026-ME2/Fall 2026/Digital Twin TI Board Setup/cc3220_daq/tools/sysconfig_1.15/nw/nw.dll
+SP2026-ME2/Fall 2026/Digital Twin TI Board Setup/cc3220_daq/tools/sysconfig_1.20/nw/nw.dll
+SP2026-ME2/Fall 2026/Digital Twin TI Board Setup/Installation Files/simplelink_cc32xx_sdk_7_10_00_13.exe
+SP2026-ME2/Fall 2026/Digital Twin TI Board Setup/Installation Files/uniflash_sl.9.6.0.5764.exe
+SP2026-ME2/Fall 2026/Digital Twin TI Board Setup/Installation Files/CCS_21.0.1.00010_win/components/THEIA-21.0.1.00010-windows-x64.pak
+SP2026-ME2/Fall 2026/Digital Twin TI Board Setup/Installation Files/CCS_21.0.1.00010_win/components/TI_ARM_CLANG-21.0.1.00010-windows-x64.pak

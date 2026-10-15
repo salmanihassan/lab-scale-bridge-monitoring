@@ -1,0 +1,10 @@
+
+Pin Number, Pad, Peripheral, Peripheral Instance, Pin, Pull
+% _.each(system.modules,(mod)=> {
+%     _.each(mod.$instances,(inst)=> {
+%         const pins = _.filter(inst.peripheral, (value, key) => !_.startsWith(key,"$"));
+%         _.each(pins,(pin)=> {
+`pin.$solution.packagePinName`, `pin.$solution.devicePinName`, `mod.displayName`, `inst.$name`, `pin.$solution.peripheralPinName`, `pin.pull.toUpperCase()`, 
+        %});
+    %});
+%});

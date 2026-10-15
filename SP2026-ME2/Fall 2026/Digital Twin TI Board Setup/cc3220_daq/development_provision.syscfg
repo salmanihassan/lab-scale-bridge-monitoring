@@ -1,0 +1,15 @@
+/**
+ * Minimal CC3220SF LaunchPad development-state provisioning manifest.
+ *
+ * This intentionally contains no MCU runtime image, user files, Wi-Fi
+ * credentials, network-service configuration, or production-security options.
+ * It selects ImageCreator development mode and the SDK-default CC32xx service
+ * pack so CCS/XDS110 can subsequently load the DAQ .out for debug.
+ *
+ * @cliArgs --device CC3220SF --package Default --part Default --ccxxImageMode
+ */
+
+const General = scripting.addModule("/ti/drivers/net/imagecreator/new_design/Device/General");
+const ServicePack = scripting.addModule("/ti/drivers/net/imagecreator/new_design/UserFiles/ServicePack");
+
+General.ModeSelect = "development";

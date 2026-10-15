@@ -1,0 +1,623 @@
+// This bundle was auto-generated from the folders: 
+// /disk2/jenkins/workspace/sysconfig.build.installers/pinmux/bus/ti-pinmux-processors/syscfg/AM273x
+defineResource("/.metadata/product.json", function(_, system, pmux, scripting, require) { "use strict";return {name:'AM273x',displayName:'AM273x',version:'0.0.1',documentationPath:'../docs/',includePaths:['..'],devices:['AM273x'],topModules:[{displayName:'Peripherals',modules:['/ti/peripherals/DMM','/ti/peripherals/DSS_RTI','/ti/peripherals/DSS_UART','/ti/peripherals/ERROR','/ti/peripherals/FE1_REFCLK','/ti/peripherals/FE2_REFCLK','/ti/peripherals/HW_SYNC_FE1','/ti/peripherals/HW_SYNC_FE2','/ti/peripherals/MCU_CLKOUT','/ti/peripherals/MSS_CPTS','/ti/peripherals/MSS_EPWM','/ti/peripherals/MSS_GPIO','/ti/peripherals/MSS_I2C','/ti/peripherals/MSS_MCAN','/ti/peripherals/MSS_MDIO','/ti/peripherals/MSS_MIBSPI','/ti/peripherals/MSS_QSPI','/ti/peripherals/MSS_RGMII','/ti/peripherals/MSS_RMII','/ti/peripherals/MSS_MII','/ti/peripherals/MSS_RS232','/ti/peripherals/MSS_RTI','/ti/peripherals/MSS_UART','/ti/peripherals/OBS_CLKOUT','/ti/peripherals/PMIC_CLKOUT','/ti/peripherals/RCOSC_CLK','/ti/peripherals/RCSS_ATL','/ti/peripherals/RCSS_ECAP','/ti/peripherals/RCSS_GPIO','/ti/peripherals/RCSS_I2C','/ti/peripherals/RCSS_MCASP','/ti/peripherals/RCSS_MIBSPI','/ti/peripherals/RCSS_UART','/ti/peripherals/SYNC_IN','/ti/peripherals/JTAG','/ti/peripherals/TRACE','/ti/peripherals/TZ','/ti/peripherals/XREF_CLK0','/ti/peripherals/XREF_CLK1']}],templates:[{name:'/ti/templates/AM273x_pinmux_data.c.xdt',outputPath:'AM273x_pinmux_data.c',alwaysRun:true},{name:'/ti/templates/AM273x_pinmux.h.xdt',outputPath:'AM273x_pinmux.h',alwaysRun:true},{name:'/ti/templates/summary.csv.xdt',outputPath:'Summary.csv',alwaysRun:true}],pinmuxUIOptions:{showUsed:true,showSignals:true,group:'merged',hidePeripheralTab:true,showPinTable:true}}; });
+defineResource("/ti/peripherals/Common.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const defaultPullConfig = {
+	name: "pull",
+	displayName: "Pull Up/Down",
+	default: "nopull",
+	options: [{
+		name: "pu",
+		displayName: "Pull Up"
+	}, {
+		name: "pd",
+		displayName: "Pull Down"
+	}, {
+		name: "nopull",
+		displayName: "No Pull"
+	}]
+};
+
+exports = {
+
+	pinmuxRequirements: (ifaceName, pinOptsMap = { ".*": {} }) => {
+
+		const resources
+			= _.chain(system.deviceData.interfaces[ifaceName].interfacePins)
+				.map((ifacePin) => {
+					const pinOpts = _.find(pinOptsMap, (_opts, pinName) => new RegExp(pinName).test(ifacePin.name));
+					if (pinOpts) {
+						return [ifacePin, pinOpts];
+					}
+				})
+				.compact()
+				.map(([ifacePin, pinOpts]) => {
+					let pullConfig = defaultPullConfig;
+					if (pinOpts.pull) {
+						// clone to mutate
+						pullConfig = _.clone(pullConfig);
+						pullConfig.default = pinOpts.pull;
+					}
+					return {
+						name: ifacePin.name,
+						config: [pullConfig],
+					};
+				})
+				.value();
+
+		const reqs = [
+			{
+				name: "peripheral",
+				displayName: "Use Peripheral",
+				interfaceName: ifaceName,
+				resources: resources,
+			}
+		];
+
+		return reqs;
+	},
+	pinmuxRequirementsGPIO: (ifaceName, numPins) => {
+
+		// What are all the pin names?
+		// Expect one GPIO interface with N pins
+		const pinNames = _.keys(system.deviceData.interfaces[ifaceName].interfacePins);
+
+		// Create "numPins" resources
+		const resources = [];
+		for(let i = 0; i < numPins; ++i) {
+			resources.push({
+				name: i ? "PIN" + i : "PIN",
+				interfaceNames: pinNames,
+				config: [defaultPullConfig],
+			});
+		}
+
+		// Request 1 GPIO peripheral, but we're ok to share it with other modules of this type
+		return [{
+			name: "peripheral",
+			displayName: "Use Peripheral",
+			hidden: true,
+			interfaceName: ifaceName,
+			resources: resources,
+			canShareWith: ifaceName,
+		}];
+	},
+	defaultPullConfig,
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/DMM.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "DMM";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/DSS_RTI.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "DSS_RTI";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 2,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/DSS_UART.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "DSS_UART";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/ERROR.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "ERROR";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/FE1_REFCLK.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "FE1_REFCLK";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/FE2_REFCLK.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "FE2_REFCLK";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/HW_SYNC_FE1.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "HW_SYNC_FE1";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/HW_SYNC_FE2.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "HW_SYNC_FE2";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/JTAG.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "JTAG";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/MCU_CLKOUT.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "MCU_CLKOUT";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/MSS_CPTS.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "MSS_CPTS";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/MSS_EPWM.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "MSS_EPWM";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 3,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/MSS_GPIO.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "MSS_GPIO";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 32,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: (inst) => Common.pinmuxRequirementsGPIO(ifaceName, inst.numGPIO),
+    config:[{
+        name: "numGPIO",
+        displayName: "Number of Pins",
+        // Return an array of { name: 0 } to { name: n } where n is the number of GPIO pins we have
+        options: _.map(_.values(system.deviceData.interfaces[ifaceName].interfacePins), (unused, index) => {
+            return { name: index + 1 };
+        }),
+        default: 1,
+    }],
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/MSS_I2C.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "MSS_I2C";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/MSS_MCAN.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "MSS_MCAN";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 2,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/MSS_MDIO.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "MSS_MDIO";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/MSS_MIBSPI.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "MSS_MIBSPI";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 2,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/MSS_MII.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "MSS_MII";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/MSS_QSPI.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "MSS_QSPI";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/MSS_RGMII.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "MSS_RGMII";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/MSS_RMII.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "MSS_RMII";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/MSS_RS232.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "MSS_RS232";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/MSS_RTI.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "MSS_RTI";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 3,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/MSS_UART.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "MSS_UART";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 2,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/OBS_CLKOUT.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "OBS_CLKOUT";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/PMIC_CLKOUT.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "PMIC_CLKOUT";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/RCOSC_CLK.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "RCOSC_CLK";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/RCSS_ATL.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "RCSS_ATL";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/RCSS_ECAP.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "RCSS_ECAP";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/RCSS_GPIO.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "RCSS_GPIO";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 32,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: (inst) => Common.pinmuxRequirementsGPIO(ifaceName, inst.numGPIO),
+    config:[{
+        name: "numGPIO",
+        displayName: "Number of Pins",
+        // Return an array of { name: 0 } to { name: n } where n is the number of GPIO pins we have
+        options: _.map(_.values(system.deviceData.interfaces[ifaceName].interfacePins), (unused, index) => {
+            return { name: index + 1 };
+        }),
+        default: 1,
+    }],
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/RCSS_I2C.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "RCSS_I2C";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 2,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/RCSS_MCASP.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "RCSS_MCASP";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/RCSS_MIBSPI.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "RCSS_MIBSPI";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 2,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/RCSS_UART.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "RCSS_UART";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/SYNC_IN.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "SYNC_IN";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/TRACE.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "TRACE";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/TZ.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "TZ";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/XREF_CLK0.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "XREF_CLK0";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/peripherals/XREF_CLK1.syscfg.js", function(_, system, pmux, scripting, require) { "use strict";let exports = {}; let module = {exports}; {const Common = system.getScript("/ti/peripherals/Common");
+const ifaceName = "XREF_CLK1";
+exports = {
+    displayName: ifaceName,
+    maxInstances: 1,
+    defaultInstanceName: "My" + ifaceName,
+    pinmuxRequirements: () => Common.pinmuxRequirements(ifaceName),
+}
+} return _.isEqual(exports, {}) ? module.exports : exports; });
+defineResource("/ti/templates/AM273x_pinmux.h.xdt", function(_, system, pmux, scripting, require) { "use strict";return function(args) {
+var __t, __p = '';
+__p += '/******************************************************************************\n * Copyright (c) 2020 Texas Instruments Incorporated - http://www.ti.com\n *\n *  Redistribution and use in source and binary forms, with or without\n *  modification, are permitted provided that the following conditions\n *  are met:\n *\n *    Redistributions of source code must retain the above copyright\n *    notice, this list of conditions and the following disclaimer.\n *\n *    Redistributions in binary form must reproduce the above copyright\n *    notice, this list of conditions and the following disclaimer in the\n *    documentation and/or other materials provided with the\n *    distribution.\n *\n *    Neither the name of Texas Instruments Incorporated nor the names of\n *    its contributors may be used to endorse or promote products derived\n *    from this software without specific prior written permission.\n *\n *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS\n *  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT\n *  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR\n *  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT\n *  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,\n *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT\n *  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,\n *  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY\n *  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n *  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\n *  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n *\n *****************************************************************************/\n\n/**\n *\n * \\file   AM273x_pinmux.h\n *\n * \\brief  This file contains pad configure register offsets and bit-field \n *         value macros for different configurations,\n *\n *           BIT[9]		    PUPDSEL		    Pullup/PullDown Selection 0 -- Pull Down\n *           BIT[8]		    PI              Pull Inhibit/Pull Disable 0 -- Enable\n *           BIT[3:0]		FUNC_SEL		Function Select\n *\n */\n\n#ifndef _AM273X_PIN_MUX_H_\n#define _AM273X_PIN_MUX_H_\n\n/* ========================================================================== */\n/*                             Include Files                                  */\n/* ========================================================================== */\n\n#include "pinmux.h"\n#include "csl_types.h"\n\n#ifdef __cplusplus\nextern "C" {\n#endif\n\n/* ========================================================================== */\n/*                           Macros & Typedefs                                */\n/* ========================================================================== */\n#define PIN_MODE(mode)	                (mode)\n#define PINMUX_END                      (-1)\n\n/** \\brief Active mode configurations */\n/** \\brief Resistor disable */\n#define PIN_PULL_DISABLE                (0x1U << 8U)  \n/** \\brief Pull direction */\n#define	PIN_PULL_DIRECTION              (0x1U << 9U)\n\n\n/* ========================================================================== */\n/*                            Global Variables                                */\n/* ========================================================================== */\n\n/** \\brief Pinmux configuration data for the board. Auto-generated from \n           Pinmux tool. */\nextern pinmuxBoardCfg_t gAM273xPinmuxData[];\n\n#ifdef __cplusplus\n}\n#endif /* __cplusplus */\n#endif /* _AM273X_PIN_MUX_H_ */\n';
+return __p
+}; });
+defineResource("/ti/templates/AM273x_pinmux_data.c.xdt", function(_, system, pmux, scripting, require) { "use strict";return function(args) {
+var __t, __p = '', __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
+
+ var date = new Date();
+;
+__p += '\n/**\n* Note: This file was auto-generated by TI PinMux on ' +
+((__t = (date.toLocaleDateString())) == null ? '' : __t) +
+' at ' +
+((__t = (date.toLocaleTimeString())) == null ? '' : __t) +
+'.\n*\n* \\file  AM273x_pinmux_data.c\n*\n* \\brief  This file contains the pin mux configurations for the boards.\n*         These are prepared based on how the peripherals are extended on\n*         the boards.\n*\n* \\copyright Copyright (CU) ' +
+((__t = (date.getFullYear())) == null ? '' : __t) +
+' Texas Instruments Incorporated -\n*             http://www.ti.com/\n*/\n\n/* ========================================================================== */\n/*                             Include Files                                  */\n/* ========================================================================== */\n\n#include "AM273x_pinmux.h"\n\n/** Peripheral Pin Configurations */\n\n';
+
+    function capitalizeFirstLetterOnly( name ) {
+        return name[0].toUpperCase() + name.substring( 1, name.length ).toLowerCase();
+    };
+    function getMuxMode( pin, ball) {
+        var devicePin = system.deviceData.devicePins[ball];
+        const muxSetting = _.find(devicePin.mux.muxSetting, (muxSetting) => muxSetting.peripheralPin.name === pin);
+        return muxSetting.mode;
+    };
+    
+;
+__p += '\n';
+    _.each(system.modules,(mod)=> {
+        
+       //if (_.startsWith(mod),"$")))   #TODO
+
+        _.each(mod.$instances,(inst)=> {
+
+            var interfaceName = mod.displayName;
+            var peripheralName = inst.$name;
+            
+;
+__p += 'static pinmuxPerCfg_t g' +
+((__t = (capitalizeFirstLetterOnly( peripheralName ))) == null ? '' : __t) +
+'PinCfg[] =\n{\n';
+
+            var enumStatements = [];
+
+            const pins = _.filter(inst.peripheral, (value, key) => !_.startsWith(key,"$"));
+
+            _.each(pins,(pin)=> {
+                var pinName = pin.$solution.peripheralPinName;
+
+                // don't try to process pins that are not selected
+                if (_.isEmpty(pinName))
+                    return; 
+
+                var pull = pin.pull;
+                var ballName = pin.$solution.packagePinName;
+                var pad = pin.$solution.devicePinName;
+
+                var muxMode = getMuxMode(pinName, ballName);
+
+                var pull_enable;
+                if (pull == "pd" || pull == "pu") {
+                    pull_enable = "PIN_PULL_DISABLE";
+                }
+                else {
+                    pull_enable = "~PIN_PULL_DISABLE";
+                }
+                
+                var pull_type;
+                if(pull == "pd") {
+                    pull_type = "PIN_PULL_DIRECTION";
+                }
+                else {
+                    pull_type = "~PIN_PULL_DIRECTION"
+                }
+                
+                    enumStatements.push(
+                    {
+                        line1 : "/* " + inst.peripheral.$name + " -> " + pinName + " -> " + ballName + " */",
+                        line2 : "{",
+                        line3 : "    CSL_MSS_IOMUX_" + pad.replace("_","") + "_CFG_REG" + ", " + "PIN_MODE(" + muxMode + ") | \\",
+                        line4 : "    (" + (pull_enable) + ") & (" + (pull_type) + ")",
+                        line5 : "},"
+                    });
+            });
+ for( var i = 0; i < enumStatements.length; ++i ) {
+;
+__p += '    ' +
+((__t = (enumStatements[i].line1)) == null ? '' : __t) +
+'\n    ' +
+((__t = (enumStatements[i].line2)) == null ? '' : __t) +
+'\n    ' +
+((__t = (enumStatements[i].line3)) == null ? '' : __t) +
+'\n    ' +
+((__t = (enumStatements[i].line4)) == null ? '' : __t) +
+'\n    ' +
+((__t = (enumStatements[i].line5)) == null ? '' : __t) +
+'\n';
+           }
+;
+__p += '    {PINMUX_END}\n};\n';
+});
+;
+__p += 'static pinmuxModuleCfg_t g' +
+((__t = (capitalizeFirstLetterOnly( mod.displayName ))) == null ? '' : __t) +
+'PinCfg[] =\n{\n';
+ _.each(mod.$instances,(inst)=> {
+;
+__p += '    { ' +
+((__t = (parseInt( inst.$name.replace('AM273x', '').replace(mod.displayName, '').replace(/[^0-9\.]/g, ''), 10 ))) == null ? '' : __t) +
+', TRUE, g' +
+((__t = (capitalizeFirstLetterOnly( inst.$name ))) == null ? '' : __t) +
+'PinCfg},\n';
+ });
+;
+__p += '    {PINMUX_END}\n};\n       \n';
+});
+;
+__p += '\n';
+
+var enumSet = [];
+_.each(system.modules,(mod)=> {
+    enumSet.push("g" + capitalizeFirstLetterOnly( mod.displayName ) + "PinCfg");
+});
+;
+__p += 'pinmuxBoardCfg_t gAM273xPinmuxData[] =\n{\n';
+   for( var i = 0; i < enumSet.length; ++i ) {
+;
+__p += '    {' +
+((__t = (i)) == null ? '' : __t) +
+', ' +
+((__t = (enumSet[i])) == null ? '' : __t) +
+'},\n';
+   }
+;
+__p += '    {PINMUX_END}\n};\n';
+return __p
+}; });
+defineResource("/ti/templates/summary.csv.xdt", function(_, system, pmux, scripting, require) { "use strict";return function(args) {
+var __t, __p = '', __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
+__p += '\nPin Number, Pad, Peripheral, Peripheral Instance, Pin, Pull\n';
+ _.each(system.modules,(mod)=> {
+     _.each(mod.$instances,(inst)=> {
+         const pins = _.filter(inst.peripheral, (value, key) => !_.startsWith(key,"$"));
+         _.each(pins,(pin)=> {
+;
+__p +=
+((__t = (pin.$solution.packagePinName)) == null ? '' : __t) +
+', ' +
+((__t = (pin.$solution.devicePinName)) == null ? '' : __t) +
+', ' +
+((__t = (mod.displayName)) == null ? '' : __t) +
+', ' +
+((__t = (inst.$name)) == null ? '' : __t) +
+', ' +
+((__t = (pin.$solution.peripheralPinName)) == null ? '' : __t) +
+', ' +
+((__t = (pin.pull.toUpperCase())) == null ? '' : __t) +
+', \n';
+});
+});
+});
+;
+
+return __p
+}; });

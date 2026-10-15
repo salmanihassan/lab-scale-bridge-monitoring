@@ -1,0 +1,65 @@
+{
+	"name": "XWRL64XX",
+	"displayName": "XWRL64XX",
+	"version": "0.0.1",
+	"documentationPath": "../docs/",
+	"includePaths": [
+		".."
+	],
+	"devices": [
+		"XWRL64XX"
+	],
+    "topModules": [
+		{
+			"displayName": "Peripherals",
+			"modules": [
+				"/ti/peripherals/MCAN",
+				"/ti/peripherals/DFE_DEBUG",
+				"/ti/peripherals/EPWM",
+				"/ti/peripherals/ERROR",
+				"/ti/peripherals/GPIO",
+				"/ti/peripherals/HOST_CLK_REQ",
+				"/ti/peripherals/I2C",
+				"/ti/peripherals/JTAG",
+				"/ti/peripherals/LIN",
+				"/ti/peripherals/MCU_CLKOUT",
+				"/ti/peripherals/MDO",
+				"/ti/peripherals/PA_BLANK",
+				"/ti/peripherals/PMIC_CLKOUT",
+				"/ti/peripherals/QSPI",
+				"/ti/peripherals/RS232",
+				"/ti/peripherals/RTC_CLK_IN",
+				"/ti/peripherals/MCSPI",
+				"/ti/peripherals/SYNC_IN",
+				"/ti/peripherals/SYS_RESET_OUT",
+				"/ti/peripherals/UART",
+				"/ti/peripherals/WU_REQIN"
+			]
+		}
+	],
+	 "templates": [
+	{
+	"name": "/ti/templates/XWRL64XX_pinmux_data.c.xdt",
+	"outputPath": "XWRL64XX_pinmux_data.c",
+	"alwaysRun" : true
+	},
+	{
+		"name": "/ti/templates/XWRL64XX_pinmux.h.xdt",
+		"outputPath": "XWRL64XX_pinmux.h",
+		"alwaysRun" : true
+	},
+	{
+		"name": "/ti/templates/summary.csv.xdt",
+		"outputPath": "Summary.csv",
+		"alwaysRun" : true
+	}
+],
+	
+	"pinmuxUIOptions": {
+		"showUsed": true,
+		"showSignals": true,
+		"group": "merged",
+		"hidePeripheralTab": true,
+		"showPinTable": true
+	}
+}

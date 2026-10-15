@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<configurations>
+
+  <configuration id="configuration_0">
+    <connection class="185076" desc="Texas Instruments XDS110 USB Debug Probe" id="Texas Instruments XDS110 USB Debug Probe" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\connections\TIXDS110_Connection.xml">
+      <connectionType Type="TIXDS110" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\connections\TIXDS110_Connection.xml"/>
+      <property ID="DiagnosticCommand" Name="Diagnostic Command" Type="hiddenfield" Value="%ccs_base%/common/uscif/dbgjtag -f %boarddatafile% -rv -o -S integrity" id="Diagnostic Command" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\connections\TIXDS110_Connection.xml"/>
+      <property ID="SEPK.POD_DRVR" Name="Debug Probe Filename" Type="hiddenfield" Value="jioxds110.dll" id="Debug Probe Filename" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\connections\TIXDS110_Connection.xml"/>
+      <property ID="SEPK.POD_PORT" Name="Debug Probe Selection" Type="choicelist" Value="0" id="Debug Probe Selection" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\connections\TIXDS110_Connection.xml">
+        <choice Name="Only one XDS110 installed" value="0"/>
+        <choice Name="Select by serial number" value="0">
+          <property ID="SEPK.POD_SERIAL" Name="-- Enter the serial number" Type="stringfield" Value="Use xdsdfu to get or set serial number" id="-- Enter the serial number"/>
+        </choice>
+      </property>
+      <property ID="SEPK.POD_SUPPLY" Name="Power Selection" Type="choicelist" Value="0" id="Power Selection" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\connections\TIXDS110_Connection.xml">
+        <choice Name="Target supplied power" value="0">
+          <property ID="SEPK.POD_VOLTAGE_SELECTION" Name="Voltage level" Type="choicelist" Value="0" id="Voltage Selection">
+            <choice Name="Default" value="0">
+              <property ID="SEPK.POD_VOLTAGE" Name="" Type="hiddenfield" Value="0" id="Voltage Level"/>
+            </choice>
+            <choice Name="User specified value" value="1">
+              <property ID="SEPK.POD_VOLTAGE" Name="--Enter voltage (1.8V to 3.6V)" Type="stringfield" Value="" id="Voltage Level"/>
+            </choice>
+          </property>
+        </choice>
+        <choice Name="Probe supplied power" value="1">
+          <property ID="SEPK.POD_VOLTAGE_SELECTION" Name="Voltage level" Type="hiddenfield" Value="1" id="Voltage Selection"/>
+          <property ID="SEPK.POD_VOLTAGE" Name="--Enter voltage (1.8V to 3.6V)" Type="stringfield" Value="" id="Voltage Level"/>
+          <property ID="SEPK.POD_POWER_ISOLATE" Name="Power Isolation" Type="choicelist" Value="0" id="Power Isolation">
+            <choice Name="Remove power at final disconnect" value="0"/>
+            <choice Name="Keep power at final disconnect" value="1"/>
+          </property>
+        </choice>
+      </property>
+      <property ID="PRODUCT.TITLE" Name="Title" Type="hiddenfield" Value="Texas Instruments XDS110 USB" id="Title" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\connections\TIXDS110_Connection.xml"/>
+      <property ID="PRODUCT.ALIAS" Name="Alias" Type="hiddenfield" Value="TI_XDS110_USB" id="Alias" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\connections\TIXDS110_Connection.xml"/>
+      <property ID="PRODUCT.NAME" Name="Name" Type="hiddenfield" Value="XDS110" id="Name" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\connections\TIXDS110_Connection.xml"/>
+      <property ID="USCIF.TDOEDGE" Name="TMS/TDO Output Timing" Type="hiddenfield" Value="FALL" id="TMS/TDO Output Timing" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\connections\TIXDS110_Connection.xml"/>
+      <property ID="USCIF.TCLK_PROGRAM" Name="The JTAG TCLK Frequency (MHz)" Type="choicelist" Value="0" id="The JTAG TCLK Frequency (MHz)" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\connections\TIXDS110_Connection.xml">
+        <choice Name="Fixed default 5.5MHz frequency" id="Fixed default 2.5MHz frequency" value="DEFAULT">
+          <property ID="USCIF.TCLK_FREQUENCY" Name="unused" Type="hiddenfield" Value="5.5MHz" id="unused"/>
+        </choice>
+        <choice Name="Fixed with user specified value" value="SPECIFIC">
+          <property ID="USCIF.TCLK_FREQUENCY" Name="-- Enter a value from 100.0kHz to 5.5MHz" Type="stringfield" Value="5.5MHz" id="-- Enter a value from 100.0kHz to 2.5MHz"/>
+        </choice>
+        <choice Name="Fixed with user selected faster value" value="SPECIFIC">
+          <property ID="USCIF.TCLK_FREQUENCY" Name="-- Select the TCK frequency setting" Type="choicelist" Value="0" id="Select TCK Setting">
+            <choice Name="Fixed 14.0MHz frequency" value="0">
+              <property ID="USCIF.TCLK_FREQUENCY" Name="unused" Type="hiddenfield" Value="14.0MHz" id="unused"/>
+            </choice>
+            <choice Name="Fixed 12.0MHz frequency" value="1">
+              <property ID="USCIF.TCLK_FREQUENCY" Name="unused" Type="hiddenfield" Value="12.0MHz" id="unused"/>
+            </choice>
+            <choice Name="Fixed 10.0MHz frequency" value="2">
+              <property ID="USCIF.TCLK_FREQUENCY" Name="unused" Type="hiddenfield" Value="10.0MHz" id="unused"/>
+            </choice>
+            <choice Name="Fixed 8.5MHz frequency" value="3">
+              <property ID="USCIF.TCLK_FREQUENCY" Name="unused" Type="hiddenfield" Value="8.5MHz" id="unused"/>
+            </choice>
+            <choice Name="Fixed 5.5MHz frequency" value="4">
+              <property ID="USCIF.TCLK_FREQUENCY" Name="unused" Type="hiddenfield" Value="5.5MHz" id="unused"/>
+            </choice>
+          </property>
+        </choice>
+      </property>
+      <property ID="USCIF.JTAG_ISOLATE" Name="JTAG Signal Isolation" Type="choicelist" Value="1" id="JTAG Signal Isolation" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\connections\TIXDS110_Connection.xml">
+        <choice Name="Don't isolate JTAG signals at final disconnect" value="disable"/>
+        <choice Name="Do isolate JTAG signals at final disconnect" value="enable"/>
+      </property>
+      <property ID="DOT7.DTS_USAGE" Type="choicelist" Value="0" desc="JTAG / SWD / cJTAG Mode" id="SWD Mode Settings" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\connections\TIXDS110_Connection.xml">
+        <choice Name="JTAG (1149.1), SWD and cJTAG are disabled" value="nothing">
+          <property ID="SWD.SWD_DEBUG" Type="hiddenfield" Value="disabled" desc="" id="SWD Debug"/>
+          <property ID="SWD.SWO_DATA" Type="hiddenfield" Value="aux_uart" desc="" id="SWO Data"/>
+        </choice>
+        <choice Name="SWD Mode - Aux COM port is target UART port" value="nothing">
+          <property ID="SWD.SWD_DEBUG" Type="hiddenfield" Value="enabled" desc="" id="SWD Debug"/>
+          <property ID="SWD.SWO_DATA" Type="hiddenfield" Value="aux_uart" desc="" id="SWO Data"/>
+        </choice>
+        <choice Name="SWD Mode - Aux COM port is target TDO pin" value="nothing">
+          <property ID="SWD.SWD_DEBUG" Type="hiddenfield" Value="enabled" desc="" id="SWD Debug"/>
+          <property ID="SWD.SWO_DATA" Type="hiddenfield" Value="tdo_pin" desc="" id="SWO Data"/>
+        </choice>
+        <choice Name="cJTAG (1149.7) 4-pin standard mode" value="enable">
+          <property ID="DOT7.DTS_TYPE" Name="The Converter Type" Type="hiddenfield" Value="xds110" id="The Converter Type"/>
+          <property ID="DOT7.DTS_PROGRAM" Name="The Debug Probe Clock" Type="hiddenfield" Value="emulator" id="The Debug Probe Clock"/>
+          <property ID="DOT7.DTS_FREQUENCY" Name="The Converter 1149.7 Frequency Value" Type="hiddenfield" Value="1.0MHz" id="The Converter 1149.7 Frequency Value"/>
+          <property ID="DOT7.TS_FORMAT" Name="The Target Scan Format" Type="hiddenfield" Value="jscan0" id="The Target Scan Format"/>
+          <property ID="DOT7.TS_PIN_WIDTH" Name="The Target Pin Width" Type="hiddenfield" Value="all_four" id="The Target Pin Width"/>
+          <property ID="SWD.SWD_DEBUG" Type="hiddenfield" Value="disabled" desc="" id="SWD Debug"/>
+          <property ID="SWD.SWO_DATA" Type="hiddenfield" Value="aux_uart" desc="" id="SWO Data"/>
+        </choice>
+        <choice Name="cJTAG (1149.7) 2-pin advanced modes" value="enable">
+          <property ID="DOT7.DTS_TYPE" Name="The Converter Type" Type="hiddenfield" Value="xds110" id="The Converter Type"/>
+          <property ID="DOT7.DTS_PROGRAM" Name="The Debug Probe Clock" Type="hiddenfield" Value="emulator" id="The Debug Probe Clock"/>
+          <property ID="DOT7.DTS_FREQUENCY" Name="The Converter 1149.7 Frequency Value" Type="hiddenfield" Value="1.0MHz" id="The Converter 1149.7 Frequency Value"/>
+          <property ID="DOT7.TS_FORMAT" Name="Target Scan Format" Type="choicelist" Value="1" id="Target Scan Format">
+            <choice Name="OSCAN1 format - non-adaptive scans" value="oscan1"/>
+            <choice Name="OSCAN2 format - faster transitions" value="oscan2"/>
+          </property>
+          <property ID="DOT7.TS_PIN_WIDTH" Name="The Target Pin Width" Type="hiddenfield" Value="only_two" id="The Target Pin Width"/>
+          <property ID="SWD.SWD_DEBUG" Type="hiddenfield" Value="disabled" desc="" id="SWD Debug"/>
+          <property ID="SWD.SWO_DATA" Type="choicelist" Value="0" desc="Auxiliary COM Port Connection" id="XDS110 Aux Port">
+            <choice Name="Aux COM port is target UART port" value="aux_uart"/>
+            <choice Name="Aux COM port is target TDO pin" value="tdo_pin"/>
+          </property>
+        </choice>
+      </property>
+      <property ID="USCIF.UART_BAUD_RATE_THRESHOLD" Name="UART Baud Rate Threshold For DMA" Type="stringfield" Value="115200" id="UART Baud Rate Threshold For DMA" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\connections\TIXDS110_Connection.xml"/>
+      <property ID="USCIF.DUAL_UART_FOR_RADAR" Name="Dual UART For Radar" Type="hiddenfield" Value="yes" id="Dual UART For Radar" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\connections\TIXDS110_Connection.xml"/>
+      <property Name="SWJ-DP default mode" Type="hiddenfield" Value="0" desc="Default mode of the SWJ-DP" id="SWD.SWJ_DP_DEFAULT_MODE" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\connections\TIXDS110_Connection.xml">
+        <choice Name="JTAG" value="0"/>
+        <choice Name="DORMANT" value="1"/>
+      </property>
+      <property Name="Apply pin reset" Type="hiddenfield" Value="0" desc="Apply pin reset when waking up from the dormant state" id="SWD.APPY_PIN_RESET_DORMANT_WAKEUP" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\connections\TIXDS110_Connection.xml">
+        <choice Name="no" value="0"/>
+        <choice Name="yes" value="1"/>
+      </property>
+      <property Name="Dormant Switching" Type="hiddenfield" Value="no" desc="Set whether using Dormant mode for switching between JTAG and SWD" id="USCIF.DORMANT_SWITCHING" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\connections\TIXDS110_Connection.xml"/>
+      <drivers id="drivers" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\drivers\tixds510icepick_c.xml">
+        <isa ProcID="0x3C000805" Type="ICEPICK_C" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\drivers\tixds510icepick_c.xml">
+          <driver file="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\emulation\drivers\tixds510icepick_c.dvr">
+            <connectionType Type="TIXDS510"/>
+            <connectionType Type="TIXDS110"/>
+            <property ID="subpath.address" Name="Port Number" SubPath="true" Type="numericfield" Value="0x10" id="Port Number"/>
+            <property Type="hiddenfield" Value="0" id="Use Board Reset"/>
+            <property Type="hiddenfield" Value="0" id="Use Board Reset Free Run"/>
+            <property Type="hiddenfield" Value="0" id="Block Target Access on Free Run"/>
+            <property ID="subpath.initial" Name="Initial Configuration" SubPath="true" Type="choicelist" Value="0x1" id="Initial Configuration">
+              <choice Name="Yes" value="1"/>
+              <choice Name="No" value="0"/>
+            </property>
+            <property ID="subpath.custom" Name="Custom Configuration" SubPath="true" Type="choicelist" Value="0x1" id="Custom Configuration">
+              <choice Name="Yes" value="1"/>
+              <choice Name="No" value="0"/>
+            </property>
+            <property ID="subpath.force" Name="Force Configuration" SubPath="true" Type="choicelist" Value="0x0" id="Force Configuration">
+              <choice Name="Yes" value="1"/>
+              <choice Name="No" value="0"/>
+            </property>
+            <property ID="subpath.cancelreset" SubPath="true" Type="hiddenstring" Value="0x0" id="Cancel Reset"/>
+            <property ID="device.SystemResetSupported" Name="System Reset Supported" Type="hiddenfield" Value="1" id="System Reset Supported"/>
+            <property ID="device.SystemResetWhileConnected" Name="Support System Reset While Connected" Type="hiddenfield" Value="1" id="Support System Reset While Connected"/>
+          </driver>
+        </isa>
+        <isa ProcID="0x38000405" Type="CS_DAP" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\drivers\tixds510cs_dap.xml">
+          <driver file="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\emulation\drivers\tixds510cs_dap.dvr">
+            <connectionType Type="TIXDS510"/>
+            <connectionType Type="TIXDS110"/>
+            <property ID="device.identify" Name="DAP TAP ID" Type="numericfield" Value="0x0" id="DAP TAP ID"/>
+            <property ID="subpath.address" Name="Port Number" SubPath="true" Type="numericfield" Value="0x0" id="Port Number"/>
+            <property ID="subpath.initial" Name="Initial Configuration" SubPath="true" Type="choicelist" Value="1" id="Initial Configuration">
+              <choice Name="Yes" value="1"/>
+              <choice Name="No" value="0"/>
+            </property>
+            <property ID="subpath.custom" Name="Custom Configuration" SubPath="true" Type="choicelist" Value="1" id="Custom Configuration">
+              <choice Name="Yes" value="1"/>
+              <choice Name="No" value="0"/>
+            </property>
+            <property ID="subpath.type" Name="Type" SubPath="true" Type="choicelist" Value="0x1" id="Type">
+              <choice Name="debug" value="debug"/>
+              <choice Name="legacy" value="legacy"/>
+              <choice Name="virtual" value="virtual"/>
+            </property>
+            <property ID="subpath.force" Name="Force Configuration" SubPath="true" Type="choicelist" Value="1" id="Force Configuration">
+              <choice Name="No" value="0"/>
+              <choice Name="Yes" value="1"/>
+            </property>
+            <property ID="subpath.pseudo" Name="Pseudo" SubPath="true" Type="choicelist" Value="0" id="Pseudo">
+              <choice Name="Yes" value="1"/>
+              <choice Name="No" value="0"/>
+            </property>
+            <property ID="device.Revision" Name="Device Management" Type="choicelist" Value="0" id="Device Management">
+              <choice Name="Legacy" value="Legacy"/>
+              <choice Name="Power-AP" value="Power-AP"/>
+            </property>
+            <property Type="hiddenfield" Value="0x1" id="DAP AP Configuration"/>
+            <property ID="device.SystemResetWhileConnected" Name="Support System Reset While Connected" Type="hiddenfield" Value="1" id="Support System Reset While Connected"/>
+            <property Type="hiddenfield" Value="0" id="Use Board Reset"/>
+            <property Type="hiddenfield" Value="0" id="Block Target Access on Free Run"/>
+            <property Type="hiddenfield" Value="false" id="capableDebugPowerDisconnectOpts"/>
+            <property Type="hiddenfield" Value="false" id="Use Secure Memory Access"/>
+          </driver>
+        </isa>
+        <isa ProcID="0x75803800" Type="Cortex_M3" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\drivers\tixds510cortexM.xml">
+          <driver file="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\emulation\drivers\tixds510cortexM.dvr">
+            <connectionType Type="TIXDS510"/>
+            <connectionType Type="TIXDS110"/>
+            <property ID="device.identify" Name="Access Port Designator" Type="numericfield" Value="0x02000003" id="Access Port Designator"/>
+            <property Type="hiddenfield" Value="0" id="Use Board Reset"/>
+            <property Type="hiddenfield" Value="0" id="Use Board Reset Free Run"/>
+            <property Type="hiddenfield" Value="0" id="Block Target Access on Free Run"/>
+            <property ID="device.traceId" Name="TraceDeviceId" Type="numericfield" Value="0x0" id="TraceDeviceId"/>
+            <property Type="hiddenfield" Value="true" id="supportsNonIntrusiveConnect"/>
+            <property Type="hiddenfield" Value="true" id="haltOnConnectByDefault"/>
+          </driver>
+        </isa>
+        <isa ProcID="0x75803800" Type="Cortex_M4" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\drivers\tixds510cortexM.xml">
+          <driver file="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\emulation\drivers\tixds510cortexM.dvr">
+            <connectionType Type="TIXDS510"/>
+            <connectionType Type="TIXDS110"/>
+            <property ID="device.identify" Name="Access Port Designator" Type="numericfield" Value="0x02000003" id="Access Port Designator"/>
+            <property Type="hiddenfield" Value="0" id="Use Board Reset"/>
+            <property Type="hiddenfield" Value="0" id="Use Board Reset Free Run"/>
+            <property ID="device.traceId" Name="TraceDeviceId" Type="numericfield" Value="0x0" id="TraceDeviceId"/>
+            <property Type="hiddenfield" Value="true" id="supportsNonIntrusiveConnect"/>
+            <property Type="hiddenfield" Value="true" id="haltOnConnectByDefault"/>
+          </driver>
+        </isa>
+        <isa ProcID="0x75803800" Type="Cortex_M4F" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\drivers\tixds510cortexM.xml">
+          <driver file="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\emulation\drivers\tixds510cortexM.dvr">
+            <connectionType Type="TIXDS510"/>
+            <connectionType Type="TIXDS110"/>
+            <property ID="device.identify" Name="Access Port Designator" Type="numericfield" Value="0x02000003" id="Access Port Designator"/>
+            <property Type="hiddenfield" Value="0" id="Use Board Reset"/>
+            <property Type="hiddenfield" Value="0" id="Use Board Reset Free Run"/>
+            <property ID="device.traceId" Name="TraceDeviceId" Type="numericfield" Value="0x0" id="TraceDeviceId"/>
+            <property Type="hiddenfield" Value="true" id="supportsNonIntrusiveConnect"/>
+            <property Type="hiddenfield" Value="true" id="haltOnConnectByDefault"/>
+          </driver>
+        </isa>
+        <isa ProcID="0x75803800" Type="CORTEX_M4_CC" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\drivers\tixds510cortexM.xml">
+          <driver file="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\emulation\drivers\tixds510cortexM.dvr">
+            <connectionType Type="TIXDS510"/>
+            <connectionType Type="TIXDS110"/>
+            <property ID="device.identify" Name="Access Port Designator" Type="numericfield" Value="0x02000003" id="Access Port Designator"/>
+            <property Type="hiddenfield" Value="0" id="Use Board Reset"/>
+            <property Type="hiddenfield" Value="0" id="Use Board Reset Free Run"/>
+            <property ID="device.traceId" Name="TraceDeviceId" Type="numericfield" Value="0x0" id="TraceDeviceId"/>
+            <property Type="hiddenfield" Value="true" id="supportsNonIntrusiveConnect"/>
+            <property Type="hiddenfield" Value="true" id="haltOnConnectByDefault"/>
+          </driver>
+        </isa>
+        <isa ProcID="0x75803800" Type="CORTEX_M4_432" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\drivers\tixds510cortexM.xml">
+          <driver file="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\emulation\drivers\tixds510cortexM.dvr">
+            <connectionType Type="TIXDS510"/>
+            <connectionType Type="TIXDS110"/>
+            <property ID="device.identify" Name="Access Port Designator" Type="numericfield" Value="0x02000003" id="Access Port Designator"/>
+            <property Type="hiddenfield" Value="0" id="Use Board Reset"/>
+            <property Type="hiddenfield" Value="0" id="Use Board Reset Free Run"/>
+            <property ID="device.traceId" Name="TraceDeviceId" Type="numericfield" Value="0x0" id="TraceDeviceId"/>
+            <property Type="hiddenfield" Value="true" id="supportsNonIntrusiveConnect"/>
+            <property Type="hiddenfield" Value="true" id="haltOnConnectByDefault"/>
+          </driver>
+        </isa>
+      </drivers>
+      <platform id="platform_0">
+        <device desc="CC3220SF" description="SimpleLink(TM) CC3220SF wireless MCU" id="CC3220SF" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\devices\CC3220SF.xml" partnum="CC3220SF">
+          <property Type="stringfield" Value="Wireless Connectivity MCU" id="FilterString" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\devices\CC3220SF.xml"/>
+          <router desc="IcePick_C" description="ICEPick_C Router" id="IcePick_C_0" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" isa="ICEPICK_C">
+            <register acronym="IP_TAPID" description="" id="IP_TAPID" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_IPCODE" description="" id="IP_IPCODE" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_USERCODE" description="" id="IP_USERCODE" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_CNTL" description="" id="IP_CNTL" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_CONNECT" description="" id="IP_CONNECT" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_LINKMODE" description="" id="IP_LINKMODE" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_SYS_CNTL" description="" id="IP_SYS_CNTL" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_PIN_CFG" description="" id="IP_PIN_CFG" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TAP_CNTL_0" description="" id="IP_TAP_CNTL_0" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TAP_CNTL_1" description="" id="IP_TAP_CNTL_1" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TAP_CNTL_2" description="" id="IP_TAP_CNTL_2" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TAP_CNTL_3" description="" id="IP_TAP_CNTL_3" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TAP_CNTL_4" description="" id="IP_TAP_CNTL_4" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TAP_CNTL_5" description="" id="IP_TAP_CNTL_5" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TAP_CNTL_6" description="" id="IP_TAP_CNTL_6" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TAP_CNTL_7" description="" id="IP_TAP_CNTL_7" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TAP_CNTL_8" description="" id="IP_TAP_CNTL_8" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TAP_CNTL_9" description="" id="IP_TAP_CNTL_9" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TAP_CNTL_10" description="" id="IP_TAP_CNTL_10" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TAP_CNTL_11" description="" id="IP_TAP_CNTL_11" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TAP_CNTL_12" description="" id="IP_TAP_CNTL_12" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TAP_CNTL_13" description="" id="IP_TAP_CNTL_13" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TAP_CNTL_14" description="" id="IP_TAP_CNTL_14" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TAP_CNTL_15" description="" id="IP_TAP_CNTL_15" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TST_TAP_CNTL_0" description="" id="IP_TST_TAP_CNTL_0" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TST_TAP_CNTL_1" description="" id="IP_TST_TAP_CNTL_1" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TST_TAP_CNTL_2" description="" id="IP_TST_TAP_CNTL_2" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TST_TAP_CNTL_3" description="" id="IP_TST_TAP_CNTL_3" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TST_TAP_CNTL_4" description="" id="IP_TST_TAP_CNTL_4" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TST_TAP_CNTL_5" description="" id="IP_TST_TAP_CNTL_5" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TST_TAP_CNTL_6" description="" id="IP_TST_TAP_CNTL_6" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TST_TAP_CNTL_7" description="" id="IP_TST_TAP_CNTL_7" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TST_TAP_CNTL_8" description="" id="IP_TST_TAP_CNTL_8" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TST_TAP_CNTL_9" description="" id="IP_TST_TAP_CNTL_9" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TST_TAP_CNTL_10" description="" id="IP_TST_TAP_CNTL_10" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TST_TAP_CNTL_11" description="" id="IP_TST_TAP_CNTL_11" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TST_TAP_CNTL_12" description="" id="IP_TST_TAP_CNTL_12" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TST_TAP_CNTL_13" description="" id="IP_TST_TAP_CNTL_13" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TST_TAP_CNTL_14" description="" id="IP_TST_TAP_CNTL_14" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <register acronym="IP_TST_TAP_CNTL_15" description="" id="IP_TST_TAP_CNTL_15" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\icepick_c.xml" width="32"/>
+            <module accessnumbytes="4" baseaddr="0" description="" hidden="true" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\ICEPickCHidden.xml" permissions="p" requestor="ICEPICK_D" size="00"/>
+            <subpath id="subpath_0">
+              <router desc="CS_DAP" description="CS_DAP Router" id="CS_DAP_0" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\cs_dap.xml" isa="CS_DAP">
+                <register acronym="IP_DUMMY" description="" id="IP_DUMMY" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\cs_dap.xml" width="32"/>
+                <register acronym="DEVICE_ID" description="" id="DEVICE_ID" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\routers\cs_dap.xml" width="32"/>
+                <module accessnumbytes="4" baseaddr="0" description="" hidden="true" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cs_dap_NotVisible.xml" permissions="p" requestor="CS_DAP" size="00"/>
+                <subpath id="subpath_1">
+                  <cpu desc="Cortex_M4_0" description="Cortex_M4 CPU" id="Cortex_M4_0" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\cpus\cortex_m4.xml" isa="CORTEX_M4_CC">
+                    <register acronym="PC" description="Program Counter" id="PC" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\cpus\cortex_m4.xml" width="32"/>
+                    <register acronym="R13" description="General Purpose Register 13 - Stack Pointer" id="SP" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\cpus\cortex_m4.xml" width="32"/>
+                    <register acronym="R14" description="General Purpose Register 14 - Link Register" id="LR" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\cpus\cortex_m4.xml" width="32"/>
+                    <register acronym="xPSR" description="Stores the status of interrupt enables and critical processor status signals" id="xPSR" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\cpus\cortex_m4.xml" width="32">
+                      <bitfield begin="31" description="Stores bit 31 of the result of the instruction. In other words stores the sign of the number" end="31" id="N" range="" resetval="0" rwaccess="R" width="1"/>
+                      <bitfield begin="30" description="Is set to 1 if the result of the operation is zero else stays 0" end="30" id="Z" range="" resetval="0" rwaccess="R" width="1"/>
+                      <bitfield begin="29" description="Stores the value of the carry bit if it occurred in an addition or the borrow bit in a subtraction. In a shift stores the last bit shifted out." end="29" id="C" range="" resetval="0" rwaccess="R" width="1"/>
+                      <bitfield begin="28" description="Set to 1 if an overflow occurred " end="28" id="V" range="" resetval="0" rwaccess="R" width="1"/>
+                      <bitfield begin="27" description="Indicates whether an overflow/saturation occurred in the enhanced DSP instructions" end="27" id="Q" range="" resetval="0" rwaccess="R" width="1"/>
+                      <bitfield begin="26" description="ICI/IT - bit26-bit25 " end="25" id="ICI_IT_2" range="" resetval="0" rwaccess="R" width="2"/>
+                      <bitfield begin="24" description="Thumb State " end="24" id="T" range="" resetval="1" rwaccess="R" width="1"/>
+                      <bitfield begin="23" description="Reserved " end="16" id="RESV" range="" resetval="0" rwaccess="R" width="8"/>
+                      <bitfield begin="15" description="ICI/IT - bit15-bit10 " end="10" id="ICI_IT_1" range="" resetval="0" rwaccess="R" width="6"/>
+                      <bitfield begin="9" description="Reserved " end="9" id="RESV2" range="" resetval="0" rwaccess="R" width="1"/>
+                      <bitfield begin="8" description="Exception Number " end="0" id="EXCEPTION" range="" resetval="0" rwaccess="R" width="9"/>
+                    </register>
+                    <register acronym="R0" description="General Purpose Register 0" id="R0" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\cpus\cortex_m4.xml" width="32"/>
+                    <register acronym="R1" description="General Purpose Register 1" id="R1" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\cpus\cortex_m4.xml" width="32"/>
+                    <register acronym="R2" description="General Purpose Register 2" id="R2" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\cpus\cortex_m4.xml" width="32"/>
+                    <register acronym="R3" description="General Purpose Register 3" id="R3" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\cpus\cortex_m4.xml" width="32"/>
+                    <register acronym="R4" description="General Purpose Register 4" id="R4" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\cpus\cortex_m4.xml" width="32"/>
+                    <register acronym="R5" description="General Purpose Register 5" id="R5" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\cpus\cortex_m4.xml" width="32"/>
+                    <register acronym="R6" description="General Purpose Register 6" id="R6" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\cpus\cortex_m4.xml" width="32"/>
+                    <register acronym="R7" description="General Purpose Register 7" id="R7" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\cpus\cortex_m4.xml" width="32"/>
+                    <register acronym="R8" description="General Purpose Register 8" id="R8" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\cpus\cortex_m4.xml" width="32"/>
+                    <register acronym="R9" description="General Purpose Register 9" id="R9" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\cpus\cortex_m4.xml" width="32"/>
+                    <register acronym="R10" description="General Purpose Register 10" id="R10" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\cpus\cortex_m4.xml" width="32"/>
+                    <register acronym="R11" description="General Purpose Register 11" id="R11" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\cpus\cortex_m4.xml" width="32"/>
+                    <register acronym="R12" description="General Purpose Register 12" id="R12" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\cpus\cortex_m4.xml" width="32"/>
+                    <register acronym="R13" description="General Purpose Register 13" id="R13" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\cpus\cortex_m4.xml" width="32"/>
+                    <register acronym="R14" description="General Purpose Register 14" id="R14" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\cpus\cortex_m4.xml" width="32"/>
+                    <register acronym="MSP" description="MSP Register" id="MSP" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\cpus\cortex_m4.xml" width="32"/>
+                    <register acronym="PSP" description="PSP Register" id="PSP" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\cpus\cortex_m4.xml" width="32"/>
+                    <register acronym="DSP" description="DSP Register" id="DSP" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\cpus\cortex_m4.xml" width="32"/>
+                    <register acronym="CTRL_FAULT_BASE_PRI" description="CM4 Special Registers" id="CTRL_FAULT_BASE_PRI" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\cpus\cortex_m4.xml" width="32">
+                      <bitfield begin="31" description="Control" end="24" id="CONTROL" range="" resetval="0" rwaccess="RW" width="8"/>
+                      <bitfield begin="23" description="Faultmask" end="16" id="FAULTMASK" range="" resetval="0" rwaccess="RW" width="8"/>
+                      <bitfield begin="15" description="Basepri" end="8" id="BASEPRI" range="" resetval="0" rwaccess="RW" width="8"/>
+                      <bitfield begin="7" description="Primask" end="0" id="PRIMASK" range="" resetval="0" rwaccess="RW" width="8"/>
+                    </register>
+                    <module accessnumbytes="4" baseaddr="0" description="" hidden="true" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cortexM4_NotVisible.xml" permissions="p" requestor="Cortex_M4" size="00"/>
+                    <property Type="filepathfield" Value="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\emulation\gel\cc3220sf.gel" id="GEL File"/>
+                    <property Type="numericfield" Value="0x02000000" id="Access Port Designator"/>
+                    <property Type="stringfield" Value="CC3220sf.cmd" id="LinkerCmd"/>
+                    <property Type="stringfield" Value="-D=CC3220sf --silicon_version=7M4 --code_state=16 --abi=eabi --float_support=vfplib" id="CompilerBuildOptions"/>
+                    <property Type="stringfield" Value="--stack_size=0x512 --heap_size=0x0" id="LinkerBuildOptions"/>
+                    <property Type="stringfield" Value="CC3220sf_startup_ccs.c" id="FilesToCopy"/>
+                    <property Type="stringfield" Value="true" id="IsElfDefault"/>
+                    <property Type="stringfield" Value="little" id="Endianness"/>
+                    <property Type="stringfield" Value="4.9.0" id="MinCodegenVersion"/>
+                    <property Type="stringfield" Value="CC3220sf.lds" id="GNULinkerCmd"/>
+                    <property Type="stringfield" Value="-mthumb -march=armv7e-m -mcpu=cortex-m4 -mfloat-abi=soft -ffunction-sections -fdata-sections -DPART_CC3220sf" id="GNUCompilerBuildOptions"/>
+                    <property Type="stringfield" Value="--gc-sections" id="GNULinkerBuildOptions"/>
+                    <property Type="stringfield" Value="CC3220sf_startup_ccs_gcc.c" id="GNUFilesToCopy"/>
+                    <module accessnumbytes="4" baseaddr="0x40000000" description="" id="WDT" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\wdt.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x40004000" description="" id="GPIOA0" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\gpio.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x40005000" description="" id="GPIOA1" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\gpio.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x40006000" description="" id="GPIOA2" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\gpio.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x40007000" description="" id="GPIOA3" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\gpio.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x4000C000" description="" id="UARTA0" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\uart.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x4000D000" description="" id="UARTA1" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\uart.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x40020000" description="" id="I2CA0" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\i2c.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x40024000" description="" id="GPIOA4" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\gpio.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x40030000" description="" id="TIMERA0" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\timer.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x40031000" description="" id="TIMERA1" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\timer.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x40032000" description="" id="TIMERA2" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\timer.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x40033000" description="" id="TIMERA3" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\timer.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x400F5000" description="" id="STACKDIE_CTRL" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\stackdie_ctrl.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x400F7000" description="" id="COMMON_REG" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\common_reg.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x400FD000" description="" id="FLASH_CONTROL" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\flash_ctrl.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x400FE000" description="" id="SYSTEM_CONTROL" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\mmchs.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x400FF000" description="" id="UDMA" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\udma.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x44018000" description="" id="CAMERA" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\camera.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x4401C000" description="" id="I2S" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\mcasp.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x44020000" description="" id="SSPI" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\mcspi.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x44021000" description="" id="GSPI" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\mcspi.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x44025000" description="" id="ARCM" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\apps_rcm.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x44026000" description="" id="APPS_CONFIG" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\apps_config.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x4402D000" description="" id="GPRCM" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\gprcm.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x4402E000" description="" id="OCP_SHARED" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\ocp_shared.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x4402E800" description="" id="ADC" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\adc.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x4402F000" description="" id="HIB1P2" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\hib1p2.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x4402F800" description="" id="HIB3P3" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\hib3p3.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x44030000" description="" id="DTHE" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\dthe.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x44035000" description="" id="SHAMD5" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\shamd5.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x44037000" description="" id="AES" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\aes.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0x44039000" description="" id="DES" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\des.xml" permissions="p"/>
+                    <module accessnumbytes="4" baseaddr="0xE000E000" description="" id="NVIC" instanceFile="C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\common\targetdb\Modules\cc32\nvic.xml" permissions="p"/>
+                  </cpu>
+                </subpath>
+              </router>
+            </subpath>
+          </router>
+        </device>
+      </platform>
+    </connection>
+  </configuration>
+
+</configurations>

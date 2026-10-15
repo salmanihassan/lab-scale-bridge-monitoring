@@ -1,0 +1,83 @@
+{
+	"name": "AM273x",
+	"displayName": "AM273x",
+	"version": "0.0.1",
+	"documentationPath": "../docs/",
+	"includePaths": [
+		".."
+	],
+	"devices": [
+		"AM273x"
+	],
+	"topModules": [
+		{
+			"displayName": "Peripherals",
+			"modules": [
+				"/ti/peripherals/DMM",
+				"/ti/peripherals/DSS_RTI",
+				"/ti/peripherals/DSS_UART",
+				"/ti/peripherals/ERROR",
+				"/ti/peripherals/FE1_REFCLK",
+				"/ti/peripherals/FE2_REFCLK",
+				"/ti/peripherals/HW_SYNC_FE1",
+				"/ti/peripherals/HW_SYNC_FE2",
+				"/ti/peripherals/MCU_CLKOUT",
+				"/ti/peripherals/MSS_CPTS",
+				"/ti/peripherals/MSS_EPWM",
+				"/ti/peripherals/MSS_GPIO",
+				"/ti/peripherals/MSS_I2C",
+				"/ti/peripherals/MSS_MCAN",
+				"/ti/peripherals/MSS_MDIO",
+				"/ti/peripherals/MSS_MIBSPI",
+				"/ti/peripherals/MSS_QSPI",
+				"/ti/peripherals/MSS_RGMII",
+				"/ti/peripherals/MSS_RMII",
+				"/ti/peripherals/MSS_MII",
+				"/ti/peripherals/MSS_RS232",
+				"/ti/peripherals/MSS_RTI",
+				"/ti/peripherals/MSS_UART",
+				"/ti/peripherals/OBS_CLKOUT",
+				"/ti/peripherals/PMIC_CLKOUT",
+				"/ti/peripherals/RCOSC_CLK",
+				"/ti/peripherals/RCSS_ATL",
+				"/ti/peripherals/RCSS_ECAP",
+				"/ti/peripherals/RCSS_GPIO",
+				"/ti/peripherals/RCSS_I2C",
+				"/ti/peripherals/RCSS_MCASP",			
+				"/ti/peripherals/RCSS_MIBSPI",
+				"/ti/peripherals/RCSS_UART",
+				"/ti/peripherals/SYNC_IN",
+				"/ti/peripherals/JTAG",
+				"/ti/peripherals/TRACE",
+				"/ti/peripherals/TZ",
+				"/ti/peripherals/XREF_CLK0",
+				"/ti/peripherals/XREF_CLK1"
+			]
+		}
+	],
+	 "templates": [
+	{
+	"name": "/ti/templates/AM273x_pinmux_data.c.xdt",
+	"outputPath": "AM273x_pinmux_data.c",
+	"alwaysRun" : true
+	},
+	{
+		"name": "/ti/templates/AM273x_pinmux.h.xdt",
+		"outputPath": "AM273x_pinmux.h",
+		"alwaysRun" : true
+	},
+	{
+		"name": "/ti/templates/summary.csv.xdt",
+		"outputPath": "Summary.csv",
+		"alwaysRun" : true
+	}
+],
+	
+	"pinmuxUIOptions": {
+		"showUsed": true,
+		"showSignals": true,
+		"group": "merged",
+		"hidePeripheralTab": true,
+		"showPinTable": true
+	}
+}
