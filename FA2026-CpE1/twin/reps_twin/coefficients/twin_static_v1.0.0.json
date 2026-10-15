@@ -1,0 +1,134 @@
+{
+ "twin_version": "1.0.0",
+ "channel": "static_load",
+ "fitted_on": "2026-09-18",
+ "fitted_from": "ME-2 collection 2026-09-04, cleaned_data, 30 motor-off runs",
+ "fitted_by": "CpE-1 Fall 2026",
+ "model_form": "counts_cell = offset[pos][cell] + gain[pos][cell] * true_mass_kg",
+ "mass_calibration_kg": {
+  "0.0": 0.0,
+  "0.25": 0.28454,
+  "0.5": 0.50535,
+  "1.0": 1.0
+ },
+ "mass_calibration_basis": "Inferred from the load cells, anchored at 0 kg and 1.0 kg. PROVISIONAL: supersede with a scale measurement of the physical masses (ME-2 action).",
+ "gain_counts_per_kg": {
+  "PL": {
+   "left": 863796.1,
+   "right": 182545.1
+  },
+  "PC": {
+   "left": 478943.5,
+   "right": 454599.6
+  },
+  "PR": {
+   "left": 227616.6,
+   "right": 672796.9
+  }
+ },
+ "offset_counts": {
+  "PL": {
+   "left": 466516.6,
+   "right": 313792.5
+  },
+  "PC": {
+   "left": 467746.0,
+   "right": 314992.1
+  },
+  "PR": {
+   "left": 466374.4,
+   "right": 320856.7
+  }
+ },
+ "sigma_kg": {
+  "twin": 0.005518,
+  "sensor": 0.000295,
+  "left_fraction": 0.003314
+ },
+ "severity_bands": {
+  "s1": 1.0,
+  "s2": 3.0,
+  "s3": 10.0
+ },
+ "validated_envelope": {
+  "load_kg": [
+   0.0,
+   1.0
+  ],
+  "positions": [
+   "PL",
+   "PC",
+   "PR"
+  ],
+  "temperature_c": [
+   24.0,
+   27.0
+  ],
+  "vibration_pwm": [
+   0,
+   0
+  ],
+  "thermal_conditions": [
+   "TEMP01"
+  ]
+ },
+ "model_selection": {
+  "nominal": {
+   "n_params": 12,
+   "in_sample_sigma_kg": 0.014753932470867351,
+   "loo_sigma_kg": 0.01680479367974218,
+   "loo_max_abs_kg": 0.033196835500502384,
+   "mass_calibration_kg": {
+    "0.0": 0.0,
+    "0.25": 0.25,
+    "0.5": 0.5,
+    "1.0": 1.0
+   }
+  },
+  "tare": {
+   "n_params": 13,
+   "in_sample_sigma_kg": 0.010658078448497293,
+   "loo_sigma_kg": 0.012325746263749248,
+   "loo_max_abs_kg": 0.024455759789511908,
+   "mass_calibration_kg": {
+    "0.0": 0.0,
+    "0.25": 0.28881,
+    "0.5": 0.53881,
+    "1.0": 1.03881
+   }
+  },
+  "affine": {
+   "n_params": 14,
+   "in_sample_sigma_kg": 0.01064026929627268,
+   "loo_sigma_kg": 0.0120489452914258,
+   "loo_max_abs_kg": 0.023490909485600144,
+   "mass_calibration_kg": {
+    "0.0": 0.0,
+    "0.25": 0.28832,
+    "0.5": 0.53791,
+    "1.0": 1.03707
+   }
+  },
+  "free": {
+   "n_params": 14,
+   "in_sample_sigma_kg": 0.004310389026187789,
+   "loo_sigma_kg": 0.005517963079178803,
+   "loo_max_abs_kg": 0.011911768261800005,
+   "mass_calibration_kg": {
+    "0.0": 0.0,
+    "0.25": 0.28454,
+    "0.5": 0.50535,
+    "1.0": 1.0
+   }
+  }
+ },
+ "selected_model": "free",
+ "notes": [
+  "Response is LINEAR in true mass. The concavity seen against the nominal labels is a load-mass labeling error, not a load-cell nonlinearity: the deviation is a function of load level only, with 0.0032 kg spread across positions against 0.0164 kg across levels. A per-cell nonlinearity would track the load each cell carries, which differs by position. It does not.",
+  "The nominal 0.25 kg mass reads ~0.28 kg on every one of its nine runs. The 0.5 kg mass reads ~0.50 kg, the 1.0 kg mass ~1.00 kg.",
+  "Zero-load run T0001 sits 8,292 counts (0.0088 kg) above the other two zero-load runs. Likely tare drift before thermal settling. It is retained in the fit; excluding it would tighten the zero anchor.",
+  "One thermal condition only (TEMP01). The twin has no temperature term and must not be used to reason about thermal drift.",
+  "Vibration off on every fitted run. Combined load plus vibration is ME-2 Stage 4, not yet collected.",
+  "Calibrated at four load levels only. true_mass() raises outside them rather than interpolating a correction it cannot support."
+ ]
+}

@@ -1,0 +1,557 @@
+{
+  "package": "CpE-1 Fall 2026 Week 4 static spoofing",
+  "built_utc": "2026-09-17T18:15:24.562577Z",
+  "taxonomy_version": "1.0.0",
+  "sigma": {
+    "temperature_c": 0.1,
+    "humidity": 1.5,
+    "load_cell_kg": 0.002
+  },
+  "sigma_source": {
+    "temperature_c": "ME-2 physical sensor per-sample quantization floor (w03_baseline_summary.json)",
+    "humidity": "synthetic baseline dispersion of the rand() stub, std 1.503. No physical referent exists for this channel.",
+    "load_cell_kg": "ME-2 per-sample MAD of load-cell total, 0.0025 kg, rounded down (w03_baseline_summary.json)"
+  },
+  "episodes": [
+    {
+      "track": "packet",
+      "file": "w04_A1-1_tempc_S1_r01.csv",
+      "episode_id": "CPE1-F26-W04-A1.1-R01",
+      "code": "A1.1",
+      "channel": "temperature_c",
+      "target_severity": "S1",
+      "records": 428,
+      "severity_histogram": {
+        "S1": 428
+      },
+      "params": {
+        "offset_value": 0.1,
+        "units": "C"
+      },
+      "sha256": "f42d6e51d8bbc293831f1b470544cad9e1f44b91c4b0005810eac6737dfdac14"
+    },
+    {
+      "track": "packet",
+      "file": "w04_A1-1_tempc_S2_r01.csv",
+      "episode_id": "CPE1-F26-W04-A1.1-R01",
+      "code": "A1.1",
+      "channel": "temperature_c",
+      "target_severity": "S2",
+      "records": 428,
+      "severity_histogram": {
+        "S2": 428
+      },
+      "params": {
+        "offset_value": -0.3,
+        "units": "C"
+      },
+      "sha256": "705c5db25172365bb2be4c6e71709f4bd3bdcb6954f7e79cdcaa64dca7b64b72"
+    },
+    {
+      "track": "packet",
+      "file": "w04_A1-1_tempc_S3_r01.csv",
+      "episode_id": "CPE1-F26-W04-A1.1-R01",
+      "code": "A1.1",
+      "channel": "temperature_c",
+      "target_severity": "S3",
+      "records": 428,
+      "severity_histogram": {
+        "S3": 428
+      },
+      "params": {
+        "offset_value": 0.8,
+        "units": "C"
+      },
+      "sha256": "63fb27e59e95cdb91b37464e7ce355356a092226bcbead14ba57b152627a60d1"
+    },
+    {
+      "track": "packet",
+      "file": "w04_A1-1_hum_S1_r01.csv",
+      "episode_id": "CPE1-F26-W04-A1.1-R01",
+      "code": "A1.1",
+      "channel": "humidity",
+      "target_severity": "S1",
+      "records": 428,
+      "severity_histogram": {
+        "S1": 428
+      },
+      "params": {
+        "offset_value": 2.0,
+        "units": "percent_RH"
+      },
+      "sha256": "be44308e2eb886a6ee9bd72a76d5a98ab1299578042385a784f88629bb5373c5"
+    },
+    {
+      "track": "packet",
+      "file": "w04_A1-1_hum_S2_r01.csv",
+      "episode_id": "CPE1-F26-W04-A1.1-R01",
+      "code": "A1.1",
+      "channel": "humidity",
+      "target_severity": "S2",
+      "records": 428,
+      "severity_histogram": {
+        "S2": 428
+      },
+      "params": {
+        "offset_value": -5.0,
+        "units": "percent_RH"
+      },
+      "sha256": "0dab8a1df0f6a820d3c9dc6eabc617bb3ca16cf24c27bc2e04c4a60ffe4a8722"
+    },
+    {
+      "track": "packet",
+      "file": "w04_A1-1_hum_S3_r01.csv",
+      "episode_id": "CPE1-F26-W04-A1.1-R01",
+      "code": "A1.1",
+      "channel": "humidity",
+      "target_severity": "S3",
+      "records": 428,
+      "severity_histogram": {
+        "S3": 428
+      },
+      "params": {
+        "offset_value": 12.0,
+        "units": "percent_RH"
+      },
+      "sha256": "f83613a4f7ea5ab62358121b3cbee3deb869d0a3921de23d5ccd1be23d491444"
+    },
+    {
+      "track": "packet",
+      "file": "w04_A1-2_tempc_S1_r01.csv",
+      "episode_id": "CPE1-F26-W04-A1.2-R01",
+      "code": "A1.2",
+      "channel": "temperature_c",
+      "target_severity": "S1",
+      "records": 428,
+      "severity_histogram": {
+        "S1": 428
+      },
+      "params": {
+        "scale_multiplier": 1.004
+      },
+      "sha256": "0a6abda041f9727a77cb5a2c05721f6bf26cf0e09580d57be0cfc06f62f3679d"
+    },
+    {
+      "track": "packet",
+      "file": "w04_A1-2_tempc_S2_r01.csv",
+      "episode_id": "CPE1-F26-W04-A1.2-R01",
+      "code": "A1.2",
+      "channel": "temperature_c",
+      "target_severity": "S2",
+      "records": 428,
+      "severity_histogram": {
+        "S2": 428
+      },
+      "params": {
+        "scale_multiplier": 0.988
+      },
+      "sha256": "f0134b558459368db4a146f94155cd24b00d239736e24508224b58bb85ea57f8"
+    },
+    {
+      "track": "packet",
+      "file": "w04_A1-2_tempc_S3_r01.csv",
+      "episode_id": "CPE1-F26-W04-A1.2-R01",
+      "code": "A1.2",
+      "channel": "temperature_c",
+      "target_severity": "S3",
+      "records": 428,
+      "severity_histogram": {
+        "S3": 428
+      },
+      "params": {
+        "scale_multiplier": 1.032
+      },
+      "sha256": "a2319c7b93c0eb03cbbbacadf9c58d5045e4e94197aa885d691a84ca336f0992"
+    },
+    {
+      "track": "packet",
+      "file": "w04_A1-2_hum_S1_r01.csv",
+      "episode_id": "CPE1-F26-W04-A1.2-R01",
+      "code": "A1.2",
+      "channel": "humidity",
+      "target_severity": "S1",
+      "records": 428,
+      "severity_histogram": {
+        "S1": 428
+      },
+      "params": {
+        "scale_multiplier": 1.045
+      },
+      "sha256": "f4fd8188655095075133598b0192a1c02386f6a8433d5294fa74ffcccf602820"
+    },
+    {
+      "track": "packet",
+      "file": "w04_A1-2_hum_S2_r01.csv",
+      "episode_id": "CPE1-F26-W04-A1.2-R01",
+      "code": "A1.2",
+      "channel": "humidity",
+      "target_severity": "S2",
+      "records": 428,
+      "severity_histogram": {
+        "S2": 428
+      },
+      "params": {
+        "scale_multiplier": 0.9
+      },
+      "sha256": "ded37fd52f7e9f0af6b6ccf3aff02ac2053eec764a8e59e4d0f4fb4aed43433a"
+    },
+    {
+      "track": "packet",
+      "file": "w04_A1-2_hum_S3_r01.csv",
+      "episode_id": "CPE1-F26-W04-A1.2-R01",
+      "code": "A1.2",
+      "channel": "humidity",
+      "target_severity": "S3",
+      "records": 428,
+      "severity_histogram": {
+        "S3": 428
+      },
+      "params": {
+        "scale_multiplier": 1.25
+      },
+      "sha256": "3821ad944c5840bf12da79254c3cb7a21a67474454d27fc5c0b46cc0bcd1d8de"
+    },
+    {
+      "track": "packet",
+      "file": "w04_A1-3_tempc_S1_r01.csv",
+      "episode_id": "CPE1-F26-W04-A1.3-R01",
+      "code": "A1.3",
+      "channel": "temperature_c",
+      "target_severity": "S1",
+      "records": 680,
+      "severity_histogram": {
+        "S1": 680
+      },
+      "params": {
+        "constant_name": "DHT11_TEMP_CAL",
+        "original_constant": {
+          "gain": 1.0,
+          "offset_c": 0.0
+        },
+        "falsified_constant": {
+          "gain": 1.002,
+          "offset_c": 0.05
+        }
+      },
+      "sha256": "8aa8ec67beb0967bd3a931a76c067a03556f9c1834dbcc2ea91e55e28d9170e2"
+    },
+    {
+      "track": "packet",
+      "file": "w04_A1-3_tempc_S2_r01.csv",
+      "episode_id": "CPE1-F26-W04-A1.3-R01",
+      "code": "A1.3",
+      "channel": "temperature_c",
+      "target_severity": "S2",
+      "records": 680,
+      "severity_histogram": {
+        "S2": 680
+      },
+      "params": {
+        "constant_name": "DHT11_TEMP_CAL",
+        "original_constant": {
+          "gain": 1.0,
+          "offset_c": 0.0
+        },
+        "falsified_constant": {
+          "gain": 1.008,
+          "offset_c": 0.1
+        }
+      },
+      "sha256": "db1589738a9e5805bb6804c1e8eb46ea1eb65733f084f7e77ea0fccf9a8beb29"
+    },
+    {
+      "track": "packet",
+      "file": "w04_A1-3_tempc_S3_r01.csv",
+      "episode_id": "CPE1-F26-W04-A1.3-R01",
+      "code": "A1.3",
+      "channel": "temperature_c",
+      "target_severity": "S3",
+      "records": 680,
+      "severity_histogram": {
+        "S3": 680
+      },
+      "params": {
+        "constant_name": "DHT11_TEMP_CAL",
+        "original_constant": {
+          "gain": 1.0,
+          "offset_c": 0.0
+        },
+        "falsified_constant": {
+          "gain": 1.02,
+          "offset_c": 0.3
+        }
+      },
+      "sha256": "0bf86c093b1db09e2753a5983c2f4741199dfd121ab5bcfc553161b049ff12aa"
+    },
+    {
+      "track": "physical",
+      "file": "w04_A0-0_none_none_r01_phys.csv",
+      "episode_id": "CPE1-F26-W04-A0.0-R01-PHY",
+      "code": "A0.0",
+      "channel": "none",
+      "target_severity": "none",
+      "records": 10578,
+      "severity_histogram": {
+        "none": 10578
+      },
+      "severity_twin_linear_histogram": {},
+      "params": {},
+      "sha256": "d886da5296f1a72b0d6ad777261a6c6bde4f8ea2e0f6ddc0a606cf117f87ebed"
+    },
+    {
+      "track": "physical",
+      "file": "w04_A1-1_loadkg_S1_r01_phys.csv",
+      "episode_id": "CPE1-F26-W04-A1.1-R01-PHY",
+      "code": "A1.1",
+      "channel": "load_cell_kg",
+      "target_severity": "S1",
+      "records": 10578,
+      "severity_histogram": {
+        "S1": 10578
+      },
+      "severity_twin_linear_histogram": {
+        "S0": 10578
+      },
+      "params": {
+        "offset_value": 0.003,
+        "units": "kg"
+      },
+      "sha256": "c88b6f45182128d87cd036c633c207120223bfa8b30bcc6c5b34a7aa6150ed72"
+    },
+    {
+      "track": "physical",
+      "file": "w04_A1-1_loadkg_S2_r01_phys.csv",
+      "episode_id": "CPE1-F26-W04-A1.1-R01-PHY",
+      "code": "A1.1",
+      "channel": "load_cell_kg",
+      "target_severity": "S2",
+      "records": 10578,
+      "severity_histogram": {
+        "S2": 10578
+      },
+      "severity_twin_linear_histogram": {
+        "S0": 10578
+      },
+      "params": {
+        "offset_value": -0.007,
+        "units": "kg"
+      },
+      "sha256": "313f61d8f3ae0935acfb29e4819f6a42c8e267a0086e7c7af76009b37f248f0f"
+    },
+    {
+      "track": "physical",
+      "file": "w04_A1-1_loadkg_S3_r01_phys.csv",
+      "episode_id": "CPE1-F26-W04-A1.1-R01-PHY",
+      "code": "A1.1",
+      "channel": "load_cell_kg",
+      "target_severity": "S3",
+      "records": 10578,
+      "severity_histogram": {
+        "S3": 10578
+      },
+      "severity_twin_linear_histogram": {
+        "S1": 10578
+      },
+      "params": {
+        "offset_value": 0.02,
+        "units": "kg"
+      },
+      "sha256": "02c062b5eee56c55404e8c8418ee56968af134ee0535565aba17dc0d65ba0401"
+    },
+    {
+      "track": "physical",
+      "file": "w04_A1-2_loadkg_S1_r01_phys.csv",
+      "episode_id": "CPE1-F26-W04-A1.2-R01-PHY",
+      "code": "A1.2",
+      "channel": "load_cell_kg",
+      "target_severity": "S1",
+      "records": 10578,
+      "severity_histogram": {
+        "S0": 7894,
+        "S1": 2684
+      },
+      "severity_twin_linear_histogram": {
+        "S0": 10578
+      },
+      "params": {
+        "scale_multiplier": 1.003
+      },
+      "sha256": "cde8b32a618f67b7187fa04c080173fb1676d57d71d173602f668f22c758c4a1"
+    },
+    {
+      "track": "physical",
+      "file": "w04_A1-2_loadkg_S2_r01_phys.csv",
+      "episode_id": "CPE1-F26-W04-A1.2-R01-PHY",
+      "code": "A1.2",
+      "channel": "load_cell_kg",
+      "target_severity": "S2",
+      "records": 10578,
+      "severity_histogram": {
+        "S0": 4978,
+        "S1": 2916,
+        "S2": 2684
+      },
+      "severity_twin_linear_histogram": {
+        "S0": 10578
+      },
+      "params": {
+        "scale_multiplier": 0.993
+      },
+      "sha256": "48dd8ac3961540136ebb8544b480b8472897a5de838436b4a7cb9e7605f0080f"
+    },
+    {
+      "track": "physical",
+      "file": "w04_A1-2_loadkg_S3_r01_phys.csv",
+      "episode_id": "CPE1-F26-W04-A1.2-R01-PHY",
+      "code": "A1.2",
+      "channel": "load_cell_kg",
+      "target_severity": "S3",
+      "records": 10578,
+      "severity_histogram": {
+        "S0": 1831,
+        "S2": 5789,
+        "S3": 2958
+      },
+      "severity_twin_linear_histogram": {
+        "S0": 7894,
+        "S1": 2684
+      },
+      "params": {
+        "scale_multiplier": 1.02
+      },
+      "sha256": "8585d689e367e7a3716cc68c6f0c73467d864a2236c69d5f60d0662c71f520be"
+    },
+    {
+      "track": "physical",
+      "file": "w04_A1-3_loadkg_S1_r01_phys.csv",
+      "episode_id": "CPE1-F26-W04-A1.3-R01-PHY",
+      "code": "A1.3",
+      "channel": "load_cell_kg",
+      "target_severity": "S1",
+      "records": 10578,
+      "severity_histogram": {
+        "S1": 10578
+      },
+      "severity_twin_linear_histogram": {
+        "S0": 10578
+      },
+      "params": {
+        "constant_name": "LC_ZERO_OFFSET_COUNTS",
+        "original_constant": 806978,
+        "falsified_constant": 804167
+      },
+      "sha256": "f27bc178aa7611a97056db621bb36052542f509351422df749fc0a26d4a420b6"
+    },
+    {
+      "track": "physical",
+      "file": "w04_A1-3_loadkg_S2_r01_phys.csv",
+      "episode_id": "CPE1-F26-W04-A1.3-R01-PHY",
+      "code": "A1.3",
+      "channel": "load_cell_kg",
+      "target_severity": "S2",
+      "records": 10578,
+      "severity_histogram": {
+        "S2": 10578
+      },
+      "severity_twin_linear_histogram": {
+        "S0": 10578
+      },
+      "params": {
+        "constant_name": "LC_ZERO_OFFSET_COUNTS",
+        "original_constant": 806978,
+        "falsified_constant": 813537
+      },
+      "sha256": "9b454be634e41086ef66c9f427a3bc19e751b7cd010304e7569f8ab9a203e3c0"
+    },
+    {
+      "track": "physical",
+      "file": "w04_A1-3_loadkg_S3_r01_phys.csv",
+      "episode_id": "CPE1-F26-W04-A1.3-R01-PHY",
+      "code": "A1.3",
+      "channel": "load_cell_kg",
+      "target_severity": "S3",
+      "records": 10578,
+      "severity_histogram": {
+        "S3": 10578
+      },
+      "severity_twin_linear_histogram": {
+        "S1": 10578
+      },
+      "params": {
+        "constant_name": "LC_ZERO_OFFSET_COUNTS",
+        "original_constant": 806978,
+        "falsified_constant": 788239
+      },
+      "sha256": "58141200769f7f8f92d929cfba1a4369f1916785a11a5fc6842ebf207849f047"
+    },
+    {
+      "track": "physical",
+      "file": "w04_A1-3_loadkg_S3_r02_phys.csv",
+      "episode_id": "CPE1-F26-W04-A1.3-R02-PHY",
+      "code": "A1.3",
+      "channel": "load_cell_kg",
+      "target_severity": "S3",
+      "records": 10578,
+      "severity_histogram": {
+        "S3": 10578
+      },
+      "severity_twin_linear_histogram": {
+        "S0": 6095,
+        "S1": 4483
+      },
+      "params": {
+        "constant_name": "LC_LEFT_GAIN",
+        "original_constant": 1.0,
+        "falsified_constant": 0.98,
+        "intent": "disguise off-center load: left cell under-reports so a left-position load reads closer to center"
+      },
+      "sha256": "a21529d6e1875b514fb809301e290f7032be7948982c45cf9885115ef1895ea3"
+    }
+  ],
+  "cpe2_format": {
+    "file": "w04_static_spoofing_cpe2_format.csv",
+    "rows": 7856,
+    "normal": 680,
+    "sensor_offset": 7176,
+    "sha256": "96c52db1a73df358423c24315edcbbe7a16b5cd14969a35dcd4b3995442354e7",
+    "mapping": "A1.1, A1.2 and A1.3 all map to SENSOR_OFFSET; the CpE-1 code, channel, per-record severity and parameters are in notes. attack_parameter is the offset (A1.1), the multiplier (A1.2) or the falsified offset component (A1.3)."
+  },
+  "physical_twin": {
+    "model": "per-position linear: total_counts = a_pos + b_pos * load_kg, fitted on run medians, L00 runs shared",
+    "fits": {
+      "PL": {
+        "a": 795744.7667,
+        "b": 1034917.3905,
+        "residual_std_counts": 11472.6319,
+        "residual_std_kg": 0.0111,
+        "n": 12
+      },
+      "PC": {
+        "a": 796682.7667,
+        "b": 922952.2476,
+        "residual_std_counts": 14668.4873,
+        "residual_std_kg": 0.0159,
+        "n": 12
+      },
+      "PR": {
+        "a": 800766.4,
+        "b": 890000.8952,
+        "residual_std_counts": 15497.8015,
+        "residual_std_kg": 0.0174,
+        "n": 12
+      }
+    },
+    "left_fraction_expected": {
+      "PL": 0.6921,
+      "PC": 0.5636,
+      "PR": 0.4604
+    },
+    "clean_residual_decomposition": {
+      "within_run_std_kg": 0.0005,
+      "between_run_model_error_kg": 0.0144,
+      "total_std_kg": 0.0155,
+      "finding": "Model error dominates by ~30x. Residual is systematic in applied load (+0.018 to +0.028 kg at 0.25 kg, -0.014 at 0, ~0 at 1.0), indicating a concave load-cell response that a linear twin cannot represent. Recommend a quadratic or piecewise twin (ME-1 / ME-2)."
+    },
+    "preprocessing": "drop t < 5000 ms; drop samples >10% from run median on either cell (dropouts); decimate 100 Hz to 10 Hz"
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "week": 6,
+  "track": "packet",
+  "attack_family": "A2 replay",
+  "taxonomy_version": "1.0.0",
+  "carrier": "w03_A0-0_none_none_r01.csv (S20260501-02)",
+  "receiver_commit": "243de71d7ec755eb46457052bfa498674952fb54",
+  "episodes": [
+    {
+      "file": "w06_A2-1_packet_S0_r01.csv",
+      "episode_id": "CPE1-F26-W06-A2.1-R01",
+      "code": "A2.1",
+      "injection_point": "IP-T",
+      "packets": 49,
+      "clean": 48,
+      "attack": 1,
+      "window": 1,
+      "receiver_verdicts": {
+        "REBOOT_RESET": 1
+      },
+      "comm_layer_caught": 0,
+      "sha256": "ae0e0c3df5233e6af98b3006e8b370fc9ab4148a9dd29b8cddf5eb68d78cd9b3"
+    },
+    {
+      "file": "w06_A2-1_packet_S0_r02.csv",
+      "episode_id": "CPE1-F26-W06-A2.1-R02",
+      "code": "A2.1",
+      "injection_point": "IP-T",
+      "packets": 49,
+      "clean": 48,
+      "attack": 1,
+      "window": 1,
+      "receiver_verdicts": {
+        "REPLAY": 1
+      },
+      "comm_layer_caught": 1,
+      "sha256": "53616d606d3f6614a8cc9315254c6677380d4bbcf5d04e4e560bfe417c7d65c1"
+    },
+    {
+      "file": "w06_A2-1_packet_S0_r03.csv",
+      "episode_id": "CPE1-F26-W06-A2.1-R03",
+      "code": "A2.1",
+      "injection_point": "IP-T",
+      "packets": 49,
+      "clean": 48,
+      "attack": 1,
+      "window": 1,
+      "receiver_verdicts": {
+        "DUPLICATE": 1
+      },
+      "comm_layer_caught": 1,
+      "sha256": "fcaa25cdfa953037c29cfeb164bce546777bf1d529021a1f3a7e37b07a130c3e"
+    },
+    {
+      "file": "w06_A2-2_packet_S0_r01.csv",
+      "episode_id": "CPE1-F26-W06-A2.2-R01",
+      "code": "A2.2",
+      "injection_point": "IP-T",
+      "packets": 71,
+      "clean": 70,
+      "attack": 1,
+      "window": 1,
+      "receiver_verdicts": {
+        "REBOOT_RESET": 1
+      },
+      "comm_layer_caught": 0,
+      "sha256": "66ad61b36c0a5fa9b68d6929268181283345559a3b929d604bbb2d12e74f6a9a"
+    },
+    {
+      "file": "w06_A2-2_packet_S0_r02.csv",
+      "episode_id": "CPE1-F26-W06-A2.2-R02",
+      "code": "A2.2",
+      "injection_point": "IP-T",
+      "packets": 75,
+      "clean": 70,
+      "attack": 5,
+      "window": 5,
+      "receiver_verdicts": {
+        "REBOOT_RESET": 1,
+        "ACCEPTED": 4
+      },
+      "comm_layer_caught": 0,
+      "sha256": "2997b34797e347c5d72c3228535adcb7f9bd34db604a6a97ff30a1dc0967740b"
+    },
+    {
+      "file": "w06_A2-2_packet_S0_r03.csv",
+      "episode_id": "CPE1-F26-W06-A2.2-R03",
+      "code": "A2.2",
+      "injection_point": "IP-T",
+      "packets": 90,
+      "clean": 70,
+      "attack": 20,
+      "window": 20,
+      "receiver_verdicts": {
+        "REBOOT_RESET": 1,
+        "ACCEPTED": 16,
+        "OOO_GAP": 3
+      },
+      "comm_layer_caught": 0,
+      "sha256": "2f3217e6eeb4a3c65c5acb32fc1986af382cd7eee33fe9789fe24e1638b15bf9"
+    },
+    {
+      "file": "w06_A2-2_packet_S0_r04.csv",
+      "episode_id": "CPE1-F26-W06-A2.2-R04",
+      "code": "A2.2",
+      "injection_point": "IP-T",
+      "packets": 130,
+      "clean": 70,
+      "attack": 60,
+      "window": 60,
+      "receiver_verdicts": {
+        "REBOOT_RESET": 1,
+        "ACCEPTED": 48,
+        "OOO_GAP": 11
+      },
+      "comm_layer_caught": 0,
+      "sha256": "bc68619b78640dc697ba032d40343a3a8996f781b7b9510bc279fad3182248c4"
+    },
+    {
+      "file": "w06_A2-3_multi_PENDING_r01.csv",
+      "episode_id": "CPE1-F26-W06-A2.3-R01",
+      "code": "A2.3",
+      "injection_point": "IP-F",
+      "packets": 71,
+      "clean": 70,
+      "attack": 1,
+      "window": 1,
+      "receiver_verdicts": {
+        "ACCEPTED": 1
+      },
+      "comm_layer_caught": 0,
+      "sha256": "2af0ade4d94558fe9036c1bee1510625479da7ec986f34bde9a9adbd17749f2e"
+    },
+    {
+      "file": "w06_A2-3_multi_PENDING_r02.csv",
+      "episode_id": "CPE1-F26-W06-A2.3-R02",
+      "code": "A2.3",
+      "injection_point": "IP-F",
+      "packets": 75,
+      "clean": 70,
+      "attack": 5,
+      "window": 5,
+      "receiver_verdicts": {
+        "ACCEPTED": 5
+      },
+      "comm_layer_caught": 0,
+      "sha256": "8dfc473c951734fec599fb07ed51515a5dc781ab6648021c6b8c5fc7ad1d815d"
+    },
+    {
+      "file": "w06_A2-3_multi_PENDING_r03.csv",
+      "episode_id": "CPE1-F26-W06-A2.3-R03",
+      "code": "A2.3",
+      "injection_point": "IP-F",
+      "packets": 90,
+      "clean": 70,
+      "attack": 20,
+      "window": 20,
+      "receiver_verdicts": {
+        "ACCEPTED": 17,
+        "OOO_GAP": 3
+      },
+      "comm_layer_caught": 0,
+      "sha256": "80b129c0e936b0d370cf56999890349a525e0b22efd285de0bf714e97deee4a1"
+    },
+    {
+      "file": "w06_A2-3_multi_PENDING_r04.csv",
+      "episode_id": "CPE1-F26-W06-A2.3-R04",
+      "code": "A2.3",
+      "injection_point": "IP-F",
+      "packets": 130,
+      "clean": 70,
+      "attack": 60,
+      "window": 60,
+      "receiver_verdicts": {
+        "ACCEPTED": 50,
+        "OOO_GAP": 10
+      },
+      "comm_layer_caught": 0,
+      "sha256": "b312bc0f90538aa65c2db0152f3cf6de98628ed809c48d5101d31d823afa9ba7"
+    }
+  ],
+  "totals": {
+    "episodes": 11,
+    "clean_records": 704,
+    "attack_records": 175
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "episode_id": "CPE1-F26-W04-A1.3-R01",
+  "taxonomy_version": "1.0.0",
+  "attack_code": "A1.3",
+  "attack_code_set": [
+    "A1.3"
+  ],
+  "injection_point": "IP-D",
+  "operator": "CpE-1 Fall 2026 (Bruce)",
+  "capture": {
+    "start_utc": "2026-05-01T12:57:24.763Z",
+    "end_utc": "2026-05-14T20:21:42.017Z",
+    "packet_count": 680,
+    "attacked_packet_count": 680,
+    "schema_version": "1.1.0",
+    "firmware_commit": "post-hoc",
+    "receiver_commit": "f38bcde79f835b9b13a51fc2f86f303e9641db8e",
+    "nominal_publish_interval_ms": 204,
+    "carrier": "w03_A0-0_none_none_r01.csv (all 4 sessions)"
+  },
+  "physical_conditions": {
+    "beam_configuration": "not_instrumented",
+    "excitation_period_us": 10000,
+    "payload_is_physical": false,
+    "note": "Carrier packets are the Week 3 clean set. Sensor values are the firmware rand() stub. Only temperature_c is modified."
+  },
+  "parameters": {
+    "constant_name": "DHT11_TEMP_CAL",
+    "original_constant": {
+      "gain": 1.0,
+      "offset_c": 0.0
+    },
+    "falsified_constant": {
+      "gain": 1.008,
+      "offset_c": 0.1
+    },
+    "target_channel": "temperature_c",
+    "target_severity": "S2",
+    "sigma": 0.1,
+    "sigma_source": "ME-2 physical sensor per-sample quantization floor (w03_baseline_summary.json)",
+    "persists_across_reboot": true,
+    "sessions_spanned": [
+      "S20260501-01",
+      "S20260501-02",
+      "S20260514-03",
+      "S20260514-04"
+    ],
+    "design": "Identical carrier design: every packet-track episode uses the same source packets, so the only difference between an attacked record and its clean twin (source_packet_id) is the target channel value."
+  },
+  "benign_anomalies_present": [
+    "N1.1",
+    "N1.2",
+    "N1.3"
+  ],
+  "class_balance": {
+    "clean_records": 0,
+    "attack_records": 680,
+    "benign_anomaly_records": 0,
+    "ambiguous_records": 0,
+    "severity_histogram": {
+      "S2": 680
+    }
+  },
+  "integrity": {
+    "hmac_recomputed": true,
+    "sha256": "db1589738a9e5805bb6804c1e8eb46ea1eb65733f084f7e77ea0fccf9a8beb29",
+    "verified": "every record decrypts and passes HMAC under host_receiver logic",
+    "note": "hmac_recomputed is true in the sense that the stored HMAC is valid for the modified payload, which is the IP-F attacker capability being modelled. labels_schema_v1.0.0 describes IP-D with hmac_recomputed=false for datasets where the HMAC is left stale; this dataset deliberately recomputes it."
+  },
+  "known_limitations": [
+    "Carrier sensor values are synthetic; a detector separating these records from clean ones is detecting a departure from a known pseudo-random stream, not physical implausibility.",
+    "Carrier is fragmented (longest run 9). Suitable for static per-packet attacks only.",
+    "A1.3 constant DHT11_TEMP_CAL is hypothetical: the simulated DHT11 read has no calibration constant. The label is carried by persistence across all four sessions, as the taxonomy specifies.",
+    "Transmitted channel is quantized to 0.1, equal to one sigma for temperature, so S1 is exactly one quantization step. Parameters were chosen so every record rounds into the target band."
+  ]
+}

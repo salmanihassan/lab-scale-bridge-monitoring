@@ -1,0 +1,55 @@
+{
+  "episode_id": "CPE1-F26-W06-A2.2-R02",
+  "taxonomy_version": "1.0.0",
+  "attack_code": "A2.2",
+  "attack_code_set": [
+    "A2.2"
+  ],
+  "injection_point": "IP-T",
+  "operator": "CpE-1 Fall 2026 (Bruce)",
+  "capture": {
+    "start_utc": "2026-05-01T13:10:47.483Z",
+    "packet_count": 75,
+    "attacked_packet_count": 5,
+    "schema_version": "1.1.0",
+    "firmware_commit": "post-hoc",
+    "receiver_commit": "243de71d7ec755eb46457052bfa498674952fb54",
+    "nominal_publish_interval_ms": 204,
+    "carrier": "w03_A0-0_none_none_r01.csv (S20260501-02)"
+  },
+  "physical_conditions": {
+    "beam_configuration": "not_instrumented",
+    "excitation_period_us": 10000,
+    "payload_is_physical": false,
+    "note": "Window replay of a 5-packet contiguous segment captured at session start (reboot-range starting sequence). The first replayed packet trips the reboot heuristic; the remainder are accepted as a fresh stream."
+  },
+  "parameters": {
+    "window_length_packets": 5,
+    "capture_condition": "session_start_safe",
+    "injection_condition": "mid_stream_live",
+    "source_seq_range": [
+      1,
+      5
+    ]
+  },
+  "benign_anomalies_present": [
+    "N1.1",
+    "N1.2",
+    "N1.3"
+  ],
+  "class_balance": {
+    "clean_records": 70,
+    "attack_records": 5,
+    "benign_anomaly_records": 0,
+    "ambiguous_records": 0
+  },
+  "integrity": {
+    "hmac_recomputed": true,
+    "sha256": "2997b34797e347c5d72c3228535adcb7f9bd34db604a6a97ff30a1dc0967740b",
+    "note": "Carrier packets carry their original valid HMAC. A2.3 forged packets carry a freshly computed valid HMAC over the replayed payload (models the IP-F compromised node). Every row verifies under host_receiver logic."
+  },
+  "known_limitations": [
+    "Carrier sensor values are the firmware rand() stub (payload_is_physical false). This episode demonstrates the transport-layer freshness response to replay, which is independent of payload content and therefore valid on the stub.",
+    "receiver_detection_result is the receiver verdict, carried as a feature. The ground-truth label is attack_code, set by construction. Do not train on the verdict (labels_schema prohibited_label_sources)."
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "episode_id": "CPE1-F26-W06-A2.3-R03",
+  "taxonomy_version": "1.0.0",
+  "attack_code": "A2.3",
+  "attack_code_set": [
+    "A2.3"
+  ],
+  "injection_point": "IP-F",
+  "operator": "CpE-1 Fall 2026 (Bruce)",
+  "capture": {
+    "start_utc": "2026-05-01T13:10:47.483Z",
+    "packet_count": 90,
+    "attacked_packet_count": 20,
+    "schema_version": "1.1.0",
+    "firmware_commit": "post-hoc",
+    "receiver_commit": "243de71d7ec755eb46457052bfa498674952fb54",
+    "nominal_publish_interval_ms": 204,
+    "carrier": "w03_A0-0_none_none_r01.csv (S20260501-02)"
+  },
+  "physical_conditions": {
+    "beam_configuration": "not_instrumented",
+    "excitation_period_us": 10000,
+    "payload_is_physical": false,
+    "note": "Fresh-header payload replay of a 20-packet stale safe segment. Header fields (seq_num, timestamp_ms and host interval) are taken from the concurrent live packet each forged packet replaces, and the HMAC is recomputed, so every packet is ACCEPTED. Cyber-valid, physically stale. Generator v2, header timing fix."
+  },
+  "parameters": {
+    "window_length_packets": 20,
+    "source_seq_range": [
+      1,
+      26
+    ]
+  },
+  "benign_anomalies_present": [
+    "N1.1",
+    "N1.2",
+    "N1.3"
+  ],
+  "class_balance": {
+    "clean_records": 70,
+    "attack_records": 20,
+    "benign_anomaly_records": 0,
+    "ambiguous_records": 0
+  },
+  "integrity": {
+    "hmac_recomputed": true,
+    "sha256": "80b129c0e936b0d370cf56999890349a525e0b22efd285de0bf714e97deee4a1",
+    "note": "Carrier packets carry their original valid HMAC. A2.3 forged packets carry a freshly computed valid HMAC over the replayed payload (models the IP-F compromised node). Every row verifies under host_receiver logic."
+  },
+  "known_limitations": [
+    "Carrier sensor values are the firmware rand() stub. A2.3 defeats every crypto and freshness check, so communication-layer recall is zero. Forged packets inherit seq_num, timestamp_ms and host interval from the concurrent live packet they replace (generator v2), so header timing and sequence pattern match clean traffic.",
+    "The remaining packet-layer signature is content. The source window is seq 1 to W of this same session, so every forged payload exactly repeats an earlier payload in the episode, against roughly 4 percent chance repeats among clean rows on the rand() stub. This is a property of replay itself and is detectable by a payload-history check. It is not a generator artifact, and it weakens if the replayed segment lies outside the detector memory. Physical implausibility against the concurrent load condition needs the real sensor channels (deferred until sensor integration).",
+    "deviation_abs and ground_truth_value give the temperature difference from the true concurrent carrier value. Humidity is replayed in the same rows. These are provided for later twin scoring, not as a packet-layer discriminator.",
+    "receiver_detection_result is the receiver verdict, carried as a feature, never the label."
+  ]
+}

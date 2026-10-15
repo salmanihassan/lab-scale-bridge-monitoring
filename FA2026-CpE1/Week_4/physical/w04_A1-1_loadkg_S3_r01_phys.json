@@ -1,0 +1,97 @@
+{
+  "episode_id": "CPE1-F26-W04-A1.1-R01-PHY",
+  "taxonomy_version": "1.0.0",
+  "attack_code": "A1.1",
+  "attack_code_set": [
+    "A1.1"
+  ],
+  "injection_point": "IP-D",
+  "operator": "CpE-1 Fall 2026 (Bruce)",
+  "capture": {
+    "start_utc": "2026-09-04T00:00:00Z",
+    "packet_count": 10578,
+    "attacked_packet_count": 10578,
+    "schema_version": "ME2-raw-v1 (no packet schema)",
+    "firmware_commit": "post-hoc",
+    "receiver_commit": "n/a",
+    "nominal_publish_interval_ms": 100,
+    "carrier": "ME-2 cleaned_data static runs, 10 Hz decimated, 30 runs"
+  },
+  "physical_conditions": {
+    "beam_configuration": "simply_supported",
+    "excitation_duty_us": 0,
+    "payload_is_physical": true,
+    "applied_load_kg": "0, 0.25, 0.5, 1.0 (per row)",
+    "load_position": "PL 0.25, PC 0.50, PR 0.75 of span (per row)",
+    "ambient_temperature_c": 25.0,
+    "note": "Real load-cell samples. No packet, no cryptography. Twin residuals computed against the per-position calibration in the manifest."
+  },
+  "parameters": {
+    "offset_value": 0.02,
+    "units": "kg",
+    "target_channel": "load_cell_kg",
+    "target_severity": "S3",
+    "sigma": 0.002,
+    "sigma_source": "ME-2 per-sample MAD of load-cell total, 0.0025 kg, rounded down (w03_baseline_summary.json)",
+    "persists_across_reboot": false,
+    "sessions_spanned": [
+      "T0001",
+      "T0002",
+      "T0003",
+      "T0022",
+      "T0023",
+      "T0024",
+      "T0025",
+      "T0026",
+      "T0027",
+      "T0028",
+      "T0029",
+      "T0030",
+      "T0031",
+      "T0032",
+      "T0033",
+      "T0034",
+      "T0035",
+      "T0036",
+      "T0037",
+      "T0038",
+      "T0039",
+      "T0039b",
+      "T0040",
+      "T0041",
+      "T0042",
+      "T0043",
+      "T0044",
+      "T0045",
+      "T0046",
+      "T0047"
+    ],
+    "twin": "per-position linear: total_counts = a_pos + b_pos * load_kg, fitted on run medians, L00 runs shared",
+    "sigma_twin_linear_kg": 0.0144,
+    "sigma_sensor_10hz_kg": 0.0005,
+    "severity_note": "severity is banded against the sensor-limited sigma (0.002 kg). severity_twin_linear is banded against the provisional linear twin residual (0.0144 kg), which is dominated by model misspecification (concave load response), not sensor noise. A better twin would move the second column toward the first."
+  },
+  "benign_anomalies_present": [],
+  "class_balance": {
+    "clean_records": 0,
+    "attack_records": 10578,
+    "benign_anomaly_records": 0,
+    "ambiguous_records": 0,
+    "severity_histogram": {
+      "S3": 10578
+    },
+    "severity_twin_linear_histogram": {
+      "S1": 10578
+    }
+  },
+  "integrity": {
+    "hmac_recomputed": false,
+    "sha256": "02c062b5eee56c55404e8c8418ee56968af134ee0535565aba17dc0d65ba0401",
+    "note": "No HMAC exists on this track."
+  },
+  "known_limitations": [
+    "Severity for scale and gain attacks depends on applied load; per-record severity is authoritative and L00 records are S0 by construction (zero-input invariance).",
+    "Only TEMP01 thermal condition. Twin has no temperature dependence.",
+    "Vibration off on every run. Combined load plus vibration (ME-2 Stage 4) not yet collected."
+  ]
+}
