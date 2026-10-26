@@ -1,0 +1,346 @@
+
+REPS visualization: 2026-10-26 10:47:28 | MATLAB 25.2.0.3055257 (R2025b) Update 2
+
+REPS visualization: 2026-10-26 10:50:18 | MATLAB 25.2.0.3055257 (R2025b) Update 2
+Retained 119 recordings; 0 spectral intervals pass.
+F01 experimental_categories
+F02 condition_counts
+F03 timing_distributions
+F04 sensor_coverage_qc
+F05 static_time_histories
+F06 static_mass_response
+F07 static_asymmetry
+F08 static_repeatability
+F09 position_response
+F10 position_asymmetry
+F11 relative_signal_distribution
+F12 vibration_time_histories
+F13 vibration_rms
+F14 vibration_peaks
+F15 vibration_axes
+F16 timestamp_integrity
+F17 spectral_eligibility
+F18 combined_rms_mass
+F19 combined_rms_position
+F20 combined_loadcell_histories
+F21 matched_vibration_off_on
+F22 thermal_temperature
+
+REPS visualization: 2026-10-26 10:52:05 | MATLAB 25.2.0.3055257 (R2025b) Update 2
+Retained 119 recordings; 0 spectral intervals pass.
+F01 experimental_categories
+F02 condition_counts
+F03 timing_distributions
+F04 sensor_coverage_qc
+F05 static_time_histories
+F06 static_mass_response
+F07 static_asymmetry
+F08 static_repeatability
+F09 position_response
+F10 position_asymmetry
+F11 relative_signal_distribution
+F12 vibration_time_histories
+F13 vibration_rms
+F14 vibration_peaks
+F15 vibration_axes
+F16 timestamp_integrity
+F17 spectral_eligibility
+F18 combined_rms_mass
+F19 combined_rms_position
+F20 combined_loadcell_histories
+F21 matched_vibration_off_on
+F22 thermal_temperature
+F23 thermal_loadcell_temperature
+F24 thermal_accel_temperature
+F25 thermal_elapsed_drift
+F26 thermal_sensitivity_summary
+F27 disturbance_transients
+F28 disturbance_metrics
+F29 impact_envelopes
+F30 combined_response_map
+F31 coverage_summary
+F32 limitations_summary
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+[Warning: Escaped character '\p' is not valid. See 'doc sprintf' for supported special characters.] 
+[> In write_REPS_report (line 97)
+In generate_REPS_plots (line 392)] 
+SUCCESS: 32 figures and a self-contained report generated. Source hashes unchanged.
+
+REPS visualization: 2026-10-26 10:54:48 | MATLAB 25.2.0.3055257 (R2025b) Update 2
+Retained 119 recordings; 0 spectral intervals pass.
+F01 experimental_categories
+F02 condition_counts
+F03 timing_distributions
+F04 sensor_coverage_qc
+F05 static_time_histories
+F06 static_mass_response
+F07 static_asymmetry
+F08 static_repeatability
+F09 position_response
+F10 position_asymmetry
+F11 relative_signal_distribution
+F12 vibration_time_histories
+F13 vibration_rms
+F14 vibration_peaks
+F15 vibration_axes
+F16 timestamp_integrity
+F17 spectral_eligibility
+F18 combined_rms_mass
+F19 combined_rms_position
+F20 combined_loadcell_histories
+F21 matched_vibration_off_on
+F22 thermal_temperature
+F23 thermal_loadcell_temperature
+F24 thermal_accel_temperature
+F25 thermal_elapsed_drift
+F26 thermal_sensitivity_summary
+F27 disturbance_transients
+F28 disturbance_metrics
+F29 impact_envelopes
+F30 combined_response_map
+F31 coverage_summary
+F32 limitations_summary
+SUCCESS: 32 figures and a self-contained report generated. Source hashes unchanged.
+
+REPS visualization: 2026-10-26 10:57:31 | MATLAB 25.2.0.3055257 (R2025b) Update 2
+Retained 119 recordings; 0 spectral intervals pass.
+F01 experimental_categories
+F02 condition_counts
+F03 timing_distributions
+F04 sensor_coverage_qc
+F05 static_time_histories
+F06 static_mass_response
+F07 static_asymmetry
+F08 static_repeatability
+F09 position_response
+F10 position_asymmetry
+F11 relative_signal_distribution
+F12 vibration_time_histories
+F13 vibration_rms
+F14 vibration_peaks
+F15 vibration_axes
+F16 timestamp_integrity
+F17 spectral_eligibility
+F18 combined_rms_mass
+F19 combined_rms_position
+F20 combined_loadcell_histories
+F21 matched_vibration_off_on
+F22 thermal_temperature
+F23 thermal_loadcell_temperature
+F24 thermal_accel_temperature
+F25 thermal_elapsed_drift
+F26 thermal_sensitivity_summary
+F27 disturbance_transients
+F28 disturbance_metrics
+F29 impact_envelopes
+F30 combined_response_map
+F31 coverage_summary
+F32 limitations_summary
+SUCCESS: 32 figures and a self-contained report generated. Source hashes unchanged.
+
+REPS visualization: 2026-10-26 11:00:40 | MATLAB 25.2.0.3055257 (R2025b) Update 2
+Retained 119 recordings; 0 spectral intervals pass.
+F01 experimental_categories
+F02 condition_counts
+F03 timing_distributions
+F04 sensor_coverage_qc
+F05 static_time_histories
+F06 static_mass_response
+F07 static_asymmetry
+F08 static_repeatability
+F09 position_response
+F10 position_asymmetry
+F11 relative_signal_distribution
+F12 vibration_time_histories
+F13 vibration_rms
+F14 vibration_peaks
+F15 vibration_axes
+F16 timestamp_integrity
+F17 spectral_eligibility
+F18 combined_rms_mass
+F19 combined_rms_position
+F20 combined_loadcell_histories
+F21 matched_vibration_off_on
+F22 thermal_temperature
+F23 thermal_loadcell_temperature
+F24 thermal_accel_temperature
+F25 thermal_elapsed_drift
+F26 thermal_sensitivity_summary
+F27 disturbance_transients
+F28 disturbance_metrics
+F29 impact_envelopes
+F30 combined_response_map
+F31 coverage_summary
+F32 limitations_summary
+SUCCESS: 32 figures and a self-contained report generated. Source hashes unchanged.
+
+REPS visualization: 2026-10-26 11:43:21 | MATLAB 25.2.0.3055257 (R2025b) Update 2
+NOTE: cleaned_data/model_dataset/manifest.csv is absent. Provenance was reconstructed from the existing master feature table and unique batch/filename paths, with QC joined by batch plus filename. No replacement was written into cleaned_data.
+NOTE: The existing cleaner defines time in seconds, acceleration in g, temperature in deg C, and load-cell output as uncalibrated raw counts. Metadata maps L01/L02/L03 to 0.25/0.5/1 kg and V01/V02/V03 to PWM 64/128/192.
+NOTE: Signal Processing Toolbox functions are not installed (the license test succeeds). Base-MATLAB FFT is available; Welch PSD and spectrograms are omitted.
+Retained 119 recordings; 1 spectral intervals pass.
+F01 experimental_categories
+F02 condition_counts
+F03 timing_distributions
+F04 sensor_coverage_qc
+F05 static_time_histories
+F06 static_mass_response
+F07 static_asymmetry
+F08 static_repeatability
+F09 position_response
+F10 position_asymmetry
+F11 relative_signal_distribution
+F12 vibration_time_histories
+F13 vibration_rms
+F14 vibration_peaks
+F15 vibration_axes
+F16 timestamp_integrity
+F17 spectral_eligibility
+F18 combined_rms_mass
+F19 combined_rms_position
+F20 combined_loadcell_histories
+F21 matched_vibration_off_on
+F22 thermal_temperature
+F23 thermal_loadcell_temperature
+F24 thermal_accel_temperature
+F25 thermal_elapsed_drift
+F26 thermal_sensitivity_summary
+F27 disturbance_transients
+F28 disturbance_metrics
+F29 impact_envelopes
+F30 combined_response_map
+F31 coverage_summary
+F32 limitations_summary
+F33 T0236_base_matlab_fft
+
+REPS visualization: 2026-10-26 11:44:55 | MATLAB 25.2.0.3055257 (R2025b) Update 2
+NOTE: cleaned_data/model_dataset/manifest.csv is absent. Provenance was reconstructed from the existing master feature table and unique batch/filename paths, with QC joined by batch plus filename. No replacement was written into cleaned_data.
+NOTE: The existing cleaner defines time in seconds, acceleration in g, temperature in deg C, and load-cell output as uncalibrated raw counts. Metadata maps L01/L02/L03 to 0.25/0.5/1 kg and V01/V02/V03 to PWM 64/128/192.
+NOTE: Signal Processing Toolbox functions are not installed (the license test succeeds). Base-MATLAB FFT is available; Welch PSD and spectrograms are omitted.
+Retained 119 recordings; 1 spectral intervals pass.
+F01 experimental_categories
+F02 condition_counts
+F03 timing_distributions
+F04 sensor_coverage_qc
+F05 static_time_histories
+F06 static_mass_response
+F07 static_asymmetry
+F08 static_repeatability
+F09 position_response
+F10 position_asymmetry
+F11 relative_signal_distribution
+F12 vibration_time_histories
+F13 vibration_rms
+F14 vibration_peaks
+F15 vibration_axes
+F16 timestamp_integrity
+F17 spectral_eligibility
+F18 combined_rms_mass
+F19 combined_rms_position
+F20 combined_loadcell_histories
+F21 matched_vibration_off_on
+F22 thermal_temperature
+F23 thermal_loadcell_temperature
+F24 thermal_accel_temperature
+F25 thermal_elapsed_drift
+F26 thermal_sensitivity_summary
+F27 disturbance_transients
+F28 disturbance_metrics
+F29 impact_envelopes
+F30 combined_response_map
+F31 coverage_summary
+F32 limitations_summary
+F33 T0236_base_matlab_fft
+SUCCESS: 33 figures and a self-contained report generated. Source hashes unchanged.

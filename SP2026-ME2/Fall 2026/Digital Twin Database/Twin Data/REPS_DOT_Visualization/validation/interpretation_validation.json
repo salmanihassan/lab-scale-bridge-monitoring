@@ -1,0 +1,7 @@
+{
+  "all_discussion_evidence_values_verified": 167,
+  "figures": 33,
+  "all_axis_rms_and_z_peak_checks": 119,
+  "thermal_fits_independently_recomputed": 10,
+  "methods": "NumPy least squares/FFT and pandas grouped statistics from cleaned samples"
+}
