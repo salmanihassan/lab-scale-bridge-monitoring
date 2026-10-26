@@ -1,0 +1,10 @@
+{
+  "pages": 29,
+  "figure_captions": 33,
+  "unique_figure_captions": 33,
+  "all_pages_have_text_and_fonts": true,
+  "tex_overflow_or_reference_warnings": 0,
+  "sha256": "a4a3ef8b264ec080e75f57ac65ed9c3f736bf3cf52581a75426bc2c2a5b58393",
+  "compiler": "Tectonic (installed Codex engine)",
+  "scope_disclaimer_present": true
+}

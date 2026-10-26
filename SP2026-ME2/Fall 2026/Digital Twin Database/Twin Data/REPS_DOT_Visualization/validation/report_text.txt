@@ -1,0 +1,758 @@
+REPS DIGITAL TWIN PROJECT
+Experimental Characterization of a
+Laboratory-Scale Bridge for Digital
+Twin Development
+REPS Digital Twin Project — Department of Transportation Progress
+Presentation
+November 5, 2026
+Scope. Mechanical experimental characterization and preparation of existing cleaned sen-
+sor data. This report does not present a completed, trained, or validated AI digital twin.
+This generated edition contains 119 retained recordings and 32 ﬁgures. Every ﬁgure is
+linked to source cleaned CSV ﬁles in the supplied plot manifest. The September 4 and
+September 11 batches are excluded before all analysis.
+
+REPS Digital Twin Project Experimental characterization
+Contents
+1 Introduction 2
+2 Experimental System and Instrumentation 2
+3 Dataset Overview and Processing 2
+4 Static Load Characterization 8
+5 Load Position Sensitivity 12
+6 Vibration Response 15
+7 Frequency-Domain Analysis 19
+8 Combined Load and Vibration Eﬀects 22
+9 T emperature-Induced Sensor Drift 26
+10 Wind and Impact Disturbances 32
+11 Comparative Experimental Findings 35
+12 Data Limitations and Future W ork 38
+13 Conclusion 38
+14 Appendix: Figure and Dataset Index 39
+1
+
+REPS Digital Twin Project Experimental characterization
+1 Introduction
+The REPS Digital Twin project uses a laboratory-scale instrumented bridge to investigate how measured
+response varies with applied mass, loading position, commanded vibration, temperature, and external
+disturbances. The present work establishes a reproducible experimental visualization baseline for the
+Department of Transportation progress presentation. It supports assessment of data coverage and
+limitations before model development. The analysis prioritizes comparable acquisition conditions and
+transparent provenance. Repeated runs summarize reproducibility at the recording level; individual
+time samples are not treated as independent experimental replicates. Numerical ﬁndings are generated
+directly from retained cleaned data.
+2 Experimental System and Instrumentation
+The cleaned schema provides three acceleration axes in units of g, three temperature channels in degrees
+Celsius, two load-cell raw-output channels, a timestamp in seconds, and a logged motor state. The
+channel names identify left, center and right temperature locations and left and right load cells. The
+current ﬁles do not establish bridge geometry, exact accelerometer orientation, traceable calibration
+factors, or sensor uncertainty; these details are therefore not invented. The existing processing script
+maps applied-mass codes L01, L02 and L03 to 0.25, 0.50 and 1.00 kg. It maps left, center and right
+loading positions to normalized labels 0.25, 0.50 and 0.75, and vibration codes V01, V02 and V03
+to PWM commands 64, 128 and 192. These are experimental metadata, not values estimated from
+sensor outputs. P00 does not establish a physical loading coordinate. Load-cell outputs are reported in
+uncalibrated counts. Diﬀerences and normalized ratios between these channels are signal descriptors and
+cannot establish support forces or load-sharing fractions without calibration. PWM is never converted
+into physical excitation frequency. Filename F labels are retained as commanded-frequency metadata
+only.
+3 Dataset Overview and Processing
+cleaned_data/model_dataset/manifest.csv is absent. Provenance was reconstructed from the existing
+master feature table and unique batch/ﬁlename paths, with QC joined by batch plus ﬁlename. No re-
+placement was written into cleaned_data. The existing cleaner deﬁnes time in seconds, acceleration in
+g, temperature in deg C, and load-cell output as uncalibrated raw counts. Metadata maps L01/L02/L03
+to 0.25/0.5/1 kg and V01/V02/V03 to PWM 64/128/192. Signal Processing Toolbox functions are un-
+available; Welch PSD, windowed spectra and spectrograms will be skipped. Both forbidden acquisition
+folders, including their cleaned counterparts, are rejected by path components before sensor ﬁles are
+loaded. Unique relative cleaned-ﬁle paths identify runs, since test identiﬁers are not globally unique.
+QC is joined on acquisition batch and original ﬁlename. Existing master-feature numerical response
+values are not used as substitutes for recalculation from the actual cleaned samples. The retained set
+contains 119 recordings, 119 with existing CHECK status. There are 2 thermal recording segments
+from the single THERMAL_01 session. The longest interval passing the continuity screen in the full
+set is 7.399 s, before the minimum-duration rule is applied. All source ﬁles were SHA-256 hashed before
+and after generation.
+2
+
+REPS Digital Twin Project Experimental characterization
+Time-domain metrics
+For each acceleration axis, the ﬁnite cleaned samples are ﬁtted to a straight line using their actual
+timestamps. Dynamic acceleration is the residual from that ﬁt. The same method is used for static,
+vibrating and disturbed recordings:
+adyn,i = ai − ( ˆβ0 + ˆβ1(ti − ¯t)), a RMS =
+√ 1
+N
+N∑
+i=1
+a2
+dyn,i. (1)
+RMS is sample weighted over all ﬁnite residuals, including both logged motor states. A motor OFF
+sample within a switching sequence is not assumed to be an undisturbed baseline. Missing samples
+remain missing and no extra peak ﬁltering is applied. Time-history lines are broken at gaps larger than
+1.5 times the median positive timestamp increment. Static aggregates use run medians to reduce the
+inﬂuence of retained extreme values. Error bars, where shown, are sample standard deviations between
+matching runs and are not conﬁdence intervals.
+Representative selection and comparability
+Representative recordings are selected deterministically as the run nearest the median relevant metric
+within each displayed group, with relative ﬁlename ordering to break ties. Aggregate comparisons retain
+acquisition batch, mass, position, PWM, frequency label and disturbance status as applicable. Missing
+metadata remain unknown. Temperature is not treated as a controlled covariate.
+3
+
+REPS Digital Twin Project Experimental characterization
+Figure 1: Counts of cleaned recordings by experimental category.
+Method and conditions. Count metadata rows after path-based exclusion; thermal segments count
+as recordings, not independent sessions.
+This ﬁgure uses 119 retained recordings; complete experimental conditions and source paths are in the
+ﬁgure manifest.
+Measured interpretation. 119 recordings are retained, including 2 thermal segments from one session;
+119 have CHECK status.
+Limitations. Counts describe available recordings, not independent statistical replicates.
+4
+
+REPS Digital Twin Project Experimental characterization
+Figure 2: Coverage of applied mass and motor PWM, including explicit unknown values.
+Method and conditions. Categorical counts; missing values are a separate category.
+This ﬁgure uses 119 retained recordings; complete experimental conditions and source paths are in the
+ﬁgure manifest.
+Measured interpretation. Applied mass is unknown for 2 recordings and PWM is unknown for 2
+recordings.
+Limitations. PWM is a control command, not a measured frequency in Hz.
+5
+
+REPS Digital Twin Project Experimental characterization
+Figure 3: Eﬀective sample rate and timestamp-span distributions.
+Method and conditions. Median-interval rate = 1/median(dt); eﬀective rate = (N-1)/(last-ﬁrst
+timestamp).
+This ﬁgure uses 119 retained recordings; complete experimental conditions and source paths are in the
+ﬁgure manifest.
+Measured interpretation. Median-interval rates range 100.000–100.000 Hz; eﬀective rates range
+28.612–97.990 samples/s. Timestamp spans range 8.567–785.919 s.
+Limitations. Neither rate establishes uniform acquisition. Thermal part 2 contains a leading all-
+missing record and a long timestamp gap.
+6
+
+REPS Digital Twin Project Experimental characterization
+Figure 4: Finite sensor coverage by batch and unchanged source QC status.
+Method and conditions. Per-run ﬁnite fraction, averaged equally across runs within each batch.
+This ﬁgure uses 119 retained recordings; complete experimental conditions and source paths are in the
+ﬁgure manifest.
+Measured interpretation. Minimum per-run channel coverage is 0.00 percent. 119 recordings carry
+CHECK status.
+Limitations. Finite coverage does not certify accuracy, absence of clipping, or independence of inter-
+polated samples.
+7
+
+REPS Digital Twin Project Experimental characterization
+4 Static Load Characterization
+Static recordings quantify the measured load-cell response to applied mass. The 0.25 kg runs were
+acquired on September 25, whereas the retained 0.5 and 1 kg static series were acquired on September
+18. These batches are not combined into a single calibration curve. Individual repetitions and raw
+signal asymmetry expose variability without asserting that an expected mechanical trend occurred.
+Figure 5: Representative static load-cell time histories by position.
+Method and conditions. One representative per position: nearest group-median left output, with
+deterministic ﬁlename tie breaking; no waveform smoothing.
+Recordings. T0168; T0171; T0173. Conditions are identiﬁed in the ﬁgure; complete source paths are
+in the ﬁgure manifest.
+Measured interpretation. Left run medians range 318913–861032 counts (n=3).
+Limitations. Representative selection is descriptive; diﬀerent masses or batches can occur. Conditions
+are given in the legend.
+8
+
+REPS Digital Twin Project Experimental characterization
+Figure 6: Run-median load-cell output versus applied mass, separated by batch and position.
+Method and conditions. Points are condition means of run medians; error bars are between-run
+sample SD when n >= 2.
+This ﬁgure uses 26 retained recordings; complete experimental conditions and source paths are in the
+ﬁgure manifest.
+Measured interpretation. Left run medians range 318058–1.40922e+06 counts (n=26). Right run
+medians range 563272–2.36407e+06 counts (n=26).
+Limitations. The 0.25 kg data are from September 25; 0.5 and 1 kg static data are from September
+18. No across-batch calibration line is ﬁtted.
+9
+
+REPS Digital Twin Project Experimental characterization
+Figure 7: Diﬀerence between left and right run-median load-cell outputs.
+Method and conditions. Diﬀerence of uncalibrated run medians; means and sample SD across
+matched repetitions.
+This ﬁgure uses 26 retained recordings; complete experimental conditions and source paths are in the
+ﬁgure manifest.
+Measured interpretation. Output asymmetry range -2.03637e+06–844976 counts (n=26).
+Limitations. Diﬀerent gains and oﬀsets prevent interpreting this quantity as a force imbalance.
+10
+
+REPS Digital Twin Project Experimental characterization
+Figure 8: Individual run medians within equivalent static conditions.
+Method and conditions. Every dot is one run median; groups require identical batch, mass, position,
+PWM, frequency label and disturbance.
+This ﬁgure uses 26 retained recordings; complete experimental conditions and source paths are in the
+ﬁgure manifest.
+Measured interpretation. 26 recordings form 9 batch/mass/position groups; raw load-cell extremes
+occur 110 times in these recordings.
+Limitations. Repeated readings within a recording are not treated as independent replicates. Extremes
+remain in the source data.
+11
+
+REPS Digital Twin Project Experimental characterization
+5 Load Position Sensitivity
+The position comparisons retain mass and batch strata. Left, center and right refer to metadata
+position labels. The normalized raw-signal contribution is included to describe relative channel output,
+but diﬀering oﬀsets and gains prevent identifying it with a support reaction or load fraction.
+Figure 9: Left, center and right loading positions at matched mass and batch.
+Method and conditions. Condition mean and between-run sample SD of raw run medians.
+This ﬁgure uses 26 retained recordings; complete experimental conditions and source paths are in the
+ﬁgure manifest.
+Measured interpretation. Left-minus-right median diﬀerence range -2.03637e+06–844976 counts
+(n=26).
+Limitations. Sensor oﬀsets are not zeroed; these are measured outputs, not calibrated support reac-
+tions.
+12
+
+REPS Digital Twin Project Experimental characterization
+Figure 10: Position-dependent raw output asymmetry within mass and batch strata.
+Method and conditions. Diﬀerence of run medians, followed by within-condition mean and SD.
+This ﬁgure uses 26 retained recordings; complete experimental conditions and source paths are in the
+ﬁgure manifest.
+Measured interpretation. Observed asymmetry range -2.03637e+06–844976 counts (n=26).
+Limitations. The sign does not establish a physical load split without calibration.
+13
+
+REPS Digital Twin Project Experimental characterization
+Figure 11: Normalized left raw-output contribution by load position.
+Method and conditions. L and R are raw run medians; denominator-zero cases stay missing.
+This ﬁgure uses 26 retained recordings; complete experimental conditions and source paths are in the
+ﬁgure manifest.
+Measured interpretation. Normalized contribution range 0.121741–0.714167 dimensionless (n=26).
+Limitations. This is a signal ratio only. It is not the fraction of applied force carried by a support;
+oﬀsets and gains are uncalibrated.
+14
+
+REPS Digital Twin Project Experimental characterization
+6 Vibration Response
+The unloaded September 18 vibration series provides a within-batch PWM comparison. Both cleaned
+acceleration levels and dynamic residuals are displayed. RMS and peak quantities apply to the existing
+cleaned signals. Earlier cleaning used a spike ﬁlter and interpolation of short missing runs, so original
+physical peaks may no longer be available.
+Figure 12: Cleaned and linearly detrended acceleration in representative no-load vibration runs.
+Method and conditions. Representative nearest the median RMS within each PWM setting. OLS
+linear trend against actual timestamps is subtracted; all ﬁnite samples contribute.
+Recordings. T0133; T0138; T0139. Conditions are identiﬁed in the ﬁgure; complete source paths are
+in the ﬁgure manifest.
+Measured interpretation. Dynamic z RMS range 0.00420009–0.0144036 g (n=3).
+Limitations. Cleaned acceleration is not original raw data. RMS includes both logged motor states,
+preserving the commanded switching cycle.
+15
+
+REPS Digital Twin Project Experimental characterization
+Figure 13: Dynamic acceleration RMS across the no-load PWM series.
+Method and conditions. Sample-weighted RMS of timestamp-linear residuals; mean and between-
+run SD within PWM.
+This ﬁgure uses 9 retained recordings; complete experimental conditions and source paths are in the
+ﬁgure manifest.
+Measured interpretation. Run-level dynamic z RMS range 0.00350423–0.0158165 g (n=9).
+Limitations. No causal or monotonic trend is assumed; no-load runs originate in one batch.
+16
+
+REPS Digital Twin Project Experimental characterization
+Figure 14: Largest observed absolute detrended z acceleration in each no-load vibration run.
+Method and conditions. Maximum absolute ﬁnite residual, without additional smoothing or resam-
+pling.
+This ﬁgure uses 9 retained recordings; complete experimental conditions and source paths are in the
+ﬁgure manifest.
+Measured interpretation. Observed dynamic peaks range 0.0159373–0.0899925 g (n=9).
+Limitations. Earlier cleaning may have removed spikes. These are peaks in the cleaned records, not
+guaranteed physical maxima.
+17
+
+REPS Digital Twin Project Experimental characterization
+Figure 15: Axis-resolved RMS for the same no-load recordings.
+Method and conditions. Same timestamp-based linear detrending separately on each acceleration
+axis; individual run points.
+This ﬁgure uses 9 retained recordings; complete experimental conditions and source paths are in the
+ﬁgure manifest.
+Measured interpretation. Median x/y/z RMS is 0.0032379 / 0.0040946 / 0.0078695 g.
+Limitations. Axis directions use the cleaned schema. Sensor orientation and cross-axis calibration
+have not been independently veriﬁed.
+18
+
+REPS Digital Twin Project Experimental characterization
+7 Frequency-Domain Analysis
+Timing is audited before spectral analysis. The cleaner converted milliseconds to seconds and had
+already removed nonincreasing timestamps or selected a reset segment. The present cleaned timestamps
+can therefore reveal remaining jitter and gaps but cannot reconstruct discarded raw resets. The recurring
+increments near 0.09–0.10 s, in otherwise approximately 0.01 s sampling, are treated conservatively as
+missing acquisition intervals. Their acquisition cause cannot be established from cleaned data alone.
+For each run, the algorithm splits at missing acceleration, nonincreasing timestamps, or a timestamp
+increment greater than 1.5 times the median. It selects the longest remaining interval and requires at
+least four seconds, at least 256 samples, and maximum interval deviation no greater than 20 percent
+of the local median. Four seconds gives at least two cycles at the lowest inspected 0.5 Hz and a
+nominal Fourier spacing no coarser than 0.25 Hz. These are minimum engineering screening rules, not
+a certiﬁcation of stationarity or anti-aliasing. Only an accepted interval may be linearly interpolated
+onto its median-increment grid, without extrapolation or bridging rejected gaps. The implementation
+then uses linear detrending, a periodic Hann window with coherent-gain amplitude normalization, and
+MATLAB Signal Processing Toolbox functions for Welch PSD and spectrograms. Welch uses two-
+second windows with 50 percent overlap. The searched response-peak band is 0.5 Hz to the smaller
+of 40 Hz and 0.4 times the sampling rate. The output is a response spectrum, not a transfer function
+because input force is not measured. Result for this execution: no spectral analysis is emitted.
+FFT amplitude spectra, Welch PSD, spectrograms, dominant-frequency comparisons, frequency-versus-
+load plots and commanded-versus-measured peak plots are omitted. Timing diagnostics are included
+instead. No peaks are inferred from PWM or from the approximately 100 Hz median-interval sampling
+rate. T0236 does meet the timing screen: its longest continuous interval is 7.399 s, at 100 Hz, from
+13.106 to 20.505 s. Analysis of this interval is withheld because the required Signal Processing Toolbox
+functions are not installed. The other recordings fail the timing-duration screen.
+19
+
+REPS Digital Twin Project Experimental characterization
+Figure 16: Timestamp increments in representative runs and the longest continuous valid intervals in
+all candidates.
+Method and conditions. Split on missing acceleration, nonincreasing timestamps or dt > 1.5 times
+median dt. Require >= 4 s, >= 256 samples and maximum interval jitter <= 20 percent.
+This ﬁgure uses 91 retained recordings; complete experimental conditions and source paths are in the
+ﬁgure manifest.
+Measured interpretation. 91 candidates have longest intervals from 0.909 to 7.399 s; 0 pass spectral
+rules.
+Limitations. Large gaps are treated as missing acquisition, not jitter. Cleaned ﬁles cannot determine
+whether packet loss or blocking acquisition caused them.
+20
+
+REPS Digital Twin Project Experimental characterization
+Figure 17: Reasons for admitting or withholding frequency-domain analysis.
+Method and conditions. Every candidate is audited independently. Signal Processing Toolbox
+availability is also required.
+This ﬁgure uses 91 retained recordings; complete experimental conditions and source paths are in the
+ﬁgure manifest.
+Measured interpretation. 0 of 91 candidates are accepted for spectral execution; 1 pass timing but
+lack the required toolbox functions.
+Limitations. No FFT, PSD, spectrogram or dominant-frequency claim is made for rejected intervals.
+PWM is never converted to Hz.
+21
+
+REPS Digital Twin Project Experimental characterization
+8 Combined Load and Vibration Eﬀects
+The September 25 series supports comparisons across applied mass, position and PWM within one ac-
+quisition batch. A 0.25 kg subset also supports vibration-disabled versus vibration-enabled comparisons
+at matching position. The retained dataset has no matching unloaded vibration baseline in this batch,
+so cross-batch unloaded and loaded recordings are not used to claim a loading eﬀect.
+Figure 18: Acceleration RMS versus mass within matching position and PWM strata of September 25.
+Method and conditions. Run-level timestamp-linear residual RMS; each point is a condition mean
+with between-run sample SD.
+This ﬁgure uses 60 retained recordings; complete experimental conditions and source paths are in the
+ﬁgure manifest.
+Measured interpretation. Dynamic z RMS range 0.00227656–0.00940507 g (n=60).
+Limitations. Unequal repetition counts and uncontrolled temperature can aﬀect apparent load depen-
+dence.
+22
+
+REPS Digital Twin Project Experimental characterization
+Figure 19: Position sensitivity of vibration RMS at matching mass and PWM.
+Method and conditions. Condition means and sample SD within the same acquisition batch.
+This ﬁgure uses 60 retained recordings; complete experimental conditions and source paths are in the
+ﬁgure manifest.
+Measured interpretation. Observed run RMS range 0.00227656–0.00940507 g (n=60).
+Limitations. These comparisons show associations under recorded conditions, not isolated causal
+eﬀects.
+23
+
+REPS Digital Twin Project Experimental characterization
+Figure 20: Representative load-cell histories during combined loading and vibration.
+Method and conditions. Nearest median-RMS representative per PWM; unsmoothed cleaned traces
+with lines broken at acquisition gaps.
+Recordings. T0240; T0194; T0199. Conditions are identiﬁed in the ﬁgure; complete source paths are
+in the ﬁgure manifest.
+Measured interpretation. Left run medians range 325295–449982 counts (n=3).
+Limitations. Mass and position of representatives are listed; the traces alone do not isolate PWM
+eﬀects.
+24
+
+REPS Digital Twin Project Experimental characterization
+Figure 21: Same-batch 0.25 kg comparison of vibration-disabled and vibration-enabled recordings.
+Method and conditions. Batch, mass and position are held ﬁxed; full-recording detrending is identical
+for all runs.
+This ﬁgure uses 29 retained recordings; complete experimental conditions and source paths are in the
+ﬁgure manifest.
+Measured interpretation. Left: mean RMS 0.0062634 g at PWM 0 and 0.004989 g at PWM 192
+(-20.35 percent); Center: mean RMS 0.0027216 g at PWM 0 and 0.0045344 g at PWM 192 (+66.61
+percent); Right: mean RMS 0.0054716 g at PWM 0 and 0.0063117 g at PWM 192 (+15.35 percent)
+Limitations. No same-batch unloaded vibration baseline exists here; an unloaded-versus-loaded causal
+comparison is therefore omitted.
+25
+
+REPS Digital Twin Project Experimental characterization
+9 Temperature-Induced Sensor Drift
+THERMAL_01 consists of two recording segments from one session with an approximately ﬁve-minute
+interruption. Each segment has its own elapsed-time axis, starting at its ﬁrst ﬁnite sensor record. No
+samples are invented and no line crosses the interruption. Part 2 contains an all-missing leading record
+followed by a 539.826 s timestamp gap; this artifact is distinct from the approximate interruption
+supplied in the experiment description. Thermal scatter and drift summaries use occupied one-second
+median bins, explicitly as summaries rather than a replacement cleaned dataset. Empty bins are not
+ﬁlled. For each sensor, a trend is ﬁtted to paired ﬁnite bin summaries only when there are at least 20
+bins and a temperature span of at least one degree Celsius. Fits use left temperature as the common
+measured reference and are computed separately by segment. The reported slopes and coeﬃcients of
+determination describe observational associations. Temporal autocorrelation, temperature gradients,
+possible orientation changes, excitation and segment oﬀsets prevent interpreting the ﬁts as a validated
+compensation model.
+26
+
+REPS Digital Twin Project Experimental characterization
+Figure 22: Temperature channels in separately displayed THERMAL_01 recording segments.
+Method and conditions. Each axis starts at its ﬁrst ﬁnite sensor row; no shared clock is inferred and
+no missing interval is bridged.
+Recordings. THERMAL_01_PART1; THERMAL_01_PART2. Conditions are identiﬁed in the
+ﬁgure; complete source paths are in the ﬁgure manifest.
+Measured interpretation. Segment 1 temperature range 24.690–61.250 deg C; Segment 2 tempera-
+ture range 25.370–32.690 deg C
+Limitations. Segments belong to one session with an approximately ﬁve-minute interruption. The
+leading 539.826 s timestamp gap in part 2 is not interpreted as the inter-segment interruption.
+27
+
+REPS Digital Twin Project Experimental characterization
+Figure 23: Load-cell versus left temperature using occupied one-second bins in each thermal segment.
+Method and conditions. One-second medians of paired ﬁnite observations; OLS trends ﬁtted sepa-
+rately if temperature span >= 1 deg C and >= 20 paired bins.
+Recordings. THERMAL_01_PART1; THERMAL_01_PART2. Conditions are identiﬁed in the
+ﬁgure; complete source paths are in the ﬁgure manifest.
+Measured interpretation. Left LC slopes by segment: -1411.7, -159.97 counts/deg C. Right LC
+slopes: 1602.6, 3465.6 counts/deg C.
+Limitations. Median binning reduces sensitivity to retained gross artifacts. Both temperature and
+output change with time; slopes are observational, not compensation coeﬃcients.
+28
+
+REPS Digital Twin Project Experimental characterization
+Figure 24: Acceleration oﬀsets versus temperature in separate thermal segments.
+Method and conditions. One-second paired medians, then segment-speciﬁc OLS; these are cleaned
+acceleration levels including gravity and oﬀset.
+Recordings. THERMAL_01_PART1; THERMAL_01_PART2. Conditions are identiﬁed in the
+ﬁgure; complete source paths are in the ﬁgure manifest.
+Measured interpretation. z-axis ﬁtted slopes by segment are -0.00092083, -0.00085522 g/deg C, with
+R-squared 0.038, 0.274.
+Limitations. Orientation, excitation and temporal drift are confounders. Repeated segments are not
+independent thermal sessions.
+29
+
+REPS Digital Twin Project Experimental characterization
+Figure 25: Within-segment load-cell changes relative to the ﬁrst ﬁve seconds of occupied one-second
+bins.
+Method and conditions. One-second medians; initial baseline is computed separately for each seg-
+ment and sensor.
+Recordings. THERMAL_01_PART1; THERMAL_01_PART2. Conditions are identiﬁed in the
+ﬁgure; complete source paths are in the ﬁgure manifest.
+Measured interpretation. Segment 1 ﬁnal-minus-initial 5 s medians: left -16395, right 31579 counts;
+Segment 2 ﬁnal-minus-initial 5 s medians: left 737.5, right -11014 counts
+Limitations. The segment oﬀset is intentionally not interpreted as a measured continuous drift across
+the interruption.
+30
+
+REPS Digital Twin Project Experimental characterization
+Figure 26: Comparison of ﬁtted thermal associations by sensor and segment.
+Method and conditions. OLS slopes on paired one-second medians; no conﬁdence interval assumes
+independent time samples.
+Recordings. THERMAL_01_PART1; THERMAL_01_PART2. Conditions are identiﬁed in the
+ﬁgure; complete source paths are in the ﬁgure manifest.
+Measured interpretation. Thermal ﬁts use 177 and 247 occupied one-second bins; R-squared ranges
+0.018–0.992.
+Limitations. Slopes describe this session only. A validated compensation model requires independent
+thermal cycles and controlled loading.
+31
+
+REPS Digital Twin Project Experimental characterization
+10 Wind and Impact Disturbances
+Wind and impact recordings are summarized individually because exact event timing, forcing magnitude
+and wind speed are not supplied. Two wind recordings also have PWM 192, so motor operation is a
+confounder. No dedicated undisturbed reference is assumed. Impact-recording envelopes are aligned
+to the largest observed dynamic residual, which is a computed feature rather than a veriﬁed impact
+trigger. Pre- and post-feature windows are descriptive and are not labeled as conﬁrmed baseline and
+settling intervals.
+Figure 27: Representative cleaned disturbance recordings with timestamp-linear trends removed.
+Method and conditions. Nearest median peak by disturbance type and PWM; no additional smooth-
+ing.
+Recordings. T0253; T0257; T0256. Conditions are identiﬁed in the ﬁgure; complete source paths are
+in the ﬁgure manifest.
+Measured interpretation. Largest observed absolute z residual range 0.136249–1.78989 g (n=3).
+Limitations. Exact impact times, wind speeds and impact forces are unknown. Gaps and earlier spike
+ﬁltering limit peak interpretation.
+32
+
+REPS Digital Twin Project Experimental characterization
+Figure 28: Disturbance RMS and observed peak by run, with motor commands identiﬁed.
+Method and conditions. Identical detrending and sample-weighted metrics; all runs shown sepa-
+rately.
+Recordings. T0253; T0254; T0255; T0256; T0257; T0258. Conditions are identiﬁed in the ﬁgure;
+complete source paths are in the ﬁgure manifest.
+Measured interpretation. Run RMS range 0.0076027–0.133993 g (n=6). Run peaks range 0.0729842–
+2.92166 g (n=6).
+Limitations. Wind at PWM 192 is confounded with motor operation. A certiﬁed undisturbed baseline
+is unavailable in this batch.
+33
+
+REPS Digital Twin Project Experimental characterization
+Figure 29: One-second RMS envelopes aligned to each recording’s largest observed residual.
+Method and conditions. Alignment is a computed signal feature, not a known impact trigger.
+Pre/post summaries use -5 to -1 s and +1 to +5 s.
+Recordings. T0255; T0257; T0258. Conditions are identiﬁed in the ﬁgure; complete source paths are
+in the ﬁgure manifest.
+Measured interpretation. T0255: pre-window median RMS 0.018646 g, post-window 0.014961 g;
+T0257: pre-window median RMS 0.0034539 g, post-window 0.0060571 g; T0258: pre-window median
+RMS 0.0055114 g, post-window 0.0067763 g
+Limitations. No damping ratio or settling time is inferred because event timing, background forcing
+and missing intervals are insuﬃciently controlled.
+34
+
+REPS Digital Twin Project Experimental characterization
+11 Comparative Experimental Findings
+The summary ﬁgures emphasize within-batch dynamic response coverage, the recorded experimental
+design, and limitations that aﬀect interpretation. Means of run metrics have equal recording weights.
+Coverage plots combine metadata only and do not imply that responses from diﬀerent acquisition
+batches are interchangeable.
+Figure 30: Same-batch map of mean dynamic z RMS [g] across mass, PWM and position.
+Method and conditions. Each cell is an equal-weight mean of run RMS values; common color scale
+across panels.
+This ﬁgure uses 60 retained recordings; complete experimental conditions and source paths are in the
+ﬁgure manifest.
+Measured interpretation. Individual run RMS range 0.00227656–0.00940507 g (n=60).
+Limitations. A descriptive operating-condition map is not a trained or validated digital twin.
+35
+
+REPS Digital Twin Project Experimental characterization
+Figure 31: Coverage of load, motor command and observed left temperature, plus recording counts.
+Method and conditions. Coverage only; overlapping markers indicate repeated settings. Thermal
+segments are counted separately in the right panel.
+This ﬁgure uses 119 retained recordings; complete experimental conditions and source paths are in the
+ﬁgure manifest.
+Measured interpretation. 111 non-disturbance recordings have known mass and PWM; 2 thermal
+segments have unspeciﬁed load/PWM.
+Limitations. Temperature was observed, not independently varied in a balanced factorial design. This
+plot does not compare response across incompatible batches.
+36
+
+REPS Digital Twin Project Experimental characterization
+Figure 32: Data-quality issues retained in the cleaned data and disclosed for interpretation.
+Method and conditions. 8,388,607 is used as an audit threshold motivated by the project’s HX711
+acquisition code; no values are deleted.
+This ﬁgure uses 119 retained recordings; complete experimental conditions and source paths are in the
+ﬁgure manifest.
+Measured interpretation. 115 extreme load-cell entries occur in 4 recordings; 119 of 119 recordings
+contain timing gaps.
+Limitations. The extreme-value count is diagnostic, not a new QC classiﬁcation. Existing QC reports
+remain unchanged.
+37
+
+REPS Digital Twin Project Experimental characterization
+12 Data Limitations and Future Work
+All retained recordings have source QC warnings. Near-complete ﬁnite sensor coverage must not be
+mistaken for trustworthy timing or calibrated physical measurement. The following limitations should
+guide the next experimental campaign.
+• Acquire hardware-timestamped data with veriﬁed units, a measured sampling clock, gap logging
+and an anti-aliasing strategy. Record suﬃciently long uninterrupted vibration intervals.
+• Establish independent load-cell calibration, tare checks, sensor orientation and measurement uncer-
+tainty. Retained extreme values require review of acquisition and earlier cleaning before calibration
+or safety-related inference.
+• Preserve raw data and sample-level cleaning provenance. The current cleaned ﬁles do not identify
+which values were previously interpolated or spike-ﬁltered. The present pipeline cannot reconstruct
+lost peaks.
+• Collect same-batch unloaded and loaded baselines, balanced repetitions and recorded tempera-
+tures. Use a tachometer or measured excitation channel to distinguish motor command from
+actual excitation.
+• Record disturbance triggers, wind speed and impact force before attempting damping, settling-
+time or frequency-response identiﬁcation.
+• Repeat controlled thermal cycles with ﬁxed load and excitation to test compensation on indepen-
+dent sessions. The two present thermal segments are one session, not a validation split.
+• Resolve duplicate and suspicious test identiﬁers using acquisition logs. Current traceability uses
+complete relative paths, preserving the existing identiﬁers.
+The cleaned load-cell data retain 115 entries at or above an absolute magnitude of 8,388,607 counts in 4
+recordings. The largest retained left-channel value is 7.97700158e+12 counts. This threshold is an audit
+ﬂag motivated by the project HX711 acquisition code, not an automatic correction or a new source QC
+decision. Median summaries reduce the inﬂuence of isolated extreme entries on descriptive aggregates.
+13 Conclusion
+The automated pipeline produces a traceable experimental characterization package from the retained
+cleaned bridge recordings. It documents static and position-dependent outputs, vibration response under
+recorded commands, thermal associations and disturbance signals while preserving source data. Same-
+batch comparisons provide a basis for planning improved experiments, but current timing and calibration
+limitations prevent defensible modal claims or validation of a digital twin. The next phase should resolve
+acquisition continuity and measurement calibration before model training and independent validation.
+38
+
+REPS Digital Twin Project Experimental characterization
+14 Appendix: Figure and Dataset Index
+The report directory is self-contained. The companion plot_manifest.csv lists every ﬁgure, full
+source cleaned paths, experimental conditions, analysis methods, numerical ﬁndings and limitations.
+dataset_index.csv provides per-recording metadata and recalculated metrics. frequency_audit.csv
+records all spectral eligibility decisions. Relative source paths in those indexes refer to the original
+dataset for traceability; compilation requires only the ﬁgure images included here.
+Figure Image ﬁlename Runs
+F01 F01_experimental_categories.png 119
+F02 F02_condition_counts.png 119
+F03 F03_timing_distributions.png 119
+F04 F04_sensor_coverage_qc.png 119
+F05 F05_static_time_histories.png 3
+F06 F06_static_mass_response.png 26
+F07 F07_static_asymmetry.png 26
+F08 F08_static_repeatability.png 26
+F09 F09_position_response.png 26
+F10 F10_position_asymmetry.png 26
+F11 F11_relative_signal_distribution.png 26
+F12 F12_vibration_time_histories.png 3
+F13 F13_vibration_rms.png 9
+F14 F14_vibration_peaks.png 9
+F15 F15_vibration_axes.png 9
+F16 F16_timestamp_integrity.png 91
+F17 F17_spectral_eligibility.png 91
+F18 F18_combined_rms_mass.png 60
+F19 F19_combined_rms_position.png 60
+F20 F20_combined_loadcell_histories.png 3
+F21 F21_matched_vibration_off_on.png 29
+F22 F22_thermal_temperature.png 2
+F23 F23_thermal_loadcell_temperature.png 2
+F24 F24_thermal_accel_temperature.png 2
+F25 F25_thermal_elapsed_drift.png 2
+F26 F26_thermal_sensitivity_summary.png 2
+F27 F27_disturbance_transients.png 3
+F28 F28_disturbance_metrics.png 6
+F29 F29_impact_envelopes.png 3
+F30 F30_combined_response_map.png 60
+F31 F31_coverage_summary.png 119
+F32 F32_limitations_summary.png 119
+Retained dataset index
+Repeated test IDs belong to distinct paths; the complete disambiguating path is in the supplied CSV
+index. Applied mass and PWM values are shown as unknown when absent.
+39
+
+REPS Digital Twin Project Experimental characterization
+Test ID Acquisition batch Mass [kg] PWM QC
+T0253 10_9_Wind&Impact 0 192 CHECK
+T0254 10_9_Wind&Impact 0 192 CHECK
+T0255 10_9_Wind&Impact 0 0 CHECK
+T0256 10_9_Wind&Impact 0 0 CHECK
+T0257 10_9_Wind&Impact 0 0 CHECK
+T0258 10_9_Wind&Impact 0 0 CHECK
+T0167 918 load variation 0.5 0 CHECK
+T0168 918 load variation 0.5 0 CHECK
+T0169 918 load variation 0.5 0 CHECK
+T0170 918 load variation 0.5 0 CHECK
+T0171 918 load variation 0.5 0 CHECK
+T0172 918 load variation 0.5 0 CHECK
+T0173 918 load variation 0.5 0 CHECK
+T0174 918 load variation 0.5 0 CHECK
+T0175 918 load variation 0.5 0 CHECK
+T0176 918 load variation 1 0 CHECK
+T0177 918 load variation 1 0 CHECK
+T0178 918 load variation 1 0 CHECK
+T0179 918 load variation 1 0 CHECK
+T0180 918 load variation 1 0 CHECK
+T0181 918 load variation 1 0 CHECK
+T0182 918 load variation 1 0 CHECK
+T0183 918 load variation 1 0 CHECK
+T0184 918 load variation 1 0 CHECK
+T0133 918 vibration variation 0 64 CHECK
+T0134 918 vibration variation 0 64 CHECK
+T0135 918 vibration variation 0 64 CHECK
+T0136 918 vibration variation 0 128 CHECK
+T0137 918 vibration variation 0 128 CHECK
+T0138 918 vibration variation 0 128 CHECK
+T0139 918 vibration variation 0 192 CHECK
+T0140 918 vibration variation 0 192 CHECK
+T0141 918 vibration variation 0 192 CHECK
+T0142 918_freq 0 128 CHECK
+T0143 918_freq 0 128 CHECK
+T0144 918_freq 0 128 CHECK
+T0145 918_freq 0 128 CHECK
+T0146 918_freq 0 128 CHECK
+T0147 918_freq 0 128 CHECK
+T0148 918_freq 0 128 CHECK
+T0149 918_freq 0 128 CHECK
+T0150 918_freq 0 128 CHECK
+T0151 918_freq 0 128 CHECK
+T0152 918_freq 0 128 CHECK
+T0153 918_freq 0 128 CHECK
+T0154 918_freq 0 128 CHECK
+T0155 918_freq 0 128 CHECK
+40
+
+REPS Digital Twin Project Experimental characterization
+Test ID Acquisition batch Mass [kg] PWM QC
+T0156 918_freq 0 128 CHECK
+T0157 918_freq 0 128 CHECK
+T0 9_25_loadvib 1 192 CHECK
+T0194 9_25_loadvib 0.25 64 CHECK
+T0195 9_25_loadvib 0.25 64 CHECK
+T0196 9_25_loadvib 0.25 64 CHECK
+T0197 9_25_loadvib 0.25 128 CHECK
+T0198 9_25_loadvib 0.25 128 CHECK
+T0199 9_25_loadvib 0.25 128 CHECK
+T0200 9_25_loadvib 0.25 192 CHECK
+T0201 9_25_loadvib 0.25 192 CHECK
+T0202 9_25_loadvib 0.25 192 CHECK
+T0203 9_25_loadvib 0.5 64 CHECK
+T0204 9_25_loadvib 0.5 64 CHECK
+T0205 9_25_loadvib 0.5 64 CHECK
+T0206 9_25_loadvib 0.5 128 CHECK
+T0207 9_25_loadvib 0.5 128 CHECK
+T0208 9_25_loadvib 0.5 128 CHECK
+T0209 9_25_loadvib 0.5 192 CHECK
+T0210 9_25_loadvib 0.5 192 CHECK
+T0211 9_25_loadvib 0.5 192 CHECK
+T0212 9_25_loadvib 1 64 CHECK
+T0213 9_25_loadvib 1 64 CHECK
+T0214 9_25_loadvib 1 128 CHECK
+T0215 9_25_loadvib 1 128 CHECK
+T0216 9_25_loadvib 1 192 CHECK
+T0217 9_25_loadvib 1 192 CHECK
+T0218 9_25_loadvib 0.25 64 CHECK
+T0219 9_25_loadvib 0.25 64 CHECK
+T0220 9_25_loadvib 0.25 128 CHECK
+T0221 9_25_loadvib 0.25 128 CHECK
+T0222 9_25_loadvib 0.25 192 CHECK
+T0223 9_25_loadvib 0.25 192 CHECK
+T0224 9_25_loadvib 0.5 64 CHECK
+T0225 9_25_loadvib 0.5 64 CHECK
+T0226 9_25_loadvib 0.5 128 CHECK
+T0227 9_25_loadvib 0.5 128 CHECK
+T0228 9_25_loadvib 0.5 192 CHECK
+T0229 9_25_loadvib 0.5 192 CHECK
+T0230 9_25_loadvib 0.5 64 CHECK
+T0231 9_25_loadvib 1 64 CHECK
+T0232 9_25_loadvib 1 128 CHECK
+T0233 9_25_loadvib 1 128 CHECK
+T0235 9_25_loadvib 1 192 CHECK
+T0236 9_25_loadvib 0.25 64 CHECK
+T0237 9_25_loadvib 0.25 64 CHECK
+T0238 9_25_loadvib 0.25 128 CHECK
+41
+
+REPS Digital Twin Project Experimental characterization
+Test ID Acquisition batch Mass [kg] PWM QC
+T0239 9_25_loadvib 0.25 128 CHECK
+T0240 9_25_loadvib 0.25 192 CHECK
+T0241 9_25_loadvib 0.25 192 CHECK
+T0242 9_25_loadvib 0.5 64 CHECK
+T0243 9_25_loadvib 0.5 64 CHECK
+T0244 9_25_loadvib 0.5 128 CHECK
+T0245 9_25_loadvib 0.5 128 CHECK
+T0246 9_25_loadvib 0.5 192 CHECK
+T0247 9_25_loadvib 0.5 192 CHECK
+T0248 9_25_loadvib 1 64 CHECK
+T0249 9_25_loadvib 1 64 CHECK
+T0250 9_25_loadvib 1 128 CHECK
+T0251 9_25_loadvib 1 128 CHECK
+T0252 9_25_loadvib 1 192 CHECK
+T0253 9_25_loadvib 1 192 CHECK
+T0185 9_25_loadvib 0.25 0 CHECK
+T0186 9_25_loadvib 0.25 0 CHECK
+T0187 9_25_loadvib 0.25 0 CHECK
+T0188 9_25_loadvib 0.25 0 CHECK
+T0189 9_25_loadvib 0.25 0 CHECK
+T0190 9_25_loadvib 0.25 0 CHECK
+T0191 9_25_loadvib 0.25 0 CHECK
+T0193 9_25_loadvib 0.25 0 CHECK
+THERMAL_01_PART1 thermal_transient unknown unknown CHECK
+THERMAL_01_PART2 thermal_transient unknown unknown CHECK
+Thermal ﬁtted associations
+Slopes use left temperature. Load-cell units are counts per degree Celsius; acceleration units are g per
+degree Celsius. These are descriptive ﬁts, not correction coeﬃcients.
+Segment Sensor Slope R2
+THERMAL_01_PART1 loadcell_left_raw -1411.7 0.018
+THERMAL_01_PART1 loadcell_right_raw 1602.6 0.310
+THERMAL_01_PART1 accel_x_g 0.00078244 0.477
+THERMAL_01_PART1 accel_y_g 0.00032607 0.349
+THERMAL_01_PART1 accel_z_g -0.00092083 0.038
+THERMAL_01_PART2 loadcell_left_raw -159.97 0.328
+THERMAL_01_PART2 loadcell_right_raw 3465.6 0.992
+THERMAL_01_PART2 accel_x_g 0.0017698 0.697
+THERMAL_01_PART2 accel_y_g 8.2876e-05 0.032
+THERMAL_01_PART2 accel_z_g -0.00085522 0.274
+42
