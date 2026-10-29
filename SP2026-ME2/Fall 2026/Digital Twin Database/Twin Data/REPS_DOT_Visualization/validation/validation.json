@@ -1,0 +1,19 @@
+{
+  "matlab_version": "25.2.0.3055257 (R2025b) Update 2",
+  "recordings": 119,
+  "figures": 33,
+  "scrapped_sources_in_analysis": 0,
+  "input_files_unchanged": true,
+  "source_hash_count": 249,
+  "unique_figure_names": true,
+  "all_source_files_exist": true,
+  "all_latex_images_exist": true,
+  "thermal_segments_separate": true,
+  "accepted_spectral_intervals": 1,
+  "signal_processing_functions_available": false,
+  "metadata_notes": [
+    "cleaned_data/model_dataset/manifest.csv is absent. Provenance was reconstructed from the existing master feature table and unique batch/filename paths, with QC joined by batch plus filename. No replacement was written into cleaned_data.",
+    "The existing cleaner defines time in seconds, acceleration in g, temperature in deg C, and load-cell output as uncalibrated raw counts. Metadata maps L01/L02/L03 to 0.25/0.5/1 kg and V01/V02/V03 to PWM 64/128/192.",
+    "Signal Processing Toolbox functions are not installed (the license test succeeds). Base-MATLAB FFT is available; Welch PSD and spectrograms are omitted."
+  ]
+}

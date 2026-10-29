@@ -1,0 +1,25 @@
+{
+  "initial_source_hashes_unchanged": true,
+  "source_files_hashed": 249,
+  "recordings_verified": 119,
+  "figures_verified": 33,
+  "independent_rms_peak_median_checks": "passed for all recordings",
+  "figure_copy_hashes": "identical",
+  "report_references": "all valid",
+  "overleaf_archive": "complete and image-identical",
+  "base_fft": "T0236 bins independently reproduced with NumPy",
+  "original_verified_metrics": "unchanged",
+  "original_figures_retained": 32,
+  "figures_revised": 11,
+  "figures_unchanged": 21,
+  "figures_added": 1,
+  "figures_removed": 0,
+  "discussion_word_range": [
+    66,
+    121
+  ],
+  "thermal_unknown_metadata": "preserved",
+  "excluded_source_paths": 0,
+  "static_repetition_groups": 9,
+  "figure_conditions": "all populated with explicit unknown labels"
+}
