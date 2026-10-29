@@ -52,8 +52,9 @@ All three should print `True`.
 
 ## Build
 
+Run all the commands below from this folder (`FA2026-CpE1\cc3220_stream_daq` in your clone).
+
 ```powershell
-cd 'C:\Users\olumi\projects\dot-lab\lab-scale-bridge-monitoring\FA2026-CpE1\cc3220_stream_daq'
 & 'C:\ti\ccs2101\ccs\utils\bin\gmake.exe' -f makefile all
 ```
 
@@ -66,11 +67,12 @@ If you installed the tools somewhere else, add `SDK=...` or `TICLANG=...` to the
 This is the same method as the accelerometer test, with a different `$out`:
 
 ```powershell
-$daq = 'C:\Users\olumi\projects\dot-lab\lab-scale-bridge-monitoring\SP2026-ME2\Fall 2026\Digital Twin TI Board Setup\cc3220_daq'
+$repo = git rev-parse --show-toplevel
+$daq = "$repo\SP2026-ME2\Fall 2026\Digital Twin TI Board Setup\cc3220_daq"
 $env:TI_APPDATA_DIR = "$daq\build\uniflash_appdata"
 $dslite = 'C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\DebugServer\bin\DSLite.exe'
 $cfg = "$daq\build\cc3220sf_xds110_uniflash.ccxml"
-$out = 'C:\Users\olumi\projects\dot-lab\lab-scale-bridge-monitoring\FA2026-CpE1\cc3220_stream_daq\build\dt_stream_daq.out'
+$out = "$PWD\build\dt_stream_daq.out"
 & $dslite flash --config $cfg --core 0 --verbose --run $out
 ```
 
@@ -78,10 +80,13 @@ $out = 'C:\Users\olumi\projects\dot-lab\lab-scale-bridge-monitoring\FA2026-CpE1\
 
 Start the logger **before** flashing, in a separate PowerShell window. Use a new file name for every run.
 
+Logs go in `runs\`, which is gitignored.
+
 ```powershell
+New-Item -ItemType Directory -Force runs | Out-Null
 $p = New-Object System.IO.Ports.SerialPort 'COM3',230400,'None',8,'One'
 $p.Open()
-try { while ($true) { $l = $p.ReadLine(); $l; Add-Content 'C:\Users\olumi\projects\dot-lab\stream_run01.csv' $l } } finally { $p.Close() }
+try { while ($true) { $l = $p.ReadLine(); $l; Add-Content 'runs\stream_run01.csv' $l } } finally { $p.Close() }
 ```
 
 ## What you should see

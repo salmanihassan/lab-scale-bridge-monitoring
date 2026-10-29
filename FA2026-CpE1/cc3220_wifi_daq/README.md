@@ -7,7 +7,8 @@ Stage 1 sent the data as plain MQTT. Stage 2 protects the link in layers and let
 ## Status
 
 - **Stage 1 ran on hardware on Oct 27** over the "batphone 2.0" hotspot: 111 packets, 0 missing, 0 rejected, 11,100 samples all 10 ms apart.
-- **Stage 2 has not been built or run on hardware yet.** The first build and run are the real tests.
+- **Stage 2b ran on hardware on Oct 29.** A 28-packet smoke test was accepted with 0 errors. The security self-test stopped 8 of 8 attacker moves, and `--inject` produced exactly bad_mac, bad_mac, replay with no injected data reaching the samples. A 30-minute run accepted 1,813 packets with 0 rejections: one 7.4 s hotspot stall cost 5 packets, delivery was 99.7 %, and every sample outside that gap was exactly 10 ms apart.
+- **That 30-minute run is a shakedown, not a capture.** Its boot began before its receiver was started (the attack self-test ran earlier in the same boot), so `dt_capture_check.py` fails it on "capture starts at the board's boot". It is also shorter than Capture B's 40 minutes and has the 5-packet stall gap. See "Recording a capture" below.
 - The C code passes a syntax check against the real SDK 7.10 headers, with TLS on and off, with no errors or warnings.
 - The HMAC code matches all RFC 4231 test vectors, and packets signed by the C code verify in Python.
 - The host tests pass: every receiver verdict, plus full round trips through Mosquitto 2.0.18 for stage 2a and stage 2b.
@@ -96,7 +97,7 @@ The makefile now rebuilds everything that depends on `secrets.h`, `network_confi
 ## Every run
 
 Use three PowerShell windows, all starting in this folder:
-`C:\Users\olumi\projects\dot-lab\lab-scale-bridge-monitoring\FA2026-CpE1\cc3220_wifi_daq`
+`FA2026-CpE1\cc3220_wifi_daq` in your clone.
 
 **Window 1: broker** (stage 2b shown)
 
@@ -115,20 +116,22 @@ py host\dt_receiver.py --name wifi_2b_test1
 ```powershell
 & 'C:\ti\ccs2101\ccs\utils\bin\gmake.exe' -f makefile all 2>&1 | Tee-Object -FilePath build_log.txt
 
-$daq = 'C:\Users\olumi\projects\dot-lab\lab-scale-bridge-monitoring\SP2026-ME2\Fall 2026\Digital Twin TI Board Setup\cc3220_daq'
+$repo = git rev-parse --show-toplevel
+$daq = "$repo\SP2026-ME2\Fall 2026\Digital Twin TI Board Setup\cc3220_daq"
 $env:TI_APPDATA_DIR = "$daq\build\uniflash_appdata"
 $dslite = 'C:\ti\uniflash_9.6.0\deskdb\content\TICloudAgent\win\ccs_base\DebugServer\bin\DSLite.exe'
 $cfg = "$daq\build\cc3220sf_xds110_uniflash.ccxml"
-$out = 'C:\Users\olumi\projects\dot-lab\lab-scale-bridge-monitoring\FA2026-CpE1\cc3220_wifi_daq\build\dt_wifi_node.out'
+$out = "$PWD\build\dt_wifi_node.out"
 & $dslite flash --config $cfg --core 0 --verbose --run $out
 ```
 
 **Optional: the board's console** at **115200** baud, started before flashing in a fourth window:
 
 ```powershell
+New-Item -ItemType Directory -Force runs | Out-Null
 $p = New-Object System.IO.Ports.SerialPort 'COM3',115200,'None',8,'One'
 $p.Open()
-try { while ($true) { $l = $p.ReadLine(); $l; Add-Content 'C:\Users\olumi\projects\dot-lab\wifi_console_2b_01.txt' $l } } finally { $p.Close() }
+try { while ($true) { $l = $p.ReadLine(); $l; Add-Content 'runs\wifi_console_2b_01.txt' $l } } finally { $p.Close() }
 ```
 
 **Optional: the security self-test**, in another window while the broker runs. It does not need the board. With the board running, `--inject` also sends a tampered, a forged and a replayed batch, and the receiver window should show them rejected:
@@ -194,9 +197,61 @@ Packets are about 90 bytes larger than in stage 1 (the key id and the signature)
 - the board's own counters (failed accelerometer reads, late slots, discarded seconds, failed publishes, seconds offline)
 - `kid` and `verdict`: `accepted`, `duplicate`, `bad_mac`, `unknown_kid`, `wrong_key`, `unsigned`, `malformed`, `wrong_topic`, `replay`, `stale_boot` or `stale`
 
-**`<name>_rejected.log`:** every rejected packet with the reason.
+**`<name>_rejected.log`:** every rejected packet with the reason. Each line is stamped with the time the packet was processed, not its arrival time, so this file is the one output that cannot be reproduced by a replay.
+
+**`<name>_raw.jsonl`:** one line per message as it arrived: `rx_ms`, `topic`, `verdict` and `b64`, the payload base64-encoded exactly as received. On by default. `--no-raw-log` turns it off.
+
+The signature covers the payload bytes verbatim, so this is the only form a run can be re-checked or replayed from. Without it a capture cannot pass the round-trip check, and no replay or tamper dataset can be built from it later.
+
+**`<name>_manifest.json`:** what the run was taken under, written at the start and again at the end: the firmware commit, the SHA-256 of `build\dt_wifi_node.out` and of every `src\` and `host\` file, the key id, broker, device, TLS mode, the laptop's clock state, the access point, start and stop times, any `--note` text, and the run totals.
+
+It also stores the receiver state as it was when the run began. `missing_before` and `new_boot` are worked out from that state, the receiver rewrites it as packets arrive, and it is shared by every run in an `--out-dir`, so once a run is over the file no longer describes how the run started. The copy in the manifest is what lets a replay come out identical.
+
+The commit hash alone does not pin the firmware: `build\` is in `.gitignore`, so the hash of the `.out` is what identifies the binary that actually ran.
 
 **`runs\receiver_state.json`:** the boots the receiver has seen, kept so that a replay is refused even after the receiver restarts.
+
+## Recording a capture
+
+The Week 10 clean capture spec asks for datasets taken under known conditions. `dt_capture_check.py` decides whether a run qualifies.
+
+**Start the receiver first, then start the board.** A capture must contain the board's whole boot, so the checker fails a run whose first packet comes from a boot that began earlier ("capture starts at the board's boot"). The firmware is loaded by the debugger and does not survive a reset or a power cycle, so "start the board" means running the flash command from "Every run", which loads the firmware and starts a fresh boot.
+
+1. Window 1: start Mosquitto with `host\secrets\mosquitto_2b.conf`.
+2. Window 2: start the receiver with a new name and a note:
+   ```powershell
+   py host\dt_receiver.py --name cap_A_20261030 --note "bench clear, nobody touching it"
+   ```
+3. Window 3: run the flash command. The receiver shows `NEW BOOT` on the first packet. That is the start of the capture, not a reboot inside it, and the checker does not count it as one.
+4. Leave everything alone for the capture's length, then press Ctrl+C in window 2.
+5. Check the run:
+   ```powershell
+   py host\dt_capture_check.py runs\cap_A_20261030 --capture A
+   ```
+
+To record an event while a capture is running (the reboot in D, a bump, the phone being moved), run this in another window at the moment it happens. It adds a time-stamped note to the manifest and changes nothing else:
+
+```powershell
+py host\dt_capture_manifest.py --name cap_D_20261030 --phase note --note "board reflashed for the D reboot"
+```
+
+Do not use `--phase end` for this. It is written by the receiver when it stops, and running it by hand replaces the stop time and the run totals.
+
+| Capture | Length | Rule |
+|---|---|---|
+| A, baseline | at least 5 min (300 packets) | receiver first, then the board. One boot, no receiver restart, no attacks |
+| B, long run | at least 40 min (2,400 packets) | as A. CpE-2 needs about 40 min of clean data |
+| C, second day | repeat of A on another day | as A, to measure day-to-day network jitter |
+| D, reboot | about 10 min | as A, then at about minute 5 run the flash command again and add a note at that moment |
+
+The spec's own packet counts assumed the Spring cadence of about 205 ms. This node sends one packet per second, so the thresholds above are re-derived from the durations the spec asked for.
+
+**The reboot in D.** Until the firmware is in the board's serial flash, unplugging the USB cable leaves the board with nothing to run, so the D reboot is a reload with the flash command. It still gives a new `boot_id` and `seq` back near 0, which is what the checker tests. Once the firmware is in serial flash, a real power cycle (unplug and replug) is the better test of a genuine reboot.
+
+Two of the checks are worth knowing about:
+
+- **Board counters are totals since boot, not per packet.** `dropped` staying at 5 for the rest of a run is one event, not hundreds. The checker looks at where a counter steps up and whether a note explains it.
+- **`not_connected` at the first packet.** The board discards each second until its first connection after boot, so on a correctly started capture the first packet's `seq` equals `not_connected` (typically 2 or 3). That is the normal start and passes. It is only a warning, and the start check fails, when the run began later in the boot.
 
 A `duplicate` is the latest packet arriving twice, which MQTT may do after a lost acknowledgement. It is logged but not written twice, and it is not counted as an attack.
 
@@ -242,4 +297,12 @@ This replaces every key, password and certificate. Then rebuild and reflash the 
 
 ## Tests
 
-`tests/run_tests.sh` runs the HMAC vectors, the payload encoder and signer, and the receiver unit tests. `--e2e` adds the setup script, then a fake board, Mosquitto, the receiver and the security self-test for stage 2a and stage 2b. It runs on any machine with gcc, openssl, Python 3 with paho-mqtt and cryptography and, for `--e2e`, Mosquitto.
+`tests/run_tests.sh` runs the HMAC vectors, the payload encoder and signer, the receiver unit tests and the capture replay tests. `--e2e` adds the setup script, then a fake board, Mosquitto, the receiver and the security self-test for stage 2a and stage 2b. It runs on any machine with gcc, openssl, Python 3 with paho-mqtt and cryptography and, for `--e2e`, Mosquitto.
+
+`tests/test_capture_replay.py` builds and signs its own packets, so it is the one stage that needs no compiler and can be run on its own:
+
+```powershell
+py tests\test_capture_replay.py
+```
+
+It records four runs, replays each from its raw log and requires the samples and packets CSVs to come back byte for byte: a clean run, a run with a sequence gap, a run containing refused packets, and a run that starts mid-stream from an existing receiver state. The last case also checks the opposite: replaying without the starting state does *not* reproduce the run, which is what makes the manifest's copy of it necessary. A fifth case tests the capture start rules: a capture that opens on a fresh boot passes A, one that begins mid-boot fails only the start check, a later reboot still fails A, and D with the opening boot plus one reboot passes.

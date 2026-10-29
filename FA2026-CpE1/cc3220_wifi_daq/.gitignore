@@ -4,3 +4,4 @@ host/secrets/
 build/
 runs/
 build_log.txt
+__pycache__/
