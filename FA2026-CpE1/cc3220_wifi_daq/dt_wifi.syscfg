@@ -1,0 +1,131 @@
+// @cliArgs --board /ti/boards/CC3220SF_LAUNCHXL --rtos freertos
+
+/*
+ *  dt_wifi.syscfg: bridge digital twin Wi-Fi node (CC3220SF LaunchPad).
+ *
+ *  Based on the SDK 7.10 mqtt_client example (demos/mqtt_client/freertos/
+ *  mqtt_client.syscfg). Changes, all to free the sensor pins:
+ *    - LED1 / LED2 GPIOs removed (they sat on boosterpack.9 / .10, the I2C pins);
+ *    - the external GSPI instance removed (its clock sat on boosterpack.7,
+ *      Load 2 DT). The SPI module stays: it generates the internal network
+ *      processor SPI (CONFIG_NWP_SPI) that the Wi-Fi driver needs;
+ *    - heap raised to 64 KB for the sampler and publisher tasks;
+ *    - sensor I2C and GPIOs added, same pins as the serial stream build.
+ *
+ *  Sensor pins (LaunchPad header / silkscreen):
+ *    ADXL345  SCL 9 / P01, SDA 10 / P02 (onboard I2C bus)
+ *    HX711 1  DT 4 / P03, SCK 5 / P61
+ *    HX711 2  DT 7 / P05, SCK 8 / P62
+ *    DS18B20  27 / P63, 28 / P53, 30 / P50
+ *    Motor    19 / P18 (kept driven low; motor code not in this build)
+ */
+
+/* ======== Kernel Configuration ======== */
+system.getScript("kernel_config_release.syscfg.js");
+const FreeRTOS       = scripting.addModule("/freertos/FreeRTOS");
+FreeRTOS.heapSize    = 0x00010000;
+
+const DriverLib      = scripting.addModule("/ti/devices/DriverLib");
+const Display        = scripting.addModule("/ti/display/Display");
+const Display1       = Display.addInstance();
+const Board          = scripting.addModule("/ti/drivers/Board");
+const Crypto         = scripting.addModule("/ti/drivers/Crypto");
+const Crypto1        = Crypto.addInstance();
+const DMA            = scripting.addModule("/ti/drivers/DMA");
+const GPIO           = scripting.addModule("/ti/drivers/GPIO");
+const GPIO1          = GPIO.addInstance();
+const GPIO2          = GPIO.addInstance();
+const GPIO3          = GPIO.addInstance();
+const I2C            = scripting.addModule("/ti/drivers/I2C");
+const I2C1           = I2C.addInstance();
+const Power          = scripting.addModule("/ti/drivers/Power");
+const SPI            = scripting.addModule("/ti/drivers/SPI");
+const Timer          = scripting.addModule("/ti/drivers/Timer");
+const Timer1         = Timer.addInstance();
+const Timer2         = Timer.addInstance();
+const Timer3         = Timer.addInstance();
+const Watchdog       = scripting.addModule("/ti/drivers/Watchdog");
+const Watchdog1      = Watchdog.addInstance();
+const SimpleLinkWifi = scripting.addModule("/ti/drivers/net/wifi/SimpleLinkWifi");
+const atcmd          = scripting.addModule("/ti/drivers/net/wifi/atcmd", {}, false);
+const atcmd1         = atcmd.addInstance();
+const net_utils      = scripting.addModule("/ti/drivers/net/wifi/net_utils", {}, false);
+const net_utils1     = net_utils.addInstance();
+const ota            = scripting.addModule("/ti/drivers/net/wifi/ota", {}, false);
+const ota1           = ota.addInstance();
+const MQTT           = scripting.addModule("/ti/net/MQTT", {}, false);
+const MQTT1          = MQTT.addInstance();
+const SNTP           = scripting.addModule("/ti/net/SNTP");
+const SlNet          = scripting.addModule("/ti/net/SlNet");
+const SlNet1         = SlNet.addInstance();
+const JSON           = scripting.addModule("/ti/utils/JSON");
+
+/* Console on the XDS110 UART (unchanged from the SDK example). */
+Display1.$name                          = "CONFIG_Display_0";
+Display1.$hardware                      = system.deviceData.board.components.XDS110UART;
+Display1.uart.$name                     = "CONFIG_UART2_0";
+Display1.uart.uart.$assign              = "UART0";
+Display1.uart.uart.txPin.$assign        = "GP01";
+Display1.uart.uart.rxPin.$assign        = "GP02";
+Display1.uart.uart.txDmaChannel.$assign = "UDMA_CH9";
+Display1.uart.uart.rxDmaChannel.$assign = "UDMA_CH8";
+
+Crypto1.$name = "CONFIG_Crypto_0";
+
+/* Buttons and the red LED, as the SDK example (none share a sensor pin). */
+GPIO1.$hardware        = system.deviceData.board.components.SW2;
+GPIO1.$name            = "CONFIG_GPIO_BUTTON_0";
+GPIO1.interruptTrigger = "Rising Edge";
+GPIO1.gpioPin.$assign  = "boosterpack.3";
+
+GPIO2.$hardware        = system.deviceData.board.components.SW3;
+GPIO2.$name            = "CONFIG_GPIO_BUTTON_1";
+GPIO2.interruptTrigger = "Rising Edge";
+GPIO2.gpioPin.$assign  = "boosterpack.11";
+
+GPIO3.$hardware      = system.deviceData.board.components.LED0;
+GPIO3.outputStrength = "High";
+GPIO3.$name          = "CONFIG_GPIO_LED_0";   /* on = MQTT connected */
+
+/* ADXL345 on the LaunchPad I2C bus (shared with the onboard sensors). */
+I2C1.$name     = "CONFIG_I2C_0";
+I2C1.$hardware = system.deviceData.board.components.LP_I2C;
+
+/* Sensor GPIOs: same assignments as ME-2 cc3220_daq/digital_twin_daq.syscfg. */
+const motor = GPIO.addInstance(); motor.$name = "CONFIG_MOTOR_EN"; motor.mode = "Output"; motor.gpioPin.$assign = "boosterpack.19"; /* P18 */
+const hx1Dout = GPIO.addInstance(); hx1Dout.$name = "CONFIG_HX711_1_DOUT"; hx1Dout.mode = "Input";  hx1Dout.gpioPin.$assign = "boosterpack.4";  /* P03 */
+const hx1Clk  = GPIO.addInstance(); hx1Clk.$name  = "CONFIG_HX711_1_CLK";  hx1Clk.mode = "Output"; hx1Clk.gpioPin.$assign  = "boosterpack.5";  /* P61 */
+const hx2Dout = GPIO.addInstance(); hx2Dout.$name = "CONFIG_HX711_2_DOUT"; hx2Dout.mode = "Input";  hx2Dout.gpioPin.$assign = "boosterpack.7";  /* P05 */
+const hx2Clk  = GPIO.addInstance(); hx2Clk.$name  = "CONFIG_HX711_2_CLK";  hx2Clk.mode = "Output"; hx2Clk.gpioPin.$assign  = "boosterpack.8";  /* P62 */
+const ds1     = GPIO.addInstance(); ds1.$name     = "CONFIG_DS18B20_1";    ds1.mode = "Input";  ds1.gpioPin.$assign     = "boosterpack.27"; /* P63 */
+const ds2     = GPIO.addInstance(); ds2.$name     = "CONFIG_DS18B20_2";    ds2.mode = "Input";  ds2.gpioPin.$assign     = "boosterpack.28"; /* P53 */
+const ds3     = GPIO.addInstance(); ds3.$name     = "CONFIG_DS18B20_3";    ds3.mode = "Input";  ds3.gpioPin.$assign     = "boosterpack.30"; /* P50 */
+
+Power.ioRetentionShutdown = ["GRP_1"];
+Power.parkPins.$name      = "ti_drivers_power_PowerCC32XXPins0";
+
+Timer1.$name         = "CONFIG_TIMER_0";
+Timer1.timerType     = "32 Bits";
+Timer1.timer.$assign = "Timer0";
+
+Timer2.$name         = "CONFIG_TIMER_1";
+Timer2.timer.$assign = "Timer1";
+
+Timer3.$name         = "CONFIG_TIMER_2";
+Timer3.timer.$assign = "Timer1";
+
+Watchdog1.$name            = "CONFIG_WATCHDOG_0";
+Watchdog1.watchdog.$assign = "WATCHDOG0";
+
+atcmd1.$name = "CONFIG_ATCMD_0";
+
+net_utils1.$name = "CONFIG_NET_UTILS_0";
+
+ota1.$name = "CONFIG_OTALib_0";
+
+MQTT1.$name = "CONFIG_MQTT_0";
+
+SlNet1.$name  = "CONFIG_SLNET";
+SlNet1.ifName = "CC32xx";
+
+GPIO3.gpioPin.$suggestSolution = "boosterpack.29";
